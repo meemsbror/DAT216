@@ -18,14 +18,14 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         // Should print some list of products if everything is set up correctly!
-        List<Product> productList = IMatDataHandler.getInstance().getProducts();
-        System.out.println(productList);
+        //List<Product> productList = IMatDataHandler.getInstance().getProducts();
+        //System.out.println(productList);
 
         primaryStage.setTitle("iMat");
 
-        ListViewController lvc = ListViewController.load("ListView.fxml");
+        RootViewController rootViewController = RootViewController.load("RootView.fxml");
 
-        Scene scene = new Scene(lvc.getView(), 400, 300);
+        Scene scene = new Scene(rootViewController.getView(), 400, 300);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

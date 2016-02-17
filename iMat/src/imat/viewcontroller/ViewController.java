@@ -41,8 +41,8 @@ public abstract class ViewController {
      *
      * Example:
      * <code>
-     *     class ListViewController extends ViewController { ... }
-     *     ListViewController lvc = ListViewController.load("listView.fxml");
+     *     class RootViewController extends ViewController { ... }
+     *     RootViewController lvc = RootViewController.load("listView.fxml");
      * </code>
      *
      * @param fxmlPath path of FXML file
