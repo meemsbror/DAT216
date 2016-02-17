@@ -1,5 +1,7 @@
 package imat.viewcontroller;
 
+import imat.viewcontroller.ContentViewController;
+import imat.viewcontroller.ViewController;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
 

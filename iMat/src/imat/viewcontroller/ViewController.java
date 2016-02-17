@@ -54,7 +54,7 @@ public abstract class ViewController {
         try {
 
             // Load the view and view controller
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource(fxmlPath));
+            FXMLLoader loader = new FXMLLoader(ViewController.class.getResource(fxmlPath));
             Parent view = loader.load();
             T viewController = loader.<T>getController();
 

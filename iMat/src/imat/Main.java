@@ -1,12 +1,9 @@
 package imat;
 
+import imat.viewcontroller.RootViewController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import se.chalmers.ait.dat215.project.IMatDataHandler;
-import se.chalmers.ait.dat215.project.Product;
-
-import java.util.List;
 
 public class Main extends Application {
 
