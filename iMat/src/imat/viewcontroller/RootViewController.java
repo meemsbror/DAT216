@@ -17,7 +17,6 @@ public class RootViewController extends ViewController {
     }
 
     public void setContent(ContentViewController c){
-
         this.content=c;
 
 
