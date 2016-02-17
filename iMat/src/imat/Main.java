@@ -22,7 +22,7 @@ public class Main extends Application {
 
         RootViewController rootViewController = RootViewController.load("RootView.fxml");
 
-        Scene scene = new Scene(rootViewController.getView(), 400, 300);
+        Scene scene = new Scene(rootViewController.getView(), 650, 500);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
