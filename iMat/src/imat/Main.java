@@ -1,3 +1,4 @@
+package imat;
 
 public class Main {
 
