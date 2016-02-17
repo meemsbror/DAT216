@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.RootViewController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.RootViewController">
    <top>
-      <Pane prefHeight="131.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="131.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="27.0" layoutY="32.0" mnemonicParsing="false" style="-fx-background-color: hidden;" text="iMat">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Button>
+         </children></Pane>
    </top>
+   <bottom>
+      <Pane prefHeight="0.0" prefWidth="650.0" BorderPane.alignment="CENTER" />
+   </bottom>
    <left>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ListView layoutY="75.0" prefHeight="194.0" prefWidth="200.0" />
-            <Button layoutX="41.0" layoutY="14.0" mnemonicParsing="false" text="Hela Sortimentet" />
-            <Button layoutX="65.0" layoutY="49.0" mnemonicParsing="false" text="Favoriter" />
-         </children></Pane>
+            <ListView layoutY="94.0" prefHeight="275.0" prefWidth="200.0" />
+            <Button layoutX="47.0" layoutY="7.0" mnemonicParsing="false" text="Hela Sortimentet" />
+            <Button layoutX="65.0" layoutY="52.0" mnemonicParsing="false" text="Favoriter" />
+         </children>
+      </Pane>
    </left>
 </BorderPane>
