@@ -1,0 +1,13 @@
+Reflektioner
+
+En sak som alla kommenterade på var att för varje vara i kategorivyn trodde de att man skulle trycka på den lilla kundvagnen eller stjärnan för att lägga till varan i kundvagnen eller lägga till i favoriter. De förstod inte riktigt att både bilden, namnet, de små ikonerna och priset var samlat på en enda knapp som tog en vidare till en detaljvy för varan där man väljer hur mycket man vill lägga till i kundvagnen, lägger till varan i kundvagnen och lägger till varan i favoriter, alternativt tar bort varan från favoriter. 
+
+En kommentar som kom upp var att man borde kastas tillbaka till kategorisidan man var i när man lagt till en vara i kundvagnen. 
+
+I kassavyn var det också lite oklart att man skulle klicka i en checkbox där man konfirmerar att kundvagnen stämmer. 
+
+Vi planerar att titta på de här småsakerna på en dator när vi påbörjat implementationen då vi lättare kan se hur man kan göra det tydligare att hela varan är en knapp och om man alternativt skulle ändra så att stjärnan och kundvagnen är enskilt klickbara. Då kan man även se hur stor checkboxen blir så man inte missar den. 
+
+En sak som en person sa var att flytta knappen som tar en till favoriter, han tyckte att den knappen skulle vara högst upp i programmet, men vi funderar på om den ska vara på vänster sida ändå fast direkt under ”Hela Sortimentet”. Vi ska kolla på detta och ändra i skissen. 
+
+I helhet var det inga stora saker som vi fick kommentarer på.
