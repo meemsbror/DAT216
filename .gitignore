@@ -1,5 +1,8 @@
 reated by https://www.gitignore.io/api/osx,windows,linux,intellij,netbeans,eclipse,emacs,vim,archlinuxpackages,java
 
+# Don't ignore the backend jar
+!projectbackend-fx.jar
+
 ### OSX ###
 .DS_Store
 .AppleDouble
