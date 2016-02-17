@@ -23,7 +23,7 @@ public class RootViewController extends ViewController {
         this.content=c;
         ProductCategory pcs [] = ProductCategory.values();
         for(ProductCategory ps:pcs){
-            categoryButton btn = new categoryButton(ps.name());
+            categoryButton btn = new categoryButton(ps);
             btn.setOnAction((e) -> productCategorySelected(e));
         }
 

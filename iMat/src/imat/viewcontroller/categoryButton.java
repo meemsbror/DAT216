@@ -8,13 +8,17 @@ import se.chalmers.ait.dat215.project.ProductCategory;
  */
 public class categoryButton extends Button {
 
-    private final String name;
+    private final ProductCategory ps;
 
 
-    public categoryButton(String name){
+    public categoryButton(ProductCategory ps){
 
-        this.name = name;
+        this.ps = ps;
 
+    }
+
+    public ProductCategory getProductCategory(){
+        return ps;
     }
 
 }
