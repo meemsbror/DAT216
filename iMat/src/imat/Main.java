@@ -13,5 +13,7 @@ public class Main {
         List<Product> productList = IMatDataHandler.getInstance().getProducts();
         System.out.println(productList);
 
+        System.out.print("Hello");
+
     }
 }
