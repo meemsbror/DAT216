@@ -30,4 +30,10 @@
          </children>
       </Pane>
    </left>
+   <right>
+      <Pane prefHeight="369.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+   </right>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>
