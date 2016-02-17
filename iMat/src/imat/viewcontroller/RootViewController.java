@@ -20,7 +20,6 @@ public class RootViewController extends ViewController {
     }
 
     public void setContent(ContentViewController c){
-
         this.content=c;
         ProductCategory pcs [] = ProductCategory.values();
         for(ProductCategory ps:pcs){
