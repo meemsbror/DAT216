@@ -229,8 +229,6 @@ Session.vim
 *.log.*
 *.sig
 
-pkg/
-src/
 
 
 ### Java ###
