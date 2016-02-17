@@ -1,0 +1,37 @@
+Test 1
+
+Välj en vara och genomför ett köp. Lägger till ett kilo palstertacka.
+Trycker till kassa, lite oklart? ”vart trycker jag då? åh där”
+Glömde trycka i checkboxen i kassan. ”Det såg väl bra ut”
+
+Lägga till i favoriter: ”Hur gör jag det då?” Oklart om man kan trycka på stjärnan i kategori, inser bättre när det är i dator då det syns att gelé är en knapp.
+
+Historik: går bra. 
+
+Kritik: Tydligt och bra. Inget kändes konstigt, bra att nästa knappen är grå först och sen när man klickat i checkboxen blir den grön. Kanske skulle ha en pop-up att det inte går att trycka på den, men det ville inte personas. 
+
+Test 2
+
+Genomför köp: Ser klart och tydligt ut. Checkboxen i kassan missas. Göra den större. 
+Favoriter: Funkar, inga problem.
+Historik: Fyller på med fler än en historik, ska funka. 
+
+Kritik: Ikoner på vara, kundvagn och stjärna, lite konstigt, men vi ska fylla i om något ligger i kundvagn eller favoriter inte komma till detaljvyn. Blev förvånad när man kom till detaljvyn på båda ”knapparna”. Men hela ska bara va en knapp.
+
+Test 3
+
+Genomför köp: Trycker på kundvagnen på varan. Trycker på tillbaka. Missar checkboxen. 
+Favoriter: Fattar direkt hur man gör.
+Historik: Fattar direkt hur man tar sig till historik. 
+
+Kritik: Det är ju bra det här. När man lägger till något kundvagnen ska man hoppa tillbaka till kategorivyn. Vi får tänka på det. Kanske lite många vyer. Tydligt. 
+
+Test 4
+
+Genomför köp: Trycker på kundvagnen för varan. Klickar på kundvagnen för missar kassan, men löser sig ändå. Missar checkboxen. Stänger programmet.
+Favoriter: Trycker på stjärnan för varan. Inser att varan är en enda knapp.
+Historik: Lägger till i kundvagn. 
+
+Frågar vad baljväxer är :D 
+
+Kritik: Hur man tar sig till favoriter borde vara uppe på headern. Tycker att det är konstigt att man kommer till detaljvy vart man än trycker på varan. 
