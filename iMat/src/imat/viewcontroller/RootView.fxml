@@ -19,18 +19,26 @@
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
    <left>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="483.0" prefWidth="231.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
          <children>
-            <ListView layoutY="85.0" prefHeight="283.0" prefWidth="200.0" style="-fx-background-color: lightgrey;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="86.0" />
-            <Button layoutX="41.0" layoutY="7.0" mnemonicParsing="false" text="Hela Sortimentet" />
-            <Button layoutX="65.0" layoutY="43.0" mnemonicParsing="false" text="Favoriter" />
+            <ListView layoutY="85.0" prefHeight="283.0" prefWidth="200.0" style="-fx-background-color: lightgrey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="86.0" />
+            <Button layoutX="56.0" layoutY="7.0" mnemonicParsing="false" text="Hela Sortimentet" />
+            <Button layoutX="80.0" layoutY="43.0" mnemonicParsing="false" text="Favoriter" />
          </children>
       </AnchorPane>
    </left>
    <top>
       <AnchorPane prefHeight="117.0" prefWidth="650.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="249.0" layoutY="46.0" mnemonicParsing="false" text="Button" AnchorPane.rightAnchor="343.0" />
+            <Button layoutX="438.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-color: hidden;" text="Historik" AnchorPane.rightAnchor="344.0" AnchorPane.topAnchor="29.0">
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../resources/list-512.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
             <Button layoutX="325.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-color: hidden;" text="Till kundvagn" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="29.0">
                <graphic>
                   <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -44,7 +52,7 @@
                <graphic>
                   <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/vector-wallet-with-cash-icon_156566009.jpg" />
+                        <Image url="@../../resources/21-512.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -54,8 +62,8 @@
                   <Font size="36.0" />
                </font>
             </Button>
-            <Text layoutX="191.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sök:" AnchorPane.topAnchor="51.0" />
-            <TextField layoutX="228.0" layoutY="46.0" AnchorPane.topAnchor="46.0" />
+            <Text layoutX="234.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sök:" AnchorPane.topAnchor="51.0" />
+            <TextField layoutX="268.0" layoutY="46.0" AnchorPane.topAnchor="46.0" />
          </children>
       </AnchorPane>
    </top>
