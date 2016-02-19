@@ -8,7 +8,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
+import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ProductCategory;
+
+import java.util.List;
 
 
 public class RootViewController extends ViewController {
@@ -19,7 +22,9 @@ public class RootViewController extends ViewController {
     @FXML private Button historyButton;
     @FXML private Button cartButton;
     @FXML private Button checkoutButton;
+    @FXML private Button searchButton;
     @FXML private TextField searchTextField;
+
 
 
     @FXML private BorderPane borderPane;
@@ -48,4 +53,40 @@ public class RootViewController extends ViewController {
     private void productCategorySelected(ActionEvent evt){
         //TODO: Choose category and show it.
     }
+
+    public void toCheckoutActionPerformed(ActionEvent evt){
+        //TODO
+    }
+
+    public void toCartButtonActionPerformed(ActionEvent evt){
+        //TODO
+    }
+
+    public void toHistoryActionPerformed(ActionEvent evt){
+        //TODO
+    }
+
+    public void toSearchActionPerformed(ActionEvent evt){
+        //TODO
+        String searchText = searchTextField.getText();
+        List<Product> searchResults = IMatDataHandler.getInstance().findProducts(searchText);
+        //ToDo setContent();
+
+
+    }
+
+
+
+    public void toHomePageActionPerformed(ActionEvent evt){
+        //TODO
+    }
+
+    public void toAllContentActionPerformed(ActionEvent evt){
+        //TODO
+    }
+
+    public void toFavoritesPerformed(ActionEvent evt){
+        //TODO
+    }
+
 }
