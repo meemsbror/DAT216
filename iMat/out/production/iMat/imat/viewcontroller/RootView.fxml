@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -8,16 +9,6 @@
 <?import javafx.scene.layout.Pane?>
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.RootViewController">
-   <top>
-      <Pane prefHeight="131.0" prefWidth="600.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
-         <children>
-            <Button layoutX="27.0" layoutY="32.0" mnemonicParsing="false" style="-fx-background-color: hidden;" text="iMat">
-               <font>
-                  <Font size="36.0" />
-               </font>
-            </Button>
-         </children></Pane>
-   </top>
    <bottom>
       <Pane maxHeight="0.0" prefHeight="0.0" prefWidth="650.0" BorderPane.alignment="CENTER" />
    </bottom>
@@ -36,4 +27,34 @@
          </children>
       </AnchorPane>
    </left>
+   <top>
+      <AnchorPane prefHeight="117.0" prefWidth="650.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="249.0" layoutY="46.0" mnemonicParsing="false" text="Button" AnchorPane.rightAnchor="343.0" />
+            <Button layoutX="325.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-color: hidden;" text="Till kundvagn" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="29.0">
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../resources/kundvagn-ikon-svartvit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="495.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-color: hidden;" text="Till kassa" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="29.0">
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../resources/vector-wallet-with-cash-icon_156566009.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="23.0" layoutY="25.0" mnemonicParsing="false" style="-fx-background-color: hidden;" text="iMat">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </top>
 </BorderPane>
