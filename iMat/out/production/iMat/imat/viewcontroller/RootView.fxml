@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.RootViewController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.RootViewController">
    <bottom>
       <Pane maxHeight="0.0" prefHeight="0.0" prefWidth="650.0" BorderPane.alignment="CENTER" />
    </bottom>
@@ -54,6 +54,8 @@
                   <Font size="36.0" />
                </font>
             </Button>
+            <Text layoutX="191.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sök:" AnchorPane.topAnchor="51.0" />
+            <TextField layoutX="228.0" layoutY="46.0" AnchorPane.topAnchor="46.0" />
          </children>
       </AnchorPane>
    </top>

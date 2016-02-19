@@ -5,6 +5,8 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.awt.*;
+
 public class Main extends Application {
 
     public static void main(String[] args){
@@ -22,7 +24,10 @@ public class Main extends Application {
 
         RootViewController rootViewController = RootViewController.load("RootView.fxml");
 
-        Scene scene = new Scene(rootViewController.getView(), 650, 500);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        double width = screenSize.getWidth();
+        double height = screenSize.getHeight();
+        Scene scene = new Scene(rootViewController.getView(), width, height);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
