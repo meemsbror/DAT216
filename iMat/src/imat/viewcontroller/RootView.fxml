@@ -22,15 +22,15 @@
       <AnchorPane prefHeight="483.0" prefWidth="231.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
          <children>
             <ListView layoutY="85.0" prefHeight="283.0" prefWidth="200.0" style="-fx-background-color: lightgrey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="86.0" />
-            <Button layoutX="56.0" layoutY="7.0" mnemonicParsing="false" text="Hela Sortimentet" />
-            <Button layoutX="80.0" layoutY="43.0" mnemonicParsing="false" text="Favoriter" />
+            <Button fx:id="allContentButton" layoutX="56.0" layoutY="7.0" mnemonicParsing="false" text="Hela Sortimentet" />
+            <Button fx:id="favoriteButton" layoutX="80.0" layoutY="43.0" mnemonicParsing="false" text="Favoriter" />
          </children>
       </AnchorPane>
    </left>
    <top>
       <AnchorPane prefHeight="117.0" prefWidth="650.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="438.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-color: hidden;" text="Historik" AnchorPane.rightAnchor="344.0" AnchorPane.topAnchor="29.0">
+            <Button fx:id="historyButton" layoutX="438.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-color: hidden;" text="Historik" AnchorPane.rightAnchor="344.0" AnchorPane.topAnchor="29.0">
                <graphic>
                   <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -39,7 +39,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="325.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-color: hidden;" text="Till kundvagn" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="29.0">
+            <Button fx:id="cartButton" layoutX="325.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-color: hidden;" text="Till kundvagn" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="29.0">
                <graphic>
                   <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -48,7 +48,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="495.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-color: hidden;" text="Till kassa" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="29.0">
+            <Button fx:id="checkoutButton" layoutX="495.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-color: hidden;" text="Till kassa" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="29.0">
                <graphic>
                   <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -57,13 +57,13 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="23.0" layoutY="25.0" mnemonicParsing="false" style="-fx-background-color: hidden;" text="iMat">
+            <Button fx:id="homePageButton" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" style="-fx-background-color: hidden;" text="iMat">
                <font>
                   <Font size="36.0" />
                </font>
             </Button>
             <Text layoutX="234.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sök:" AnchorPane.topAnchor="51.0" />
-            <TextField layoutX="268.0" layoutY="46.0" AnchorPane.topAnchor="46.0" />
+            <TextField fx:id="searchTextField" layoutX="268.0" layoutY="46.0" AnchorPane.topAnchor="46.0" />
          </children>
       </AnchorPane>
    </top>

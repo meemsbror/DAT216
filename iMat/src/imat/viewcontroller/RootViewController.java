@@ -4,11 +4,22 @@ import imat.viewcontroller.ContentViewController;
 import imat.viewcontroller.ViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.ProductCategory;
 
+
 public class RootViewController extends ViewController {
+
+    @FXML private Button favoriteButton;
+    @FXML private Button allContentButton;
+    @FXML private Button homePageButton;
+    @FXML private Button historyButton;
+    @FXML private Button cartButton;
+    @FXML private Button checkoutButton;
+    @FXML private TextField searchTextField;
 
 
     @FXML private BorderPane borderPane;
