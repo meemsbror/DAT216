@@ -17,20 +17,24 @@ public class RootViewController extends ViewController {
     @Override
     public void initialize() {
         // TODO: Perform initialization!
+        setCategories();
+
+    }
+
+    private void setCategories(){
+        ProductCategory pcs [] = ProductCategory.values();
+        for(ProductCategory ps:pcs){
+            categoryButton btn = new categoryButton(ps);
+            btn.setOnAction((e) -> productCategorySelected(e));
+            // TODO: Add button to view.
+        }
     }
 
     public void setContent(ContentViewController c){
         this.content=c;
-        ProductCategory pcs [] = ProductCategory.values();
-        for(ProductCategory ps:pcs){
-            categoryButton btn = new categoryButton(ps.name());
-            btn.setOnAction((e) -> productCategorySelected(e));
-        }
-
     }
 
     private void productCategorySelected(ActionEvent evt){
-        //TODO: Choose category and show
+        //TODO: Choose category and show it.
     }
-
 }
