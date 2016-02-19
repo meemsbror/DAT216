@@ -9,7 +9,7 @@
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.RootViewController">
    <top>
-      <Pane prefHeight="131.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="131.0" prefWidth="600.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
          <children>
             <Button layoutX="27.0" layoutY="32.0" mnemonicParsing="false" style="-fx-background-color: hidden;" text="iMat">
                <font>
@@ -19,21 +19,21 @@
          </children></Pane>
    </top>
    <bottom>
-      <Pane prefHeight="0.0" prefWidth="650.0" BorderPane.alignment="CENTER" />
+      <Pane maxHeight="0.0" prefHeight="0.0" prefWidth="650.0" BorderPane.alignment="CENTER" />
    </bottom>
-   <left>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <ListView layoutY="94.0" prefHeight="275.0" prefWidth="200.0" />
-            <Button layoutX="47.0" layoutY="7.0" mnemonicParsing="false" text="Hela Sortimentet" />
-            <Button layoutX="65.0" layoutY="52.0" mnemonicParsing="false" text="Favoriter" />
-         </children>
-      </Pane>
-   </left>
    <right>
       <Pane prefHeight="369.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
    </right>
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
+         <children>
+            <ListView layoutY="85.0" prefHeight="283.0" prefWidth="200.0" style="-fx-background-color: lightgrey;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="86.0" />
+            <Button layoutX="41.0" layoutY="7.0" mnemonicParsing="false" text="Hela Sortimentet" />
+            <Button layoutX="65.0" layoutY="43.0" mnemonicParsing="false" text="Favoriter" />
+         </children>
+      </AnchorPane>
+   </left>
 </BorderPane>
