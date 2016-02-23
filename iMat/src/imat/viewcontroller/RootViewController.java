@@ -2,6 +2,7 @@ package imat.viewcontroller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
@@ -37,6 +38,11 @@ public class RootViewController extends ViewController {
     public void initialize() {
         setCategories();
         toAllContentActionPerformed(new ActionEvent(allContentButton, null)); // FIXME: Hack...
+    }
+
+    @Override
+    protected void viewDidSet(Parent view) {
+
     }
 
     private void setCategories() {

@@ -86,6 +86,15 @@ public abstract class ViewController {
      */
     protected void setView(Parent view) {
         this.view = view;
+        viewDidSet(view);
     }
+
+    /**
+     *
+     * Called when the view of this view controller is set. This is a good place setup the view for presentation.
+     *
+     * @param view the associated view
+     */
+    protected abstract void viewDidSet(Parent view);
 
 }
