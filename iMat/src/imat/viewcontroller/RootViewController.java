@@ -1,18 +1,20 @@
 package imat.viewcontroller;
 
 import imat.formatting.ProductCategoryFormatter;
+import imat.model.AllProductsProductFilter;
+import imat.model.CategoryProductFilter;
+import imat.model.FavouritesProductFilter;
+import imat.model.SearchProductFilter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.*;
-import se.chalmers.ait.dat215.project.IMatDataHandler;
-import se.chalmers.ait.dat215.project.Product;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import se.chalmers.ait.dat215.project.ProductCategory;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class RootViewController extends ViewController {
@@ -35,10 +37,13 @@ public class RootViewController extends ViewController {
     private Button currentlySelectedCategoryButton;
     private Map<Button, ProductCategory> buttonCategoryMap = new HashMap<>();
 
+    // Reuse this for every time a ListViewController is needed
+    private ListViewController reuseListViewController = ListViewController.load("ListView.fxml");
+
     @Override
     public void initialize() {
         setCategories();
-        toAllContentActionPerformed(new ActionEvent(allContentButton, null)); // FIXME: Hack...
+        toAllContentActionPerformed(new ActionEvent(allContentButton, null));
     }
 
     @Override
@@ -72,7 +77,8 @@ public class RootViewController extends ViewController {
 
             ProductCategory category = buttonCategoryMap.get(button);
             if (category != null) {
-                // TODO: Set content appropriately.
+                reuseListViewController.setProductFilter(new CategoryProductFilter(category));
+                setContent(reuseListViewController);
             }
         }
     }
@@ -81,16 +87,31 @@ public class RootViewController extends ViewController {
         if (evt.getSource() instanceof Button) {
             Button button = (Button) evt.getSource();
             toggleSelectedCategoryButton(button);
+
+            reuseListViewController.setProductFilter(new AllProductsProductFilter());
+            setContent(reuseListViewController);
         }
-        // TODO: Set content appropriately.
     }
 
     public void toFavoritesPerformed(ActionEvent evt){
         if (evt.getSource() instanceof Button) {
             Button button = (Button) evt.getSource();
             toggleSelectedCategoryButton(button);
+
+            reuseListViewController.setProductFilter(new FavouritesProductFilter());
+            setContent(reuseListViewController);
         }
-        // TODO: Set content appropriately.
+    }
+
+    public void toSearchActionPerformed(ActionEvent evt){
+        if (evt.getSource() instanceof Button) {
+            Button button = (Button) evt.getSource();
+            toggleSelectedCategoryButton(button);
+
+            String searchText = searchTextField.getText();
+            reuseListViewController.setProductFilter(new SearchProductFilter(searchText));
+            setContent(reuseListViewController);
+        }
     }
 
     private void toggleSelectedCategoryButton(Button current) {
@@ -102,8 +123,8 @@ public class RootViewController extends ViewController {
     }
 
     public void toHomePageActionPerformed(ActionEvent evt) {
-        // Delegate to "all content category selected"
-        toAllContentActionPerformed(new ActionEvent(allContentButton, null)); // FIXME: Hack...
+        // Delegate to "all content category selected" since they mean the exact same
+        toAllContentActionPerformed(new ActionEvent(allContentButton, null));
     }
 
     public void toCheckoutActionPerformed(ActionEvent evt){
@@ -116,15 +137,6 @@ public class RootViewController extends ViewController {
 
     public void toHistoryActionPerformed(ActionEvent evt){
         //TODO
-    }
-
-    public void toSearchActionPerformed(ActionEvent evt){
-        //TODO
-        String searchText = searchTextField.getText();
-        List<Product> searchResults = IMatDataHandler.getInstance().findProducts(searchText);
-        //ToDo setContent();
-
-
     }
 
     /**
