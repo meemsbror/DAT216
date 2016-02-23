@@ -1,0 +1,16 @@
+
+.category-list {
+    -fx-background-color: #d3d3d3;
+}
+
+.category-button {
+    -fx-background-color: #b9b9b9;
+}
+
+.selected-category {
+    -fx-background-color: #f5f5f5 !important;
+}
+
+.list-view-title {
+    -fx-font-size: 18px;
+}

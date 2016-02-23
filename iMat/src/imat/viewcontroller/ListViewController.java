@@ -33,4 +33,6 @@ public class ListViewController extends ContentViewController {
         productFilterNameLabel.setText(productFilter.getName());
     }
 
+    
+
 }
