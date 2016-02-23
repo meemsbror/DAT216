@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 
+
 import java.awt.event.ActionEvent;
 
 public class ProductTileViewController extends ViewController {
@@ -17,6 +18,7 @@ public class ProductTileViewController extends ViewController {
     @FXML private ImageView imageView;
     @FXML private Label titleLabel;
     @FXML private Label priceLabel;
+    @FXML private ImageView starImage;
 
     private Product product;
 
@@ -40,6 +42,13 @@ public class ProductTileViewController extends ViewController {
 
         double price = product.getPrice();
         priceLabel.setText(String.valueOf(price));
+
+
+
+
+
+
+
     }
 
     @FXML
@@ -53,9 +62,16 @@ public class ProductTileViewController extends ViewController {
 
     }
 
+    //Does it say that it's wrong because it's in a static method?
     @FXML
     public void onStarPressed(ActionEvent e) {
+        IMatDataHandler.addFavorite(this.product);
 
+        if(IMatDataHandler.isFavorite(this.product)){
+            this.starImage.setImage("yellowstar.png");
+        }else{
+            this.starImage.setImage("greystar.png");
+        }
     }
 
 }
