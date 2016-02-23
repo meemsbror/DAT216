@@ -1,11 +1,8 @@
 package imat.viewcontroller;
 
 import com.sun.istack.internal.NotNull;
-import imat.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-
-import java.io.IOException;
 
 public abstract class ViewController {
 
@@ -72,6 +69,7 @@ public abstract class ViewController {
             // Replace shitty message
             String message = e.getMessage().equals("Location is not set.") ? "No file at specified path" : e.getMessage();
             System.err.println("Could not load XFML view using path: \"" + fxmlPath + "\". Reason: " + message);
+            e.printStackTrace();
             return null;
         }
     }
