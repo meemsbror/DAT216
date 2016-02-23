@@ -13,7 +13,7 @@
                   <Insets right="22.0" />
                </HBox.margin>
             </Label>
-            <RadioButton fx:id="defaultRadioButton" mnemonicParsing="false" selected="true" text="A-Ö">
+            <RadioButton fx:id="aToOsortRadioButton" mnemonicParsing="false" selected="true" text="A-Ö">
                <HBox.margin>
                   <Insets right="22.0" />
                </HBox.margin>
@@ -21,17 +21,17 @@
                   <ToggleGroup fx:id="sort_type" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Ö-A" toggleGroup="$sort_type">
+            <RadioButton fx:id="oToAsortRadioButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Ö-A" toggleGroup="$sort_type">
                <HBox.margin>
                   <Insets right="22.0" />
                </HBox.margin>
             </RadioButton>
-            <RadioButton layoutX="109.0" layoutY="10.0" mnemonicParsing="false" text="Pris - lågt till högt" toggleGroup="$sort_type">
+            <RadioButton fx:id="lowToHighSortRadioButton" layoutX="109.0" layoutY="10.0" mnemonicParsing="false" text="Pris - lågt till högt" toggleGroup="$sort_type">
                <HBox.margin>
                   <Insets right="22.0" />
                </HBox.margin>
             </RadioButton>
-            <RadioButton layoutX="208.0" layoutY="10.0" mnemonicParsing="false" text="Pris - högt till lågt" toggleGroup="$sort_type">
+            <RadioButton fx:id="highToLowSortRadioButton" layoutX="208.0" layoutY="10.0" mnemonicParsing="false" text="Pris - högt till lågt" toggleGroup="$sort_type">
                <HBox.margin>
                   <Insets right="22.0" />
                </HBox.margin>
@@ -41,5 +41,10 @@
             <Insets />
          </opaqueInsets>
       </HBox>
+      <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="74.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="74.0">
+         <content>
+            <FlowPane fx:id="flowPane" columnHalignment="CENTER" prefHeight="435.0" prefWidth="682.0" rowValignment="TOP" />
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

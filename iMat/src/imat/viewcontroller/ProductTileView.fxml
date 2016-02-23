@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.ProductTileViewController">
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.ProductTileViewController">
    <children>
       <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="250.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0">
          <center>
@@ -42,7 +32,7 @@
                      </opaqueInsets>
                   </Label>
                   <Label fx:id="priceLabel" layoutX="10.0" layoutY="17.0" text="Price" GridPane.rowIndex="1" />
-                  <Button fx:id="addToCartButton" mnemonicParsing="false" onAction="#onCartPressed" style="-fx-background-color: hidden;" GridPane.columnIndex="1">
+                  <Button fx:id="addToCartButton" mnemonicParsing="false" style="-fx-background-color: hidden;" GridPane.columnIndex="1">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -50,7 +40,7 @@
                            </image>
                         </ImageView>
                      </graphic></Button>
-                  <Button fx:id="favoriteButton" mnemonicParsing="false" onAction="#onStarPressed" style="-fx-background-color: hidden;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button fx:id="favoriteButton" mnemonicParsing="false" style="-fx-background-color: hidden;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <graphic>
                         <ImageView fx:id="starImage" fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
