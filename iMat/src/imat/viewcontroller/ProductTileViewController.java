@@ -55,8 +55,8 @@ public class ProductTileViewController extends ViewController {
     @FXML
     public void onCartPressed(ActionEvent e) {
         if(e.getSource().equals(addToCartButton)) {
-            IMatDataHandler.addProduct(this.product);
-            this.addToCartButton.setGraphic(Parent.lookup("kundvagn-ikon-bla"));
+            IMatDataHandler.getInstance().addProduct(this.product);
+            //this.addToCartButton.setGraphic(Parent.lookup("kundvagn-ikon-bla"));
         }
 
 
@@ -67,8 +67,8 @@ public class ProductTileViewController extends ViewController {
     @FXML
     public void onStarPressed(ActionEvent e) {
         if(e.getSource().equals(favoriteButton)){
-             IMatDataHandler.addFavorite(this.product);
-             this.favoriteButton.setGraphic(Parent.lookup("yellowstar.png"));
+             IMatDataHandler.getInstance().addFavorite(this.product);
+             //this.favoriteButton.setGraphic(Parent.lookup("yellowstar.png"));
         }
 
 
