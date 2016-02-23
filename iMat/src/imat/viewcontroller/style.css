@@ -10,3 +10,7 @@
 .selected-category {
     -fx-background-color: #f5f5f5 !important;
 }
+
+.list-view-title {
+    -fx-font-size: 18px;
+}
