@@ -1,18 +1,17 @@
 package imat.viewcontroller;
 
-import imat.viewcontroller.ContentViewController;
-import imat.viewcontroller.ViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.*;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ProductCategory;
 
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 
 public class RootViewController extends ViewController {
 
@@ -30,28 +29,73 @@ public class RootViewController extends ViewController {
     @FXML private BorderPane borderPane;
     ContentViewController content;
 
+    @FXML private VBox categoryVBox;
+    private Button currentlySelectedCategoryButton;
+    private Map<Button, ProductCategory> buttonCategoryMap = new HashMap<>();
+
     @Override
     public void initialize() {
-        // TODO: Perform initialization!
         setCategories();
-
+        toAllContentActionPerformed(new ActionEvent(allContentButton, null)); // FIXME: Hack...
     }
 
-    private void setCategories(){
-        ProductCategory pcs [] = ProductCategory.values();
-        for(ProductCategory ps:pcs){
-            categoryButton btn = new categoryButton(ps);
-            btn.setOnAction((e) -> productCategorySelected(e));
-            // TODO: Add button to view.
+    private void setCategories() {
+        for(ProductCategory productCategory : ProductCategory.values()) {
+
+            // Create styled button
+            Button btn = new Button(productCategory.name());
+            btn.getStyleClass().add("category-button");
+
+            btn.setOnAction(this::productCategorySelected);
+            buttonCategoryMap.put(btn, productCategory);
+
+            categoryVBox.getChildren().add(btn);
+
+            // Too tired to do this properly...
+            btn.prefWidthProperty().bind(allContentButton.widthProperty().subtract(19));
         }
     }
 
-    public void setContent(ContentViewController c){
-        this.content=c;
+    private void productCategorySelected(ActionEvent evt){
+        if (evt.getSource() instanceof Button) {
+            Button button = (Button)evt.getSource();
+
+            toggleSelectedCategoryButton(button);
+
+            ProductCategory category = buttonCategoryMap.get(button);
+            if (category != null) {
+                // TODO: Set content appropriately.
+            }
+        }
     }
 
-    private void productCategorySelected(ActionEvent evt){
-        //TODO: Choose category and show it.
+    public void toAllContentActionPerformed(ActionEvent evt){
+        if (evt.getSource() instanceof Button) {
+            Button button = (Button) evt.getSource();
+            toggleSelectedCategoryButton(button);
+        }
+        // TODO: Set content appropriately.
+    }
+
+    public void toFavoritesPerformed(ActionEvent evt){
+        if (evt.getSource() instanceof Button) {
+            Button button = (Button) evt.getSource();
+            toggleSelectedCategoryButton(button);
+        }
+        // TODO: Set content appropriately.
+    }
+
+    private void toggleSelectedCategoryButton(Button current) {
+        current.getStyleClass().add("selected-category");
+        if (currentlySelectedCategoryButton != null) {
+            currentlySelectedCategoryButton.getStyleClass().remove("selected-category");
+        }
+        currentlySelectedCategoryButton = current;
+    }
+
+    public void toHomePageActionPerformed(ActionEvent evt) {
+        // Delegate to "all content category selected"
+        toAllContentActionPerformed(new ActionEvent(allContentButton, null)); // FIXME: Hack...
     }
 
     public void toCheckoutActionPerformed(ActionEvent evt){
@@ -75,18 +119,8 @@ public class RootViewController extends ViewController {
 
     }
 
-
-
-    public void toHomePageActionPerformed(ActionEvent evt){
-        //TODO
-    }
-
-    public void toAllContentActionPerformed(ActionEvent evt){
-        //TODO
-    }
-
-    public void toFavoritesPerformed(ActionEvent evt){
-        //TODO
+    public void setContent(ContentViewController c){
+        this.content = c;
     }
 
 }
