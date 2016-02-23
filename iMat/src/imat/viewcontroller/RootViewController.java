@@ -104,10 +104,8 @@ public class RootViewController extends ViewController {
     }
 
     public void toSearchActionPerformed(ActionEvent evt){
-        if (evt.getSource() instanceof Button) {
-            Button button = (Button) evt.getSource();
-            toggleSelectedCategoryButton(button);
-
+        if (searchTextField.getText().trim().length() > 0) {
+            toggleSelectedCategoryButton(searchButton);
             String searchText = searchTextField.getText();
             reuseListViewController.setProductFilter(new SearchProductFilter(searchText));
             setContent(reuseListViewController);
@@ -115,7 +113,9 @@ public class RootViewController extends ViewController {
     }
 
     private void toggleSelectedCategoryButton(Button current) {
-        current.getStyleClass().add("selected-category");
+        if (current != null) {
+            current.getStyleClass().add("selected-category");
+        }
         if (currentlySelectedCategoryButton != null) {
             currentlySelectedCategoryButton.getStyleClass().remove("selected-category");
         }
