@@ -15,6 +15,7 @@
     -fx-font-size: 18px;
 }
 
-.top-bar-button {
+.pretty-button {
     -fx-background-color: transparent;
 }
+

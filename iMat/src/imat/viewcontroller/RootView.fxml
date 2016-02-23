@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.RootViewController">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.RootViewController">
    <children>
       <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <bottom>
@@ -53,7 +49,7 @@
          <top>
             <AnchorPane prefHeight="117.0" prefWidth="650.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="historyButton" layoutX="438.0" layoutY="29.0" mnemonicParsing="false" onAction="#toHistoryActionPerformed" styleClass="top-bar-button" stylesheets="@style.css" text="Historik" AnchorPane.rightAnchor="344.0" AnchorPane.topAnchor="29.0">
+                  <Button fx:id="historyButton" layoutX="438.0" layoutY="29.0" mnemonicParsing="false" onAction="#toHistoryActionPerformed" styleClass="pretty-button" stylesheets="@style.css" text="Historik" AnchorPane.rightAnchor="344.0" AnchorPane.topAnchor="29.0">
                      <graphic>
                         <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -62,7 +58,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="cartButton" layoutX="325.0" layoutY="29.0" mnemonicParsing="false" onAction="#toCartButtonActionPerformed" styleClass="top-bar-button" stylesheets="@style.css" text="Till kundvagn" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="29.0">
+                  <Button fx:id="cartButton" layoutX="325.0" layoutY="29.0" mnemonicParsing="false" onAction="#toCartButtonActionPerformed" styleClass="pretty-button" stylesheets="@style.css" text="Till kundvagn" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="29.0">
                      <graphic>
                         <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -71,7 +67,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="checkoutButton" layoutX="495.0" layoutY="29.0" mnemonicParsing="false" onAction="#toCheckoutActionPerformed" styleClass="top-bar-button" stylesheets="@style.css" text="Till kassa" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="29.0">
+                  <Button fx:id="checkoutButton" layoutX="495.0" layoutY="29.0" mnemonicParsing="false" onAction="#toCheckoutActionPerformed" styleClass="pretty-button" stylesheets="@style.css" text="Till kassa" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="29.0">
                      <graphic>
                         <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -80,7 +76,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="homePageButton" layoutX="41.0" layoutY="25.0" mnemonicParsing="false" onAction="#toHomePageActionPerformed" styleClass="top-bar-button" stylesheets="@style.css" text="iMat">
+                  <Button fx:id="homePageButton" layoutX="41.0" layoutY="25.0" mnemonicParsing="false" onAction="#toHomePageActionPerformed" styleClass="pretty-button" stylesheets="@style.css" text="iMat">
                      <font>
                         <Font size="36.0" />
                      </font>
