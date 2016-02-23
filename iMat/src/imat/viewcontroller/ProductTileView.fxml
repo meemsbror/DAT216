@@ -42,10 +42,21 @@
                      </opaqueInsets>
                   </Label>
                   <Label fx:id="priceLabel" layoutX="10.0" layoutY="17.0" text="Price" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" text="Cart" GridPane.columnIndex="1" />
-                  <Button mnemonicParsing="false" text="Star" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button fx:id="addToCartButton" mnemonicParsing="false" style="-fx-background-color: hidden;" GridPane.columnIndex="1">
                      <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="15.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resources/kundvagn-ikon-svartvit.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="favoriteButton" mnemonicParsing="false" style="-fx-background-color: hidden;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <graphic>
+                        <ImageView fx:id="starImage" fitHeight="15.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resources/greystar.jpeg" />
+                           </image>
+                        </ImageView>
                      </graphic></Button>
                </children>
             </GridPane>

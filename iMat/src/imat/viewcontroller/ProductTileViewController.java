@@ -2,6 +2,7 @@ package imat.viewcontroller;
 
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -18,7 +19,8 @@ public class ProductTileViewController extends ViewController {
     @FXML private ImageView imageView;
     @FXML private Label titleLabel;
     @FXML private Label priceLabel;
-    @FXML private ImageView starImage;
+    @FXML private Button favoriteButton;
+    @FXML private Button addToCartButton;
 
     private Product product;
 
@@ -43,12 +45,6 @@ public class ProductTileViewController extends ViewController {
         double price = product.getPrice();
         priceLabel.setText(String.valueOf(price));
 
-
-
-
-
-
-
     }
 
     @FXML
@@ -59,6 +55,10 @@ public class ProductTileViewController extends ViewController {
 
     @FXML
     public void onCartPressed(ActionEvent e) {
+        IMatDataHandler.addProduct(this.product);
+        this.addToCartButton.setImage("kundvagn-ikon-bla");
+
+
 
     }
 
@@ -66,12 +66,10 @@ public class ProductTileViewController extends ViewController {
     @FXML
     public void onStarPressed(ActionEvent e) {
         IMatDataHandler.addFavorite(this.product);
+        this.favoriteButton.setImage("yellowstar.png");
 
-        if(IMatDataHandler.isFavorite(this.product)){
-            this.starImage.setImage("yellowstar.png");
-        }else{
-            this.starImage.setImage("greystar.png");
-        }
+
+
     }
 
 }
