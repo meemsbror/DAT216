@@ -9,7 +9,6 @@ import javafx.scene.image.ImageView;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 
-
 import java.awt.event.ActionEvent;
 
 public class ProductTileViewController extends ViewController {
@@ -55,8 +54,10 @@ public class ProductTileViewController extends ViewController {
 
     @FXML
     public void onCartPressed(ActionEvent e) {
-        IMatDataHandler.addProduct(this.product);
-        this.addToCartButton.setImage("kundvagn-ikon-bla");
+        if(e.getSource().equals(addToCartButton)) {
+            IMatDataHandler.addProduct(this.product);
+            this.addToCartButton.setGraphic(Parent.lookup("kundvagn-ikon-bla"));
+        }
 
 
 
@@ -65,8 +66,12 @@ public class ProductTileViewController extends ViewController {
     //Does it say that it's wrong because it's in a static method?
     @FXML
     public void onStarPressed(ActionEvent e) {
-        IMatDataHandler.addFavorite(this.product);
-        this.favoriteButton.setImage("yellowstar.png");
+        if(e.getSource().equals(favoriteButton)){
+             IMatDataHandler.addFavorite(this.product);
+             this.favoriteButton.setGraphic(Parent.lookup("yellowstar.png"));
+        }
+
+
 
 
 

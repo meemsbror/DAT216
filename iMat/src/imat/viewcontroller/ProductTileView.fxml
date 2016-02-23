@@ -42,7 +42,7 @@
                      </opaqueInsets>
                   </Label>
                   <Label fx:id="priceLabel" layoutX="10.0" layoutY="17.0" text="Price" GridPane.rowIndex="1" />
-                  <Button fx:id="addToCartButton" mnemonicParsing="false" style="-fx-background-color: hidden;" GridPane.columnIndex="1">
+                  <Button fx:id="addToCartButton" mnemonicParsing="false" onAction="#onCartPressed" style="-fx-background-color: hidden;" GridPane.columnIndex="1">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -50,7 +50,7 @@
                            </image>
                         </ImageView>
                      </graphic></Button>
-                  <Button fx:id="favoriteButton" mnemonicParsing="false" style="-fx-background-color: hidden;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button fx:id="favoriteButton" mnemonicParsing="false" onAction="#onStarPressed" style="-fx-background-color: hidden;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <graphic>
                         <ImageView fx:id="starImage" fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
