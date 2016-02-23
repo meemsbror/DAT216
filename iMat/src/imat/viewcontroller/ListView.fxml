@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.ListViewController">
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.ListViewController">
    <children>
-      <Label fx:id="productFilterNameLabel" layoutX="14.0" layoutY="14.0" styleClass="list-view-title" stylesheets="@style.css" text="Product Filter Name" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+      <Label fx:id="productFilterNameLabel" layoutX="14.0" layoutY="14.0" prefHeight="23.0" prefWidth="587.0" styleClass="list-view-title" stylesheets="@style.css" text="Product Filter Name" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="117.0" prefWidth="600.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="45.0">
+         <children>
+            <Label text="Sortering:">
+               <HBox.margin>
+                  <Insets right="22.0" />
+               </HBox.margin>
+            </Label>
+            <RadioButton mnemonicParsing="false" selected="true" text="A-Ö">
+               <HBox.margin>
+                  <Insets right="22.0" />
+               </HBox.margin>
+               <toggleGroup>
+                  <ToggleGroup fx:id="sort_type" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Ö-A" toggleGroup="$sort_type">
+               <HBox.margin>
+                  <Insets right="22.0" />
+               </HBox.margin>
+            </RadioButton>
+            <RadioButton layoutX="109.0" layoutY="10.0" mnemonicParsing="false" text="Pris - lågt till högt" toggleGroup="$sort_type">
+               <HBox.margin>
+                  <Insets right="22.0" />
+               </HBox.margin>
+            </RadioButton>
+            <RadioButton layoutX="208.0" layoutY="10.0" mnemonicParsing="false" text="Pris - högt till lågt" toggleGroup="$sort_type">
+               <HBox.margin>
+                  <Insets right="22.0" />
+               </HBox.margin>
+            </RadioButton>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
    </children>
 </AnchorPane>
