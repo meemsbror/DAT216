@@ -19,14 +19,14 @@
    <children>
       <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="250.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0">
          <center>
-            <ImageView fx:id="imageView" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+            <ImageView fx:id="imageView" fitHeight="220.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets />
                </BorderPane.margin>
             </ImageView>
          </center>
          <bottom>
-            <GridPane BorderPane.alignment="CENTER">
+            <GridPane prefHeight="83.0" prefWidth="250.0" BorderPane.alignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="163.0" minWidth="10.0" prefWidth="163.0" />
                 <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" prefWidth="87.0" />
@@ -44,7 +44,7 @@
                   <Label fx:id="priceLabel" layoutX="10.0" layoutY="17.0" text="Price" GridPane.rowIndex="1" />
                   <Button fx:id="addToCartButton" mnemonicParsing="false" style="-fx-background-color: hidden;" GridPane.columnIndex="1">
                      <graphic>
-                        <ImageView fitHeight="15.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../resources/kundvagn-ikon-svartvit.png" />
                            </image>
@@ -52,7 +52,7 @@
                      </graphic></Button>
                   <Button fx:id="favoriteButton" mnemonicParsing="false" style="-fx-background-color: hidden;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <graphic>
-                        <ImageView fx:id="starImage" fitHeight="15.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="starImage" fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../resources/greystar.jpeg" />
                            </image>
