@@ -21,6 +21,7 @@ public class ListViewController extends ContentViewController {
     private SortingDescriptor sortingDescription;
 
     @FXML private Label productFilterNameLabel;
+    @FXML private RadioButton defaultRadioButton;
 
     @Override
     public void initialize() {
@@ -34,6 +35,9 @@ public class ListViewController extends ContentViewController {
     public void setProductFilter(ProductFilter productFilter) {
         this.productFilter = productFilter;
         productFilterNameLabel.setText(productFilter.getName());
+
+        // Reset the sorting radio buttons
+        defaultRadioButton.setSelected(true);
     }
 
     @FXML
