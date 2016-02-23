@@ -1,5 +1,6 @@
 package imat.viewcontroller;
 
+import imat.formatting.ProductCategoryFormatter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -49,7 +50,8 @@ public class RootViewController extends ViewController {
         for(ProductCategory productCategory : ProductCategory.values()) {
 
             // Create styled button
-            Button btn = new Button(productCategory.name());
+            String formattedName = ProductCategoryFormatter.getFormattedName(productCategory);
+            Button btn = new Button(formattedName);
             btn.getStyleClass().add("category-button");
 
             btn.setOnAction(this::productCategorySelected);
@@ -125,8 +127,15 @@ public class RootViewController extends ViewController {
 
     }
 
+    /**
+     *
+     * Call this to set the content of the root view controller, i.e. the big center panel.
+     *
+     * @param c content to set
+     */
     public void setContent(ContentViewController c){
         this.content = c;
+        this.borderPane.setCenter(c.getView());
     }
 
 }
