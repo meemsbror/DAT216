@@ -50,6 +50,7 @@ public class ProductTileViewController extends ViewController {
     public void onTilePressed() {
         // TODO: Load the product detail view. Might be good to have a singleton RootViewController that you can access when you want to set the content.
         System.out.println("Load product detail view for product " + this.product.getName());
+        RootViewController.getInstance().setContent(DetailViewController.load("DetailView.fxml"));
     }
 
     @FXML
@@ -63,7 +64,7 @@ public class ProductTileViewController extends ViewController {
 
     }
 
-    //Does it say that it's wrong because it's in a static method?
+
     @FXML
     public void onStarPressed(ActionEvent e) {
         if(e.getSource().equals(favoriteButton)){

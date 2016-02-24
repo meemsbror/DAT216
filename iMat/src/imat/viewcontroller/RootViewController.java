@@ -28,6 +28,8 @@ public class RootViewController extends ViewController {
     @FXML private Button searchButton;
     @FXML private TextField searchTextField;
 
+    private static RootViewController instance;
+
 
 
     @FXML private BorderPane borderPane;
@@ -148,6 +150,13 @@ public class RootViewController extends ViewController {
     public void setContent(ContentViewController c){
         this.content = c;
         this.borderPane.setCenter(c.getView());
+    }
+
+    public static RootViewController getInstance(){
+        if(instance == null){
+            instance = RootViewController.load("RootView.fxml");
+        }
+        return instance;
     }
 
 }
