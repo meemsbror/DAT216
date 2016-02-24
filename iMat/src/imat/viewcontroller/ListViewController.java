@@ -75,11 +75,18 @@ public class ListViewController extends ContentViewController {
                     return o2.getName().compareTo(o1.getName());
 
                 case PRICE_ASCENDING:
-                    return (int)(o1.getPrice() - o2.getPrice());
+                    if(o1.getPrice()>o2.getPrice())
+                        return 1;
+                    else if(o1.getPrice()<o2.getPrice())
+                        return -1;
+                    else return 0;
 
                 case PRICE_DESCENDING:
-                    return (int)(o2.getPrice() - o1.getPrice());
-
+                    if(o1.getPrice()<o2.getPrice())
+                        return 1;
+                    else if(o1.getPrice()>o2.getPrice())
+                        return -1;
+                    else return 0;
                 default:
                     return 0;
             }
