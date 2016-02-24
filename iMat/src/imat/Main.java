@@ -19,7 +19,7 @@ public class Main extends Application {
 
         primaryStage.setTitle("iMat");
 
-        RootViewController rootViewController = RootViewController.load("RootView.fxml");
+        RootViewController rootViewController = RootViewController.getInstance();
 
         // Create scene
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
