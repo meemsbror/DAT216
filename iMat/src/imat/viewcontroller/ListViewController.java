@@ -1,15 +1,16 @@
 package imat.viewcontroller;
 
 import imat.model.ProductFilter;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -35,7 +36,11 @@ public class ListViewController extends ContentViewController {
     @FXML private RadioButton lowToHighSortRadioButton;
     @FXML private RadioButton highToLowSortRadioButton;
 
+    @FXML private ToggleGroup sortDescriptor;
+
     @FXML private FlowPane flowPane;
+
+
 
     @Override
     public void initialize() {
@@ -98,10 +103,18 @@ public class ListViewController extends ContentViewController {
         }
     }
 
+    private void setToggleGroupRadioButtons(){
+        aToOsortRadioButton.setToggleGroup(sortDescriptor);
+        oToAsortRadioButton.setToggleGroup(sortDescriptor);
+        lowToHighSortRadioButton.setToggleGroup(sortDescriptor);
+        highToLowSortRadioButton.setToggleGroup(sortDescriptor);
+    }
+
     @FXML
-    public void sortingRadioButtonWasPressed(ActionEvent event) {
+    public void sortingButtonPressed(ActionEvent event){
         if (event.getSource() instanceof RadioButton) {
             RadioButton radioButton = (RadioButton) event.getSource();
+            System.out.println("hej");
 
             // Set sorting descriptor & sort list
             if (radioButton.equals(aToOsortRadioButton)) setSortDescriptorAndPerformSort(SortDescriptor.ALPHABETICALLY_ASCENDING);
@@ -110,5 +123,6 @@ public class ListViewController extends ContentViewController {
             if (radioButton.equals(highToLowSortRadioButton)) setSortDescriptorAndPerformSort(SortDescriptor.PRICE_DESCENDING);
         }
     }
+
 
 }
