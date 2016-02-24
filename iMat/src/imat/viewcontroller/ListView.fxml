@@ -47,9 +47,9 @@
             <Insets />
          </opaqueInsets>
       </HBox>
-      <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="74.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="74.0">
+      <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="14.0" layoutY="74.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="74.0">
          <content>
-            <FlowPane fx:id="flowPane" columnHalignment="CENTER" prefHeight="435.0" prefWidth="682.0" rowValignment="TOP" />
+            <FlowPane fx:id="flowPane" columnHalignment="CENTER" onMouseClicked="#test" prefHeight="413.0" prefWidth="674.0" prefWrapLength="700.0" rowValignment="TOP" />
          </content>
       </ScrollPane>
    </children>
