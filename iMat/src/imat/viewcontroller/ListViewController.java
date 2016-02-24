@@ -1,13 +1,19 @@
 package imat.viewcontroller;
 
 import imat.model.ProductFilter;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Bounds;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 
@@ -36,14 +42,36 @@ public class ListViewController extends ContentViewController {
     @FXML private RadioButton lowToHighSortRadioButton;
     @FXML private RadioButton highToLowSortRadioButton;
 
+
     @FXML private ToggleGroup sortDescriptor;
 
     @FXML private FlowPane flowPane;
+    @FXML private ScrollPane scrollPane;
 
 
 
     @Override
     public void initialize() {
+
+
+
+
+        scrollPane.viewportBoundsProperty().addListener((observableValue, bounds, newBounds) -> {
+            flowPane.setPrefWidth(newBounds.getWidth());
+            flowPane.setPrefHeight(newBounds.getHeight());
+        });
+
+/*
+        scrollPane.viewportBoundsProperty().addListener(new ChangeListener<Bounds>()
+        {
+            @Override
+            public void changed(ObservableValue<? extends Bounds> ov, Bounds oldBounds, Bounds bounds)
+            {
+                flowPane.setPrefWidth(bounds.getWidth());
+                flowPane.setPrefHeight(bounds.getHeight());
+            }
+        });
+        */
     }
 
     @Override
@@ -129,6 +157,10 @@ public class ListViewController extends ContentViewController {
             if (radioButton.equals(lowToHighSortRadioButton)) setSortDescriptorAndPerformSort(SortDescriptor.PRICE_ASCENDING);
             if (radioButton.equals(highToLowSortRadioButton)) setSortDescriptorAndPerformSort(SortDescriptor.PRICE_DESCENDING);
         }
+    }
+
+    public void test(MouseEvent event){
+        System.out.println("test");
     }
 
 
