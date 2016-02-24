@@ -46,16 +46,17 @@ public class ProductTileViewController extends ViewController {
 
     }
 
-    public Product getProduct(){
-        return this.product;
-    }
 
 
     @FXML
     public void onTilePressed() {
         // TODO: Load the product detail view. Might be good to have a singleton RootViewController that you can access when you want to set the content.
         System.out.println("Load product detail view for product " + this.product.getName());
-        RootViewController.getInstance().setContent(DetailViewController.load("DetailView.fxml"));
+        DetailViewController detailViewController = DetailViewController.load("DetailView.fxml");
+        detailViewController.setTitle(this.product);
+        detailViewController.setPrice(this.product);
+        detailViewController.setProductImage(this.product);
+        RootViewController.getInstance().setContent(detailViewController);
     }
 
     @FXML
@@ -64,9 +65,6 @@ public class ProductTileViewController extends ViewController {
             IMatDataHandler.getInstance().addProduct(this.product);
             //this.addToCartButton.setGraphic(Parent.lookup("kundvagn-ikon-bla"));
         }
-
-
-
     }
 
 
