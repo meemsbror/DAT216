@@ -46,6 +46,11 @@ public class ProductTileViewController extends ViewController {
 
     }
 
+    public Product getProduct(){
+        return this.product;
+    }
+
+
     @FXML
     public void onTilePressed() {
         // TODO: Load the product detail view. Might be good to have a singleton RootViewController that you can access when you want to set the content.
@@ -72,10 +77,7 @@ public class ProductTileViewController extends ViewController {
              //this.favoriteButton.setGraphic(Parent.lookup("yellowstar.png"));
         }
 
-
-
-
-
     }
+
 
 }

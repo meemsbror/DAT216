@@ -13,13 +13,13 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <ImageView fitHeight="214.0" fitWidth="247.0" layoutX="21.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" />
-      <Text layoutX="300.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Namn på vara" wrappingWidth="169.71646881103516">
+      <ImageView fx:id="productImage" fitHeight="214.0" fitWidth="247.0" layoutX="21.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" />
+      <Text fx:id="productName" layoutX="300.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Namn på vara" wrappingWidth="169.71646881103516">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="300.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pris " />
+      <Text fx:id="productPrice" layoutX="300.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pris " />
       <Text layoutX="480.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sammanlagt pris" />
       <Button layoutX="457.0" layoutY="58.0" mnemonicParsing="false" text="Lägg till i favoriter" />
       <Button layoutX="437.0" layoutY="345.0" mnemonicParsing="false" text="Lägg till i kundvagn" />
