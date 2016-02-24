@@ -15,24 +15,19 @@ public class DetailViewController extends ContentViewController {
     @FXML private Text productName;
     @FXML private Text productPrice;
 
-
-
     @Override
     public void initialize() {
-
     }
 
     @Override
     protected void viewDidSet(Parent view) {
-
     }
 
-    public void setTitle(Product product){
+    public void setTitle(Product product) {
         productName.setText(product.getName());
     }
 
     public void setPrice(Product product){
-        //product = IMatDataHandler.getInstance().getProduct(product.getProductId());
         productPrice.setText(String.valueOf(product.getPrice()));
 
     }
