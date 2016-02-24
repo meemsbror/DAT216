@@ -21,7 +21,7 @@
       </Text>
       <Text fx:id="productPrice" layoutX="300.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pris " />
       <Text layoutX="480.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sammanlagt pris" />
-      <Button layoutX="457.0" layoutY="58.0" mnemonicParsing="false" text="Lägg till i favoriter" />
+      <Button fx:id="addToFavoriteButton" layoutX="457.0" layoutY="58.0" mnemonicParsing="false" onAction="#addToFavorites" text="Lägg till i favoriter" />
       <Button layoutX="437.0" layoutY="345.0" mnemonicParsing="false" text="Lägg till i kundvagn" />
       <Text layoutX="368.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Du har lagt til din vara i kundvagnen" wrappingWidth="223.68600463867188" />
    </children>

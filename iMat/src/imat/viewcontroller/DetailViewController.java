@@ -1,7 +1,9 @@
 package imat.viewcontroller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
@@ -14,6 +16,7 @@ public class DetailViewController extends ContentViewController {
     @FXML private ImageView productImage;
     @FXML private Text productName;
     @FXML private Text productPrice;
+    @FXML private Button addToFavoriteButton;
 
     @Override
     public void initialize() {
@@ -37,5 +40,10 @@ public class DetailViewController extends ContentViewController {
         productImage.setImage(detailImage);
 
     }
+
+   /* public void addToFavorites(ActionEvent evt){
+        evt.getSource().equals(addToFavoriteButton);
+        IMatDataHandler.getInstance().addFavorite(getProductId());
+    }*/
 
 }
