@@ -13,7 +13,8 @@ import java.awt.event.ActionEvent;
 
 public class ProductTileViewController extends ViewController {
 
-    public static final double IMAGE_SIZE = 250.0;
+    public static final double IMAGE_WIDTH = 260.0;
+    public static final double IMAGE_HEIGHT = 195.0;
 
     @FXML private ImageView imageView;
     @FXML private Label titleLabel;
@@ -35,8 +36,7 @@ public class ProductTileViewController extends ViewController {
     public void setProduct(Product product) {
         this.product = product;
 
-        // TODO: Make a cropped resolution correct image.
-        Image productImage = IMatDataHandler.getInstance().getFXImage(product, IMAGE_SIZE, IMAGE_SIZE);
+        Image productImage = IMatDataHandler.getInstance().getFXImage(product, IMAGE_WIDTH, IMAGE_HEIGHT);
         imageView.setImage(productImage);
 
         titleLabel.setText(product.getName());
