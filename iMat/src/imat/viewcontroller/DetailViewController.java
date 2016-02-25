@@ -17,6 +17,7 @@ public class DetailViewController extends ContentViewController {
     @FXML private Text productName;
     @FXML private Text productPrice;
     @FXML private Button addToFavoriteButton;
+    @FXML private Button removeFavoriteButton;
 
     private Product activeProduct;
 
@@ -50,8 +51,18 @@ public class DetailViewController extends ContentViewController {
     }
 
     public void addToFavorites(ActionEvent evt){
-        evt.getSource().equals(addToFavoriteButton);
-        IMatDataHandler.getInstance().addFavorite(activeProduct);
+        if(evt.getSource().equals(addToFavoriteButton)) {
+            IMatDataHandler.getInstance().addFavorite(activeProduct);
+            this.removeFavoriteButton.toFront();
+        }
     }
+
+    public void removeFromFavorite(ActionEvent evt){
+        if(evt.getSource().equals(removeFavoriteButton)){
+            IMatDataHandler.getInstance().removeFavorite(activeProduct);
+            addToFavoriteButton.toFront();
+        }
+    }
+
 
 }
