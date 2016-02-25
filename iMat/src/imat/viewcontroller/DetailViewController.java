@@ -18,6 +18,8 @@ public class DetailViewController extends ContentViewController {
     @FXML private Text productPrice;
     @FXML private Button addToFavoriteButton;
 
+    private Product activeProduct;
+
     @Override
     public void initialize() {
     }
@@ -26,24 +28,30 @@ public class DetailViewController extends ContentViewController {
     protected void viewDidSet(Parent view) {
     }
 
-    public void setTitle(Product product) {
-        productName.setText(product.getName());
+    public void setProduct(Product p){
+        this.activeProduct=p;
+        setTitle();
+        setPrice();
+        setProductImage();
     }
 
-    public void setPrice(Product product){
-        productPrice.setText(String.valueOf(product.getPrice()));
-
+    public void setTitle() {
+        productName.setText(activeProduct.getName());
     }
 
-    public void setProductImage(Product product){
-        Image detailImage = IMatDataHandler.getInstance().getFXImage(product, 247, 214);
+    public void setPrice(){
+        productPrice.setText(String.valueOf(activeProduct.getPrice()));
+    }
+
+    public void setProductImage(){
+        Image detailImage = IMatDataHandler.getInstance().getFXImage(activeProduct, 247, 214);
         productImage.setImage(detailImage);
 
     }
 
-   /* public void addToFavorites(ActionEvent evt){
+    public void addToFavorites(ActionEvent evt){
         evt.getSource().equals(addToFavoriteButton);
-        IMatDataHandler.getInstance().addFavorite(getProductId());
-    }*/
+        IMatDataHandler.getInstance().addFavorite(activeProduct);
+    }
 
 }

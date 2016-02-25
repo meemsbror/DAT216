@@ -53,6 +53,7 @@ public class RootViewController extends ViewController {
 
     }
 
+    //Sets the categorybuttons and adds them to the view.
     private void setCategories() {
         for(ProductCategory productCategory : ProductCategory.values()) {
 

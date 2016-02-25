@@ -53,9 +53,7 @@ public class ProductTileViewController extends ViewController {
         // TODO: Load the product detail view. Might be good to have a singleton RootViewController that you can access when you want to set the content.
         System.out.println("Load product detail view for product " + this.product.getName());
         DetailViewController detailViewController = DetailViewController.load("DetailView.fxml");
-        detailViewController.setTitle(this.product);
-        detailViewController.setPrice(this.product);
-        detailViewController.setProductImage(this.product);
+        detailViewController.setProduct(this.product);
         RootViewController.getInstance().setContent(detailViewController);
     }
 
