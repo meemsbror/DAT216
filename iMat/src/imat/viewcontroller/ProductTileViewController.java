@@ -1,5 +1,6 @@
 package imat.viewcontroller;
 
+import imat.formatting.PriceFormatter;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -41,8 +42,8 @@ public class ProductTileViewController extends ViewController {
 
         titleLabel.setText(product.getName());
 
-        double price = product.getPrice();
-        priceLabel.setText(String.valueOf(price));
+        String formattedPrice = PriceFormatter.getFormattedPrice(product);
+        priceLabel.setText(formattedPrice);
 
     }
 
