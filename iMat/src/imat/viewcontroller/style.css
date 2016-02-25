@@ -19,3 +19,15 @@
     -fx-background-color: transparent;
 }
 
+.product-tile {
+    -fx-background-color: #ffffff;
+    -fx-effect: dropshadow(gaussian, #dddddd, 10, 0.5, 3, 3);
+}
+
+.tile-title {
+    -fx-font-size: 140%;
+}
+
+.tile-price {
+    -fx-font-size: 110%;
+}
