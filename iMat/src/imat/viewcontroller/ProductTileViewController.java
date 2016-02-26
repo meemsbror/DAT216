@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingItem;
 
 import java.awt.event.ActionEvent;
 
@@ -47,6 +48,18 @@ public class ProductTileViewController extends ViewController {
 
     }
 
+    @FXML
+    public void onMouseEnter() {
+        getView().getStyleClass().add("product-tile-hover");
+    }
+
+    @FXML
+    public void onMouseExit() {
+        getView().getStyleClass().remove("product-tile-hover");
+    }
+
+
+
 
 
     @FXML
@@ -61,7 +74,8 @@ public class ProductTileViewController extends ViewController {
     @FXML
     public void onCartPressed(ActionEvent e) {
         if(e.getSource().equals(addToCartButton)) {
-            IMatDataHandler.getInstance().addProduct(this.product);
+            ShoppingItem item = new ShoppingItem(product, 1.0);
+            IMatDataHandler.getInstance().getShoppingCart().addItem(item);
             //this.addToCartButton.setGraphic(Parent.lookup("kundvagn-ikon-bla"));
         }
     }
