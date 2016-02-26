@@ -160,4 +160,7 @@ public class RootViewController extends ViewController {
         return instance;
     }
 
+    public ContentViewController getReuseListView() {
+        return reuseListViewController;
+    }
 }

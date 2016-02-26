@@ -55,6 +55,7 @@ public class ProductTileViewController extends ViewController {
         System.out.println("Load product detail view for product " + this.product.getName());
         DetailViewController detailViewController = DetailViewController.load("DetailView.fxml");
         detailViewController.setProduct(this.product);
+        detailViewController.setSourceView(RootViewController.getInstance().getReuseListView());
         RootViewController.getInstance().setContent(detailViewController);
     }
 

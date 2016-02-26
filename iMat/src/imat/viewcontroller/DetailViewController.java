@@ -18,8 +18,9 @@ public class DetailViewController extends ContentViewController {
     @FXML private Text productPrice;
     @FXML private Button addToFavoriteButton;
     @FXML private Button removeFavoriteButton;
+    @FXML private Button backButton;
 
-
+    private ContentViewController sourceViewController;
 
 
     private Product activeProduct;
@@ -66,6 +67,16 @@ public class DetailViewController extends ContentViewController {
         }if(evt.getSource().equals(removeFavoriteButton)){
             IMatDataHandler.getInstance().removeFavorite(activeProduct);
             addToFavoriteButton.toFront();
+        }
+    }
+
+    public void setSourceView(ContentViewController content){
+        this.sourceViewController = content;
+    }
+
+    public void backToSource(ActionEvent evt){
+        if(evt.getSource().equals(backButton)){
+            RootViewController.getInstance().setContent(sourceViewController);
         }
     }
 

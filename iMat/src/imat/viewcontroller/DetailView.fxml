@@ -6,24 +6,25 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.DetailViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.DetailViewController">
    <children>
       <Text layoutX="13.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Detaljvy" wrappingWidth="573.7286529541016" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <ImageView fx:id="productImage" fitHeight="214.0" fitWidth="224.0" layoutX="21.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" />
-      <Text fx:id="productName" layoutX="267.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Namn på vara" wrappingWidth="169.71646881103516">
+      <ImageView fx:id="productImage" fitHeight="214.0" fitWidth="224.0" layoutX="21.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" />
+      <Text fx:id="productName" layoutX="267.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Namn på vara" wrappingWidth="169.71646881103516">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="productPrice" layoutX="267.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pris " />
-      <Text layoutX="480.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sammanlagt pris" />
+      <Text fx:id="productPrice" layoutX="267.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pris " />
+      <Text layoutX="480.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sammanlagt pris" />
       <Button layoutX="437.0" layoutY="345.0" mnemonicParsing="false" text="Lägg till i kundvagn" />
       <Text layoutX="368.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Du har lagt til din vara i kundvagnen" wrappingWidth="223.68600463867188" />
-      <Button fx:id="removeFavoriteButton" layoutX="434.0" layoutY="58.0" mnemonicParsing="false" onAction="#addAndRemoveToFavorites" prefHeight="26.0" prefWidth="146.0" text="Ta Bort från favoriter" />
-      <Button fx:id="addToFavoriteButton" layoutX="434.0" layoutY="58.0" mnemonicParsing="false" onAction="#addAndRemoveToFavorites" prefHeight="26.0" prefWidth="146.0" text="Lägg till i favoriter" />
+      <Button fx:id="removeFavoriteButton" layoutX="434.0" layoutY="113.0" mnemonicParsing="false" onAction="#addAndRemoveToFavorites" prefHeight="26.0" prefWidth="146.0" text="Ta Bort från favoriter" />
+      <Button fx:id="addToFavoriteButton" layoutX="434.0" layoutY="113.0" mnemonicParsing="false" onAction="#addAndRemoveToFavorites" prefHeight="26.0" prefWidth="146.0" text="Lägg till i favoriter" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="51.0" mnemonicParsing="false" onAction="#backToSource" text="Tillbaka" />
    </children>
 </AnchorPane>
