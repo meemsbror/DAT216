@@ -19,10 +19,14 @@ public class DetailViewController extends ContentViewController {
     @FXML private Button addToFavoriteButton;
     @FXML private Button removeFavoriteButton;
 
+
+
+
     private Product activeProduct;
 
     @Override
     public void initialize() {
+
     }
 
     @Override
@@ -34,6 +38,11 @@ public class DetailViewController extends ContentViewController {
         setTitle();
         setPrice();
         setProductImage();
+        if(IMatDataHandler.getInstance().isFavorite(activeProduct)){
+            removeFavoriteButton.toFront();
+        }else{
+            addToFavoriteButton.toFront();
+        }
     }
 
     public void setTitle() {
