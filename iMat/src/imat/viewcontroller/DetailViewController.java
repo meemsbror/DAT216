@@ -50,19 +50,17 @@ public class DetailViewController extends ContentViewController {
 
     }
 
-    public void addToFavorites(ActionEvent evt){
+    public void addAndRemoveToFavorites(ActionEvent evt){
         if(evt.getSource().equals(addToFavoriteButton)) {
             IMatDataHandler.getInstance().addFavorite(activeProduct);
             this.removeFavoriteButton.toFront();
-        }
-    }
-
-    public void removeFromFavorite(ActionEvent evt){
-        if(evt.getSource().equals(removeFavoriteButton)){
+        }if(evt.getSource().equals(removeFavoriteButton)){
             IMatDataHandler.getInstance().removeFavorite(activeProduct);
             addToFavoriteButton.toFront();
         }
     }
+
+
 
 
 }
