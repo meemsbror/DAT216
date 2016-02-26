@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="80.0" prefWidth="500.0">
+         <children>
+            <ImageView fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <Label maxHeight="80.0" maxWidth="100.0" minHeight="80.0" minWidth="100.0" prefHeight="80.0" prefWidth="100.0" text="Name">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField maxHeight="60.0" maxWidth="50.0" minHeight="60.0" minWidth="50.0" prefHeight="60.0" prefWidth="50.0" promptText="1">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <VBox maxHeight="80.0" maxWidth="45.0" prefHeight="80.0" prefWidth="45.0">
+               <children>
+                  <ToggleButton maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" text="▲">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="4.0" right="5.0" top="3.0" />
+                     </VBox.margin>
+                  </ToggleButton>
+                  <ToggleButton maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" text="▼">
+                     <VBox.margin>
+                        <Insets left="4.0" right="5.0" top="3.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </ToggleButton>
+               </children>
+            </VBox>
+            <Label maxHeight="80.0" maxWidth="60.0" prefHeight="80.0" prefWidth="60.0" text="Pris">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label maxHeight="80.0" maxWidth="70.0" minHeight="80.0" minWidth="70.0" prefHeight="80.0" prefWidth="70.0" text="Summan">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button maxHeight="60.0" maxWidth="75.0" minHeight="60.0" minWidth="75.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="⨂">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
