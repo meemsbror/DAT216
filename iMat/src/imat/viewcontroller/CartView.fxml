@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.3015075376884422" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="139.0" prefWidth="600.0">
+               <children>
+                  <Label layoutX="43.0" layoutY="14.0" text="Aktuell varor i din kundvagn">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutY="66.0" prefHeight="50.0" prefWidth="598.0">
+                     <children>
+                        <Label blendMode="DARKEN" minWidth="100.0" prefHeight="50.0" prefWidth="100.0">
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label blendMode="DARKEN" minWidth="100.0" prefHeight="50.0" prefWidth="100.0" text="Namn">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <Label blendMode="DARKEN" minWidth="95.0" prefHeight="50.0" prefWidth="95.0" text="Mängd">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <Label blendMode="DARKEN" minWidth="60.0" prefHeight="50.0" prefWidth="60.0" text="Pris">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <Label blendMode="DARKEN" maxWidth="70.0" prefHeight="50.0" prefWidth="70.0" text="Summa">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <Label blendMode="DARKEN" maxWidth="75.0" prefHeight="50.0" prefWidth="75.0" text="Ta bort">
+                           <HBox.margin>
+                              <Insets right="50.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="250.0" prefWidth="510.0" AnchorPane.leftAnchor="50.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
