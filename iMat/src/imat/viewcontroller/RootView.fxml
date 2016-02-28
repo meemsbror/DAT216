@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.RootViewController">
+<AnchorPane minHeight="700.0" minWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.RootViewController">
    <children>
-      <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <bottom>
             <Pane maxHeight="0.0" prefHeight="0.0" prefWidth="650.0" BorderPane.alignment="CENTER" />
          </bottom>
@@ -23,7 +23,7 @@
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </center>
          <left>
-            <AnchorPane prefHeight="483.0" prefWidth="231.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
+            <AnchorPane style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
                <children>
                   <VBox layoutX="7.0" layoutY="7.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="7.0">
                      <children>
@@ -53,43 +53,51 @@
             </AnchorPane>
          </left>
          <top>
-            <AnchorPane prefHeight="117.0" prefWidth="650.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
+            <AnchorPane style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="historyButton" layoutX="438.0" layoutY="29.0" mnemonicParsing="false" onAction="#toHistoryActionPerformed" styleClass="pretty-button" stylesheets="@style.css" text="Historik" AnchorPane.rightAnchor="344.0" AnchorPane.topAnchor="29.0">
-                     <graphic>
-                        <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../resources/list-512.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="cartButton" layoutX="325.0" layoutY="29.0" mnemonicParsing="false" onAction="#toCartButtonActionPerformed" styleClass="pretty-button" stylesheets="@style.css" text="Till kundvagn" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="29.0">
-                     <graphic>
-                        <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../resources/kundvagn-ikon-svartvit.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="checkoutButton" layoutX="495.0" layoutY="29.0" mnemonicParsing="false" onAction="#toCheckoutActionPerformed" styleClass="pretty-button" stylesheets="@style.css" text="Till kassa" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="29.0">
-                     <graphic>
-                        <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../resources/21-512.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="homePageButton" layoutX="41.0" layoutY="25.0" mnemonicParsing="false" onAction="#toHomePageActionPerformed" styleClass="pretty-button" stylesheets="@style.css" text="iMat">
+                  <Button fx:id="homePageButton" layoutX="41.0" layoutY="25.0" mnemonicParsing="false" onAction="#toHomePageActionPerformed" styleClass="pretty-button" stylesheets="@style.css" text="iMat" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="20.0">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Button>
-                  <Text layoutX="234.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sök:" AnchorPane.topAnchor="51.0" />
-                  <TextField fx:id="searchTextField" layoutX="268.0" layoutY="46.0" onAction="#toSearchActionPerformed" AnchorPane.topAnchor="46.0" />
-                  <Button fx:id="searchButton" layoutX="445.0" layoutY="46.0" mnemonicParsing="false" onAction="#toSearchActionPerformed" styleClass="category-button" stylesheets="@style.css" text="Sök" AnchorPane.leftAnchor="445.0" AnchorPane.topAnchor="46.0" />
+                  <HBox alignment="CENTER" layoutX="234.0" layoutY="36.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="56.0" prefWidth="270.0" spacing="4.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sök:" AnchorPane.topAnchor="51.0" />
+                        <TextField fx:id="searchTextField" onAction="#toSearchActionPerformed" promptText="namn på vara" AnchorPane.topAnchor="46.0" />
+                        <Button fx:id="searchButton" mnemonicParsing="false" onAction="#toSearchActionPerformed" styleClass="category-button" stylesheets="@style.css" text="Sök" AnchorPane.leftAnchor="445.0" AnchorPane.topAnchor="46.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="531.0" layoutY="29.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button fx:id="historyButton" layoutX="438.0" layoutY="29.0" mnemonicParsing="false" onAction="#toHistoryActionPerformed" styleClass="pretty-button" stylesheets="@style.css" text="Historik" AnchorPane.rightAnchor="344.0" AnchorPane.topAnchor="29.0">
+                           <graphic>
+                              <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../resources/list-512.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="cartButton" layoutX="325.0" layoutY="29.0" mnemonicParsing="false" onAction="#toCartButtonActionPerformed" styleClass="pretty-button" stylesheets="@style.css" text="Till kundvagn" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="29.0">
+                           <graphic>
+                              <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../resources/kundvagn-ikon-svartvit.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="checkoutButton" layoutX="495.0" layoutY="29.0" mnemonicParsing="false" onAction="#toCheckoutActionPerformed" styleClass="pretty-button" stylesheets="@style.css" text="Till kassa" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="29.0">
+                           <graphic>
+                              <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../resources/21-512.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
             </AnchorPane>
          </top>

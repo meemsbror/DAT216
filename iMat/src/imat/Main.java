@@ -19,13 +19,16 @@ public class Main extends Application {
 
         primaryStage.setTitle("iMat");
 
-        RootViewController rootViewController = RootViewController.getInstance();
+        // Set min size on the stage, since it doesn't seem to listen to any minimum constraints on the scene.
+        primaryStage.setMinWidth(1000);
+        primaryStage.setMinHeight(715);
 
         // Create scene
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        double width = screenSize.getWidth();
-        double height = screenSize.getHeight();
-        Scene scene = new Scene(rootViewController.getView(), width, height);
+        //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        //double width = screenSize.getWidth();
+        //double height = screenSize.getHeight();
+        RootViewController rootViewController = RootViewController.getInstance();
+        Scene scene = new Scene(rootViewController.getView(), 1150, 775);
         primaryStage.setScene(scene);
 
         // Add css styling to scene (scene won't change through the runtime)
