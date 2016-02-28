@@ -64,9 +64,7 @@ public class ProductTileViewController extends ViewController {
 
     @FXML
     public void onTilePressed() {
-        // TODO: Load the product detail view. Might be good to have a singleton RootViewController that you can access when you want to set the content.
-        System.out.println("Load product detail view for product " + this.product.getName());
-        DetailViewController detailViewController = DetailViewController.load("DetailView.fxml");
+        DetailViewController detailViewController = RootViewController.getInstance().getReuseDetailViewController();
         detailViewController.setProduct(this.product);
         detailViewController.setSourceView(RootViewController.getInstance().getReuseListView());
         RootViewController.getInstance().setContent(detailViewController);

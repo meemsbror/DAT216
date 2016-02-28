@@ -39,8 +39,9 @@ public class RootViewController extends ViewController {
     private Button currentlySelectedCategoryButton;
     private Map<Button, ProductCategory> buttonCategoryMap = new HashMap<>();
 
-    // Reuse this for every time a ListViewController is needed
+    // Reuse these every time such a view is needed
     private ListViewController reuseListViewController = ListViewController.load("ListView.fxml");
+    private DetailViewController reuseDetailViewController = DetailViewController.load("DetailView.fxml");
 
     @Override
     public void initialize() {
@@ -171,5 +172,9 @@ public class RootViewController extends ViewController {
 
     public ContentViewController getReuseListView() {
         return reuseListViewController;
+    }
+
+    public DetailViewController getReuseDetailViewController() {
+        return reuseDetailViewController;
     }
 }
