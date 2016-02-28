@@ -55,7 +55,7 @@
          <top>
             <AnchorPane style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="homePageButton" layoutX="41.0" layoutY="25.0" mnemonicParsing="false" onAction="#toHomePageActionPerformed" styleClass="pretty-button" stylesheets="@style.css" text="iMat" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="20.0">
+                  <Button fx:id="homePageButton" layoutX="41.0" layoutY="25.0" mnemonicParsing="false" onAction="#toHomePageActionPerformed" styleClass="pretty-button" stylesheets="@style.css" text="iMat" textAlignment="CENTER" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="5.0">
                      <font>
                         <Font size="36.0" />
                      </font>

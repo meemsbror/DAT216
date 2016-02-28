@@ -21,14 +21,14 @@ public class Main extends Application {
 
         // Set min size on the stage, since it doesn't seem to listen to any minimum constraints on the scene.
         primaryStage.setMinWidth(1000);
-        primaryStage.setMinHeight(715);
+        primaryStage.setMinHeight(665);
 
         // Create scene
         //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         //double width = screenSize.getWidth();
         //double height = screenSize.getHeight();
         RootViewController rootViewController = RootViewController.getInstance();
-        Scene scene = new Scene(rootViewController.getView(), 1150, 775);
+        Scene scene = new Scene(rootViewController.getView(), 1150, 745);
         primaryStage.setScene(scene);
 
         // Add css styling to scene (scene won't change through the runtime)
