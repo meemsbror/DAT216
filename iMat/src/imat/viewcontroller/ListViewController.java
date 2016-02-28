@@ -24,11 +24,7 @@ public class ListViewController extends ContentViewController {
         PRICE_DESCENDING
     }
 
-    private static final List<ProductTileViewController> reuseTiles = new ArrayList<>();
-
-    static {
-        // Preload tiles
-    }
+    private final List<ProductTileViewController> reuseTiles = new ArrayList<>();
 
     private List<Product> products = new ArrayList<>();
     private ProductFilter productFilter;
@@ -96,15 +92,20 @@ public class ListViewController extends ContentViewController {
 
     private void displayProducts(List<Product> productsToDisplay) {
 
-        // First empty out old products
+        // Load tiles from FXML if needed
+        int numTilesToCreate = Math.max(productsToDisplay.size() - reuseTiles.size(), 0);
+        for (int i = 0; i < numTilesToCreate; i++) {
+            ProductTileViewController tile = ProductTileViewController.load("ProductTileView.fxml");
+            reuseTiles.add(tile);
+        }
+
+        // Empty out old tiles
         flowPane.getChildren().clear();
 
-        for (Product product: productsToDisplay) {
-
-            // TODO: Pool & reuse for performance and load time!
-            ProductTileViewController tile = ProductTileViewController.load("ProductTileView.fxml");
-            tile.setProduct(product);
-
+        // Add new tiles
+        for (int productIndex = 0; productIndex < productsToDisplay.size(); productIndex++) {
+            ProductTileViewController tile = reuseTiles.get(productIndex);
+            tile.setProduct(productsToDisplay.get(productIndex));
             flowPane.getChildren().add(tile.getView());
         }
     }
