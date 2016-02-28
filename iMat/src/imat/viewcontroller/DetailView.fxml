@@ -13,18 +13,29 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <ImageView fx:id="productImage" fitHeight="214.0" fitWidth="224.0" layoutX="21.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="productImage" fitHeight="214.0" fitWidth="224.0" layoutX="21.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="115.0" />
       <Text fx:id="productName" layoutX="267.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Namn på vara" wrappingWidth="169.71646881103516">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
       <Text fx:id="productPrice" layoutX="267.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pris " />
-      <Text layoutX="480.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sammanlagt pris" />
-      <Button layoutX="437.0" layoutY="345.0" mnemonicParsing="false" text="Lägg till i kundvagn" />
+      <Text layoutX="480.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sammanlagt pris" AnchorPane.bottomAnchor="144.0" AnchorPane.rightAnchor="125.14836883544922" />
+      <Button fx:id="addToCartButton" layoutX="437.0" layoutY="345.0" mnemonicParsing="false" text="Lägg till i kundvagn" AnchorPane.bottomAnchor="29.0" AnchorPane.rightAnchor="135.0" />
       <Text layoutX="368.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Du har lagt til din vara i kundvagnen" wrappingWidth="223.68600463867188" />
       <Button fx:id="removeFavoriteButton" layoutX="434.0" layoutY="113.0" mnemonicParsing="false" onAction="#addAndRemoveToFavorites" prefHeight="26.0" prefWidth="146.0" text="Ta Bort från favoriter" />
-      <Button fx:id="addToFavoriteButton" layoutX="434.0" layoutY="113.0" mnemonicParsing="false" onAction="#addAndRemoveToFavorites" prefHeight="26.0" prefWidth="146.0" text="Lägg till i favoriter" />
-      <Button fx:id="backButton" layoutX="14.0" layoutY="51.0" mnemonicParsing="false" onAction="#backToSource" text="Tillbaka" />
+      <Button fx:id="addToFavoriteButton" layoutX="434.0" layoutY="113.0" mnemonicParsing="false" onAction="#addAndRemoveToFavorites" prefHeight="26.0" prefWidth="146.0" text="Lägg till i favoriter" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="113.0" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="51.0" mnemonicParsing="false" onAction="#backToSource" text="Tillbaka" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="51.0" />
+      <TextField fx:id="amountCalculator" layoutX="268.0" layoutY="214.0" prefHeight="47.0" prefWidth="53.0" />
+      <ToggleButton fx:id="amountUp" layoutX="334.0" layoutY="197.0" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" text="▲">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton fx:id="amountDown" layoutX="335.0" layoutY="244.0" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" text="▼">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </ToggleButton>
    </children>
 </AnchorPane>

@@ -3,12 +3,16 @@ package imat.viewcontroller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingCart;
+import se.chalmers.ait.dat215.project.ShoppingItem;
 
 
 public class DetailViewController extends ContentViewController {
@@ -19,6 +23,10 @@ public class DetailViewController extends ContentViewController {
     @FXML private Button addToFavoriteButton;
     @FXML private Button removeFavoriteButton;
     @FXML private Button backButton;
+    @FXML private Button addToCartButton;
+    @FXML private TextField amountCalculator;
+    @FXML private ToggleButton amountDown;
+    @FXML private ToggleButton amountUp;
 
     private ContentViewController sourceViewController;
 
@@ -81,6 +89,10 @@ public class DetailViewController extends ContentViewController {
     }
 
 
+    public void addToCart(ActionEvent evt){
+        if(evt.getSource().equals(addToCartButton))
+            se.chalmers.ait.dat215.project.ShoppingCart.addProduct(activeProduct, Double.parseDouble(amountCalculator.getText()));
+    }
 
 
 }
