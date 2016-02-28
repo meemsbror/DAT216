@@ -1,10 +1,10 @@
 package imat.viewcontroller;
 
+import imat.filter.AllProductsProductFilter;
+import imat.filter.CategoryProductFilter;
+import imat.filter.FavouritesProductFilter;
+import imat.filter.SearchProductFilter;
 import imat.formatting.ProductCategoryFormatter;
-import imat.model.AllProductsProductFilter;
-import imat.model.CategoryProductFilter;
-import imat.model.FavouritesProductFilter;
-import imat.model.SearchProductFilter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;

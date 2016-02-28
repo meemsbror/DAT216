@@ -1,6 +1,6 @@
 package imat.viewcontroller;
 
-import imat.model.ProductFilter;
+import imat.filter.ProductFilter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
