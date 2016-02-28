@@ -25,7 +25,7 @@
          <left>
             <AnchorPane prefHeight="483.0" prefWidth="231.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
                <children>
-                  <VBox layoutX="7.0" layoutY="7.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="7.0">
+                  <VBox layoutX="7.0" layoutY="7.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="7.0">
                      <children>
                         <Button fx:id="allContentButton" mnemonicParsing="false" onAction="#toAllContentActionPerformed" prefWidth="220.0" styleClass="category-button" stylesheets="@style.css" text="Hela Sortimentet">
                            <VBox.margin>
@@ -33,20 +33,22 @@
                            </VBox.margin>
                         </Button>
                         <Button fx:id="favoriteButton" mnemonicParsing="false" onAction="#toFavoritesPerformed" prefWidth="220.0" styleClass="category-button" stylesheets="@style.css" text="Favoriter" />
+                        <Separator>
+                           <padding>
+                              <Insets bottom="6.0" top="6.0" />
+                           </padding>
+                        </Separator>
+                        <ScrollPane hbarPolicy="NEVER" styleClass="category-list" stylesheets="@style.css" VBox.vgrow="ALWAYS">
+                           <content>
+                              <VBox fx:id="categoryVBox" spacing="4.0" styleClass="category-list" stylesheets="@style.css">
+                                 <opaqueInsets>
+                                    <Insets bottom="4.0" />
+                                 </opaqueInsets>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
                      </children>
                   </VBox>
-                  <ScrollPane hbarPolicy="NEVER" layoutY="80.0" prefHeight="509.0" prefWidth="231.0" styleClass="category-list" stylesheets="@style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
-                     <content>
-                        <VBox fx:id="categoryVBox" spacing="4.0" styleClass="category-list" stylesheets="@style.css">
-                           <opaqueInsets>
-                              <Insets bottom="4.0" />
-                           </opaqueInsets>
-                        </VBox>
-                     </content>
-                     <padding>
-                        <Insets left="7.0" right="7.0" />
-                     </padding>
-                  </ScrollPane>
                </children>
             </AnchorPane>
          </left>
