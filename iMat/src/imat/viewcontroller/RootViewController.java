@@ -135,11 +135,20 @@ public class RootViewController extends ViewController {
     }
 
     public void toCartButtonActionPerformed(ActionEvent evt){
-        //TODO
+        if(evt.getSource().equals(cartButton)){
+            CartViewController cartViewController = CartViewController.load("CartView.fxml");
+            setContent(cartViewController);
+
+        }
     }
 
     public void toHistoryActionPerformed(ActionEvent evt){
         //TODO
+        if(evt.getSource().equals(historyButton)){
+            HistoryViewController historyViewController = HistoryViewController.load("HistoryView.fxml");
+            setContent(historyViewController);
+
+        }
     }
 
     /**

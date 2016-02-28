@@ -91,7 +91,7 @@ public class DetailViewController extends ContentViewController {
 
     public void addToCart(ActionEvent evt){
         if(evt.getSource().equals(addToCartButton))
-            se.chalmers.ait.dat215.project.ShoppingCart.addProduct(activeProduct, Double.parseDouble(amountCalculator.getText()));
+            IMatDataHandler.getInstance().getShoppingCart().addProduct(activeProduct, Double.parseDouble(amountCalculator.getText()));
     }
 
 

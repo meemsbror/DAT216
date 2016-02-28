@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.HistoryViewController">
    <children>
       <Label layoutX="50.0" layoutY="14.0" text="TIDIGARE INKÖP">
          <font>
@@ -19,7 +19,7 @@
                <content>
                   <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="212.0" prefWidth="497.0" />
                     </content>
                   </ScrollPane>
                </content>
