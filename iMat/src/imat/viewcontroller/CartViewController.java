@@ -1,7 +1,9 @@
 package imat.viewcontroller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
@@ -24,6 +26,7 @@ public class CartViewController extends ContentViewController {
     @FXML private ScrollPane cartScroll;
     @FXML private ListView cartList;
 
+    @FXML private Button toCheckOutButton;
     private Product productInCart;
 
     @Override
@@ -41,7 +44,7 @@ public class CartViewController extends ContentViewController {
 
     }
 
-    public void showCart(List<Product> shoppingCart){
+    /*public void showCart(List<Product> shoppingCart){
 
         for(int i = 0; i < shoppingCart.size(); i++){
             SmallProductViewController smallProductViewController = SmallProductViewController.load("SmallProductView.fxml");
@@ -51,6 +54,13 @@ public class CartViewController extends ContentViewController {
 
         }
     }
+*/
 
+    public void toCheckout(ActionEvent evt){
+        if(evt.getSource().equals(toCheckOutButton)){
+            CheckOutViewController checkOutViewController = CheckOutViewController.load("CheckOutView.fxml");
+            RootViewController.getInstance().setContent(checkOutViewController);
+        }
+    }
 
 }
