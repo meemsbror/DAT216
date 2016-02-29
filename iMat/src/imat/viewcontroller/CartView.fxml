@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.CartViewController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.CartViewController">
    <children>
       <SplitPane dividerPositions="0.3015075376884422" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="139.0" prefWidth="600.0">
                <children>
-                  <Label layoutX="43.0" layoutY="14.0" text="Aktuell varor i din kundvagn">
+                  <Label layoutX="14.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="600.0" text="Aktuell varor i din kundvagn">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -71,10 +71,11 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ScrollPane fx:id="cartScroll" hbarPolicy="NEVER" prefHeight="250.0" prefWidth="510.0" AnchorPane.leftAnchor="50.0">
+                  <ScrollPane fx:id="cartScroll" hbarPolicy="NEVER" prefHeight="211.0" prefWidth="510.0" AnchorPane.leftAnchor="50.0">
                      <content>
-                        <ListView fx:id="cartList" prefHeight="250.0" prefWidth="509.0" />
+                        <ListView fx:id="cartList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="210.0" prefWidth="509.0" />
                      </content></ScrollPane>
+                  <Button fx:id="toCheckOutButton" layoutX="263.0" layoutY="226.0" mnemonicParsing="false" onAction="#toCheckout" text="Till kassa" />
                </children>
             </AnchorPane>
         </items>
