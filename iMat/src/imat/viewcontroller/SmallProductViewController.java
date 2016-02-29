@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingItem;
 
 
 /**
@@ -29,13 +30,15 @@ public class SmallProductViewController extends ContentViewController {
 
     }
 
-    public void setProduct(Product product){
+    public void setItem(ShoppingItem item){
+
+        Product product = item.getProduct();
         Image productImage = IMatDataHandler.getInstance().getFXImage(product);
         smallImage.setImage(productImage);
-
         productName.setText(product.getName());
 
         price.setText(String.valueOf(product.getPrice()));
-        //TODO set the sum
+        Double tmp = item.getAmount();
+        this.sum.setText(tmp.toString());
     }
 }

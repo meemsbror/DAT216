@@ -1,28 +1,26 @@
 package imat.viewcontroller;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
-import se.chalmers.ait.dat215.project.Product;
-import se.chalmers.ait.dat215.project.ShoppingCart;
-import se.chalmers.ait.dat215.project.ShoppingItem;
+import se.chalmers.ait.dat215.project.*;
 
+import java.beans.PropertyChangeListener;
+
+import java.beans.PropertyChangeEvent;
 import java.util.List;
 
-/**
- * Created by rebeccafinne on 16-02-28.
- */
-public class CartViewController extends ContentViewController {
+public class CartViewController extends ContentViewController{
 
     @FXML private Label productName;
     @FXML private ImageView smallImage;
     @FXML private Label price;
     @FXML private Label sum;
     @FXML private ScrollPane cartScroll;
-    @FXML private ListView cartList;
 
     private Product productInCart;
 
@@ -40,17 +38,4 @@ public class CartViewController extends ContentViewController {
        //Don't know if this is needed
 
     }
-
-    public void showCart(List<Product> shoppingCart){
-
-        for(int i = 0; i < shoppingCart.size(); i++){
-            SmallProductViewController smallProductViewController = SmallProductViewController.load("SmallProductView.fxml");
-            smallProductViewController.setProduct(productInCart);
-
-            cartList.add(shoppingCart.get(i));
-
-        }
-    }
-
-
 }
