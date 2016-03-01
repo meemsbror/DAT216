@@ -53,6 +53,11 @@ public class ListViewController extends ContentViewController {
 
     }
 
+    public void refetchProducts() {
+        // FIXME: This is a bit of a hack (i trigger the refetch etc. by setting the product filter to itself)
+        setProductFilter(this.productFilter);
+    }
+
     public void setProductFilter(ProductFilter productFilter) {
         this.productFilter = productFilter;
         productFilterNameLabel.setText(productFilter.getName());
@@ -63,6 +68,10 @@ public class ListViewController extends ContentViewController {
         // Reset the sorting radio buttons
         aToOsortRadioButton.setSelected(true);
         setSortDescriptorAndPerformSort(SortDescriptor.ALPHABETICALLY_ASCENDING);
+    }
+
+    public ProductFilter getProductFilter() {
+        return productFilter;
     }
 
     private void setSortDescriptorAndPerformSort(SortDescriptor sortDescriptor) {
