@@ -31,9 +31,14 @@ public class CheckOutViewController extends ContentViewController {
 
     public void showCart(){
         System.out.println("Bajs");
-        CartListViewController cartListViewController = new CartListViewController().load("CartListView.fxml");
+      /*  CartListViewController cartListViewController = new CartListViewController().load("CartListView.fxml");
         cartListViewController.showCart();
-        cartPane.getChildren().add(cartListViewController.getView());
+        cartPane.getChildren().add(cartListViewController.getView());*/
+
+        CheckOutViewController checkOutViewController = new CheckOutViewController().load("CartListView.fxml");
+        cartPane.getChildren().add(checkOutViewController.getView());
+
+
 
     }
 }
