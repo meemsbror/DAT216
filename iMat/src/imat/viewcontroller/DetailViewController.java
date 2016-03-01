@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingItem;
 
 import java.util.IllegalFormatException;
 
@@ -28,6 +29,7 @@ public class DetailViewController extends ContentViewController {
     @FXML private TextField amountCalculator;
     @FXML private ToggleButton amountDown;
     @FXML private ToggleButton amountUp;
+    @FXML private Text totalPrice;
 
     private ContentViewController sourceViewController;
 
@@ -68,6 +70,12 @@ public class DetailViewController extends ContentViewController {
         productImage.setImage(detailImage);
 
     }
+    public void setTotalPrice(){
+        int tmp = indexInCart(activeProduct);
+        ShoppingItem theItem = IMatDataHandler.getInstance().getShoppingCart().getItems().get(tmp);
+        theItem.getAmount();
+        totalPrice.setText(String.valueOf(theItem.getAmount()*activeProduct.getPrice()));
+    }
 
     public void addAndRemoveToFavorites(ActionEvent evt){
         if(evt.getSource().equals(addToFavoriteButton)) {
@@ -102,7 +110,7 @@ public class DetailViewController extends ContentViewController {
 
     public void addToCart(ActionEvent evt){
         if(evt.getSource().equals(addToCartButton))
-            System.out.println(activeProduct.getName()+ "Tillagd i kundvagn");
+            System.out.println(activeProduct.getName() + "Tillagd i kundvagn");
             double tmp;
             try{
                  tmp = Double.parseDouble(amountCalculator.getText());
