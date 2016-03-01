@@ -135,7 +135,7 @@ public class RootViewController extends ViewController {
         if(evt.getSource().equals(checkoutButton) && !(content instanceof CheckOutViewController)){
             CheckOutViewController checkOutViewController = CheckOutViewController.load("CheckOutView.fxml");
             setContent(checkOutViewController);
-            checkOutViewController.showCart();
+            //checkOutViewController.showCart();
         }
     }
 

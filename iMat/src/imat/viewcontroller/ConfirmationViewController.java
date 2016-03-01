@@ -34,7 +34,7 @@ public class ConfirmationViewController extends ContentViewController {
     }
 
     public void showCart(){
-        CartListViewController cartListViewController = new CartListViewController().load("CartListView.fxml");
+        CartListViewController cartListViewController = CartListViewController.load("CartListView.fxml");
         cartListViewController.showCart();
         showPane.getChildren().add(cartListViewController.getView());
     }

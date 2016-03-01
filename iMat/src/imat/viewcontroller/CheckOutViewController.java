@@ -26,7 +26,7 @@ public class CheckOutViewController extends ContentViewController {
         ConfirmationViewController cvc = ConfirmationViewController.load("ConfirmationView.fxml");
         // TODO: Give the ConfirmationViewController the information that should be confirmed!
         RootViewController.getInstance().setContent(cvc);
-        cvc.showCart();
+        //cvc.showCart();
     }
 
     public void showCart(){
