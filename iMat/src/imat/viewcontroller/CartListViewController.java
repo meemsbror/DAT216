@@ -6,11 +6,9 @@ import se.chalmers.ait.dat215.project.*;
 
 import java.util.List;
 
-public class CartListController extends ViewController implements ShoppingCartListener{
+public class CartListViewController extends ViewController implements ShoppingCartListener{
 
-    ObservableList<SmallProductViewController> smallProductViews;
-
-    private static ObservableList<SmallProductViewController> smallProductViewControllers;
+    private static ObservableList<SmallProductViewController> smallProductViews;
 
 
     public void initialize() {
@@ -22,7 +20,7 @@ public class CartListController extends ViewController implements ShoppingCartLi
 
 
 
-    private CartListController(){
+    private CartListViewController(){
     }
 
     public void shoppingCartChanged(CartEvent event){

@@ -144,6 +144,7 @@ public class RootViewController extends ViewController {
             CartViewController cartViewController = CartViewController.load("CartView.fxml");
             setContent(cartViewController);
 
+
         }
     }
 

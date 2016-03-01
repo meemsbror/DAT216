@@ -71,11 +71,8 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ScrollPane fx:id="cartScroll" hbarPolicy="NEVER" prefHeight="211.0" prefWidth="510.0" AnchorPane.leftAnchor="50.0">
-                     <content>
-                        <ListView fx:id="cartList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="210.0" prefWidth="509.0" />
-                     </content></ScrollPane>
                   <Button fx:id="toCheckOutButton" layoutX="263.0" layoutY="226.0" mnemonicParsing="false" onAction="#toCheckout" text="Till kassa" />
+                  <AnchorPane fx:id="putCart" prefHeight="218.0" prefWidth="598.0" />
                </children>
             </AnchorPane>
         </items>

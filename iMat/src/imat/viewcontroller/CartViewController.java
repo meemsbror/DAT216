@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import se.chalmers.ait.dat215.project.*;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
@@ -17,11 +18,7 @@ import java.util.List;
 
 public class CartViewController extends ContentViewController{
 
-    @FXML private Label productName;
-    @FXML private ImageView smallImage;
-    @FXML private Label price;
-    @FXML private Label sum;
-    @FXML private ScrollPane cartScroll;
+    @FXML private AnchorPane putCart;
 
     @FXML private Button toCheckOutButton;
     private Product productInCart;
@@ -41,17 +38,13 @@ public class CartViewController extends ContentViewController{
 
     }
 
-    /*public void showCart(List<Product> shoppingCart){
+    public void showCart(){
+        CartListViewController cartListViewController = CartListViewController.load("CartListView.fxml");
+        CartViewController cartViewController;
+        putCart.getChildren().add(cartListViewController.getView());
 
-        for(int i = 0; i < shoppingCart.size(); i++){
-            SmallProductViewController smallProductViewController = SmallProductViewController.load("SmallProductView.fxml");
-            smallProductViewController.setProduct(productInCart);
-
-            cartList.add(shoppingCart.get(i));
-
-        }
     }
-    */
+
     public void toCheckout(ActionEvent evt){
         if(evt.getSource().equals(toCheckOutButton)){
             CheckOutViewController checkOutViewController = CheckOutViewController.load("CheckOutView.fxml");
