@@ -40,7 +40,5 @@ public class CartListController extends ViewController implements ShoppingCartLi
             smallProductViewController.setItem(shopItem);
             smallProductViews.add(smallProductViewController);
         }
-
     }
-
 }
