@@ -11,13 +11,13 @@
    <children>
       <HBox prefHeight="80.0" prefWidth="500.0">
          <children>
-            <ImageView fx:id="smallImage" fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="productName" maxHeight="80.0" maxWidth="100.0" minHeight="80.0" minWidth="100.0" prefHeight="80.0" prefWidth="100.0" text="Name">
+            <ImageView fx:id="productImageView" fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="productNameLabel" maxHeight="80.0" maxWidth="100.0" minHeight="80.0" minWidth="100.0" prefHeight="80.0" prefWidth="100.0" text="Name">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField maxHeight="60.0" maxWidth="50.0" minHeight="60.0" minWidth="50.0" prefHeight="60.0" prefWidth="50.0" promptText="1">
+            <TextField fx:id="quantityTextFeild" maxHeight="60.0" maxWidth="50.0" minHeight="60.0" minWidth="50.0" prefHeight="60.0" prefWidth="50.0" promptText="1">
                <HBox.margin>
                   <Insets top="10.0" />
                </HBox.margin>
@@ -27,7 +27,7 @@
             </TextField>
             <VBox maxHeight="80.0" maxWidth="45.0" prefHeight="80.0" prefWidth="45.0">
                <children>
-                  <ToggleButton maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" text="▲">
+                  <ToggleButton fx:id="increaseQuantityButton" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" text="▲">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -35,7 +35,7 @@
                         <Insets left="4.0" right="5.0" top="3.0" />
                      </VBox.margin>
                   </ToggleButton>
-                  <ToggleButton maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" text="▼">
+                  <ToggleButton fx:id="decreaseQuantityButton" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" text="▼">
                      <VBox.margin>
                         <Insets left="4.0" right="5.0" top="3.0" />
                      </VBox.margin>
@@ -45,17 +45,17 @@
                   </ToggleButton>
                </children>
             </VBox>
-            <Label fx:id="price" maxHeight="80.0" maxWidth="60.0" prefHeight="80.0" prefWidth="60.0" text="Pris">
+            <Label fx:id="productPriceLabel" maxHeight="80.0" maxWidth="60.0" prefHeight="80.0" prefWidth="60.0" text="Pris">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="sum" maxHeight="80.0" maxWidth="70.0" minHeight="80.0" minWidth="70.0" prefHeight="80.0" prefWidth="70.0" text="Summan">
+            <Label fx:id="totalPriceLabel" maxHeight="80.0" maxWidth="70.0" minHeight="80.0" minWidth="70.0" prefHeight="80.0" prefWidth="70.0" text="Summan">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button maxHeight="60.0" maxWidth="75.0" minHeight="60.0" minWidth="75.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="⨂">
+            <Button fx:id="removeProductButton" maxHeight="60.0" maxWidth="75.0" minHeight="60.0" minWidth="75.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="⨂">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
