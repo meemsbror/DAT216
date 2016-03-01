@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;;
+import javafx.scene.control.Button;
 
 public class SmallProductViewController extends ViewController{
     private int quantity;
@@ -20,7 +21,7 @@ public class SmallProductViewController extends ViewController{
     @FXML private Label productNameLabel;
     @FXML private Label productPriceLabel;
     @FXML private Label totalPriceLabel;
-    @FXML private ToggleButton removeProductButton;
+    @FXML private Button removeProductButton;
     @FXML private TextField quantityTextFeild;
     @FXML private ToggleButton increaseQuantityButton;
     @FXML private ToggleButton decreaseQuantityButton;
