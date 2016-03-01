@@ -13,6 +13,8 @@ import javafx.scene.text.Text;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 
+import java.util.IllegalFormatException;
+
 
 public class DetailViewController extends ContentViewController {
 
@@ -100,7 +102,15 @@ public class DetailViewController extends ContentViewController {
 
     public void addToCart(ActionEvent evt){
         if(evt.getSource().equals(addToCartButton))
-            IMatDataHandler.getInstance().getShoppingCart().addProduct(activeProduct, Double.parseDouble(amountCalculator.getText()));
+            System.out.println(activeProduct.getName()+ "Tillagd i kundvagn");
+            double tmp;
+            try{
+                 tmp = Double.parseDouble(amountCalculator.getText());
+            }catch (NumberFormatException e1){
+                 tmp = 1;
+            }
+            IMatDataHandler.getInstance().getShoppingCart().addProduct(activeProduct, tmp);
+            System.out.println(IMatDataHandler.getInstance().getShoppingCart().getItems().get(0).getProduct().getName());
     }
 
 

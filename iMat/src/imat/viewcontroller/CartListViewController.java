@@ -38,7 +38,5 @@ public class CartListViewController extends ViewController implements ShoppingCa
             smallProductViewController.setItem(shopItem);
             smallProductViews.add(smallProductViewController);
         }
-
     }
-
 }

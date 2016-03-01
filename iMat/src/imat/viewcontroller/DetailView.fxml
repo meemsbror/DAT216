@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Rectangle2D?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.DetailViewController">
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.DetailViewController">
    <children>
       <ImageView fx:id="productImage" fitHeight="230.0" fitWidth="320.0" layoutX="14.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="55.0">
          <viewport>
@@ -18,7 +22,7 @@
       </Text>
       <Text fx:id="productPrice" layoutX="478.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pris " AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="120.0" />
       <Text layoutX="580.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sammanlagt pris" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="120.0" />
-      <Button fx:id="addToCartButton" layoutX="537.0" layoutY="341.0" mnemonicParsing="false" prefWidth="300.0" text="Lägg till i kundvagn" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <Button fx:id="addToCartButton" layoutX="537.0" layoutY="341.0" mnemonicParsing="false" onAction="#addToCart" prefWidth="300.0" text="Lägg till i kundvagn" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
       <Text layoutX="467.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Du har ej denna produkt i din kundvagn" wrappingWidth="300.0" AnchorPane.bottomAnchor="53.0" AnchorPane.rightAnchor="14.0" />
       <Button fx:id="removeFavoriteButton" layoutX="530.0" layoutY="112.0" mnemonicParsing="false" onAction="#addAndRemoveToFavorites" prefWidth="200.0" text="Ta bort från favoriter" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="55.0" />
       <Button fx:id="addToFavoriteButton" layoutX="530.0" layoutY="113.0" mnemonicParsing="false" onAction="#addAndRemoveToFavorites" prefWidth="200.0" text="Lägg till i favoriter" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="55.0" />
