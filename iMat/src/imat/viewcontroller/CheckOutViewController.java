@@ -23,22 +23,14 @@ public class CheckOutViewController extends ContentViewController {
 
     @FXML
     public void nextButtonWasPressed() {
-        ConfirmationViewController cvc = new ConfirmationViewController().load("ConfirmationView.fxml");
+        ConfirmationViewController cvc = ConfirmationViewController.load("ConfirmationView.fxml");
         // TODO: Give the ConfirmationViewController the information that should be confirmed!
         RootViewController.getInstance().setContent(cvc);
         cvc.showCart();
     }
 
     public void showCart(){
-        System.out.println("Bajs");
-      /*  CartListViewController cartListViewController = new CartListViewController().load("CartListView.fxml");
-        cartListViewController.showCart();
-        cartPane.getChildren().add(cartListViewController.getView());*/
-
-        CheckOutViewController checkOutViewController = new CheckOutViewController().load("CartListView.fxml");
-        cartPane.getChildren().add(checkOutViewController.getView());
-
-
-
+        CartListViewController cartList = CartListViewController.load("CartListView.fxml");
+        cartPane.getChildren().add(cartList.getView());
     }
 }

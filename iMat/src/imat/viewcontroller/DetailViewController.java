@@ -15,8 +15,6 @@ import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
-import java.util.IllegalFormatException;
-
 
 public class DetailViewController extends ContentViewController {
 
@@ -73,12 +71,17 @@ public class DetailViewController extends ContentViewController {
 
     }
     public void setTotalPrice(){
-        int tmp = indexInCart(activeProduct);
-        ShoppingItem theItem = IMatDataHandler.getInstance().getShoppingCart().getItems().get(tmp);
-        theItem.getAmount();
-        double totPrice = theItem.getAmount() * activeProduct.getPrice();
-        totalPrice.setText(String.valueOf(totPrice));
+        double totPrice = 0.0;
 
+        int index = indexInCart(activeProduct);
+
+        // If the product can't be found in the cart, the total price is obv. 0.
+        if (index >= 0) {
+            ShoppingItem theItem = IMatDataHandler.getInstance().getShoppingCart().getItems().get(index);
+            totPrice = theItem.getAmount() * activeProduct.getPrice();
+        }
+
+        totalPrice.setText(String.valueOf(totPrice));
     }
 
     public void addAndRemoveToFavorites(ActionEvent evt){
