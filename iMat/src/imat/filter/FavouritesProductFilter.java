@@ -1,5 +1,6 @@
-package imat.model;
+package imat.filter;
 
+import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 
 import java.util.List;
@@ -13,8 +14,7 @@ public class FavouritesProductFilter implements ProductFilter {
     }
 
     private boolean isFavourite(Product product) {
-        // TODO: Implement!
-        return false;
+        return IMatDataHandler.getInstance().isFavorite(product);
     }
 
     @Override

@@ -6,10 +6,11 @@
 .category-button {
     -fx-background-color: #b9b9b9;
     -fx-font-size: 110%;
+    -fx-cursor: hand;
 }
 
 .selected-category {
-    -fx-background-color: #f5f5f5 !important;
+    -fx-background-color: #e0e0e0 !important;
 }
 
 .list-view-title {
@@ -18,11 +19,20 @@
 
 .pretty-button {
     -fx-background-color: transparent;
+    -fx-cursor: hand;
 }
 
 .product-tile {
     -fx-background-color: #ffffff;
     -fx-effect: dropshadow(gaussian, #dddddd, 10, 0.5, 3, 3);
+    -fx-cursor: hand;
+}
+
+.product-tile-hover {
+    -fx-effect: dropshadow(gaussian, #e2e2e2, 10, 0.3, 6, 6);
+    -fx-scale-x: 103%;
+    -fx-scale-y: 103%;
+    -fx-scale-z: 103%;
 }
 
 .tile-title {

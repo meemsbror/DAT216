@@ -1,19 +1,13 @@
 package imat.viewcontroller;
 
-import imat.model.ProductFilter;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import imat.filter.ProductFilter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Bounds;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 
@@ -30,8 +24,9 @@ public class ListViewController extends ContentViewController {
         PRICE_DESCENDING
     }
 
-    private List<Product> products = new ArrayList<>();
+    private final List<ProductTileViewController> reuseTiles = new ArrayList<>();
 
+    private List<Product> products = new ArrayList<>();
     private ProductFilter productFilter;
     private SortDescriptor sortDescription;
 
@@ -42,41 +37,25 @@ public class ListViewController extends ContentViewController {
     @FXML private RadioButton lowToHighSortRadioButton;
     @FXML private RadioButton highToLowSortRadioButton;
 
-
-    @FXML private ToggleGroup sortDescriptor;
-
     @FXML private FlowPane flowPane;
     @FXML private ScrollPane scrollPane;
 
-
-
     @Override
     public void initialize() {
-
-
-
-
         scrollPane.viewportBoundsProperty().addListener((observableValue, bounds, newBounds) -> {
             flowPane.setPrefWidth(newBounds.getWidth());
             flowPane.setPrefHeight(newBounds.getHeight());
         });
-
-/*
-        scrollPane.viewportBoundsProperty().addListener(new ChangeListener<Bounds>()
-        {
-            @Override
-            public void changed(ObservableValue<? extends Bounds> ov, Bounds oldBounds, Bounds bounds)
-            {
-                flowPane.setPrefWidth(bounds.getWidth());
-                flowPane.setPrefHeight(bounds.getHeight());
-            }
-        });
-        */
     }
 
     @Override
     protected void viewDidSet(Parent view) {
 
+    }
+
+    public void refetchProducts() {
+        // FIXME: This is a bit of a hack (i trigger the refetch etc. by setting the product filter to itself)
+        setProductFilter(this.productFilter);
     }
 
     public void setProductFilter(ProductFilter productFilter) {
@@ -91,6 +70,10 @@ public class ListViewController extends ContentViewController {
         setSortDescriptorAndPerformSort(SortDescriptor.ALPHABETICALLY_ASCENDING);
     }
 
+    public ProductFilter getProductFilter() {
+        return productFilter;
+    }
+
     private void setSortDescriptorAndPerformSort(SortDescriptor sortDescriptor) {
         this.sortDescription = sortDescriptor;
         Collections.sort(this.products, (o1, o2) -> {
@@ -103,18 +86,11 @@ public class ListViewController extends ContentViewController {
                     return o2.getName().compareTo(o1.getName());
 
                 case PRICE_ASCENDING:
-                    if(o1.getPrice()>o2.getPrice())
-                        return 1;
-                    else if(o1.getPrice()<o2.getPrice())
-                        return -1;
-                    else return 0;
+                    return Double.compare(o1.getPrice(), o2.getPrice());
 
                 case PRICE_DESCENDING:
-                    if(o1.getPrice()<o2.getPrice())
-                        return 1;
-                    else if(o1.getPrice()>o2.getPrice())
-                        return -1;
-                    else return 0;
+                    return Double.compare(o2.getPrice(), o1.getPrice());
+
                 default:
                     return 0;
             }
@@ -125,31 +101,28 @@ public class ListViewController extends ContentViewController {
 
     private void displayProducts(List<Product> productsToDisplay) {
 
-        // First empty out old products
+        // Load tiles from FXML if needed
+        int numTilesToCreate = Math.max(productsToDisplay.size() - reuseTiles.size(), 0);
+        for (int i = 0; i < numTilesToCreate; i++) {
+            ProductTileViewController tile = ProductTileViewController.load("ProductTileView.fxml");
+            reuseTiles.add(tile);
+        }
+
+        // Empty out old tiles
         flowPane.getChildren().clear();
 
-        for (Product product: productsToDisplay) {
-
-            // TODO: Pool & reuse for performance and load time!
-            ProductTileViewController tile = ProductTileViewController.load("ProductTileView.fxml");
-            tile.setProduct(product);
-
+        // Add new tiles
+        for (int productIndex = 0; productIndex < productsToDisplay.size(); productIndex++) {
+            ProductTileViewController tile = reuseTiles.get(productIndex);
+            tile.setProduct(productsToDisplay.get(productIndex));
             flowPane.getChildren().add(tile.getView());
         }
-    }
-
-    private void setToggleGroupRadioButtons(){
-        aToOsortRadioButton.setToggleGroup(sortDescriptor);
-        oToAsortRadioButton.setToggleGroup(sortDescriptor);
-        lowToHighSortRadioButton.setToggleGroup(sortDescriptor);
-        highToLowSortRadioButton.setToggleGroup(sortDescriptor);
     }
 
     @FXML
     public void sortingButtonPressed(ActionEvent event){
         if (event.getSource() instanceof RadioButton) {
             RadioButton radioButton = (RadioButton) event.getSource();
-            System.out.println("hej");
 
             // Set sorting descriptor & sort list
             if (radioButton.equals(aToOsortRadioButton)) setSortDescriptorAndPerformSort(SortDescriptor.ALPHABETICALLY_ASCENDING);
@@ -158,10 +131,5 @@ public class ListViewController extends ContentViewController {
             if (radioButton.equals(highToLowSortRadioButton)) setSortDescriptorAndPerformSort(SortDescriptor.PRICE_DESCENDING);
         }
     }
-
-    public void test(MouseEvent event){
-        System.out.println("test");
-    }
-
 
 }

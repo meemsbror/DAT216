@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingItem;
 
 import java.awt.event.ActionEvent;
 
@@ -47,21 +48,33 @@ public class ProductTileViewController extends ViewController {
 
     }
 
+    @FXML
+    public void onMouseEnter() {
+        getView().getStyleClass().add("product-tile-hover");
+    }
+
+    @FXML
+    public void onMouseExit() {
+        getView().getStyleClass().remove("product-tile-hover");
+    }
+
+
+
 
 
     @FXML
     public void onTilePressed() {
-        // TODO: Load the product detail view. Might be good to have a singleton RootViewController that you can access when you want to set the content.
-        System.out.println("Load product detail view for product " + this.product.getName());
-        DetailViewController detailViewController = DetailViewController.load("DetailView.fxml");
+        DetailViewController detailViewController = RootViewController.getInstance().getReuseDetailViewController();
         detailViewController.setProduct(this.product);
+        detailViewController.setSourceView(RootViewController.getInstance().getReuseListView());
         RootViewController.getInstance().setContent(detailViewController);
     }
 
     @FXML
     public void onCartPressed(ActionEvent e) {
         if(e.getSource().equals(addToCartButton)) {
-            IMatDataHandler.getInstance().addProduct(this.product);
+            ShoppingItem item = new ShoppingItem(product, 1.0);
+            IMatDataHandler.getInstance().getShoppingCart().addItem(item);
             //this.addToCartButton.setGraphic(Parent.lookup("kundvagn-ikon-bla"));
         }
     }

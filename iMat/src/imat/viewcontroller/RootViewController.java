@@ -1,10 +1,10 @@
 package imat.viewcontroller;
 
+import imat.filter.AllProductsProductFilter;
+import imat.filter.CategoryProductFilter;
+import imat.filter.FavouritesProductFilter;
+import imat.filter.SearchProductFilter;
 import imat.formatting.ProductCategoryFormatter;
-import imat.model.AllProductsProductFilter;
-import imat.model.CategoryProductFilter;
-import imat.model.FavouritesProductFilter;
-import imat.model.SearchProductFilter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -39,8 +39,9 @@ public class RootViewController extends ViewController {
     private Button currentlySelectedCategoryButton;
     private Map<Button, ProductCategory> buttonCategoryMap = new HashMap<>();
 
-    // Reuse this for every time a ListViewController is needed
+    // Reuse these every time such a view is needed
     private ListViewController reuseListViewController = ListViewController.load("ListView.fxml");
+    private DetailViewController reuseDetailViewController = DetailViewController.load("DetailView.fxml");
 
     @Override
     public void initialize() {
@@ -73,7 +74,7 @@ public class RootViewController extends ViewController {
     }
 
     private void productCategorySelected(ActionEvent evt){
-        if (evt.getSource() instanceof Button) {
+        if (evt.getSource() instanceof Button && !evt.getSource().equals(currentlySelectedCategoryButton)) {
             Button button = (Button)evt.getSource();
 
             toggleSelectedCategoryButton(button);
@@ -131,15 +132,31 @@ public class RootViewController extends ViewController {
     }
 
     public void toCheckoutActionPerformed(ActionEvent evt){
-        //TODO
+
+        if(evt.getSource().equals(checkoutButton) && !(content instanceof CheckOutViewController)){
+            CheckOutViewController checkOutViewController = CheckOutViewController.load("CheckOutView.fxml");
+            setContent(checkOutViewController);
+        }
     }
 
     public void toCartButtonActionPerformed(ActionEvent evt){
-        //TODO
+        if(evt.getSource().equals(cartButton) && !(content instanceof CartViewController)){
+            CartViewController cartViewController = CartViewController.load("CartView.fxml");
+            setContent(cartViewController);
+            cartViewController.showCart();
+
+
+
+        }
     }
 
     public void toHistoryActionPerformed(ActionEvent evt){
-        //TODO
+
+        if(evt.getSource().equals(historyButton) && !(content instanceof HistoryViewController)){
+            HistoryViewController historyViewController = HistoryViewController.load("HistoryView.fxml");
+            setContent(historyViewController);
+
+        }
     }
 
     /**
@@ -160,4 +177,11 @@ public class RootViewController extends ViewController {
         return instance;
     }
 
+    public ListViewController getReuseListView() {
+        return reuseListViewController;
+    }
+
+    public DetailViewController getReuseDetailViewController() {
+        return reuseDetailViewController;
+    }
 }

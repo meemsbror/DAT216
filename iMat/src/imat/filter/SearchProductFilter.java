@@ -1,4 +1,4 @@
-package imat.model;
+package imat.filter;
 
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;

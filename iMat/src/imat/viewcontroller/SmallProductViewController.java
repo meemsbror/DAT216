@@ -1,5 +1,9 @@
 package imat.viewcontroller;
 
+import javafx.scene.image.Image;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
+import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingItem;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -8,9 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;;
 
-/**
- * Created by Long on 26/02/2016.
- */
 public class SmallProductViewController extends ViewController{
     private int quantity;
     public static final double IMAGE_WIDTH = 100.0;
@@ -23,7 +24,8 @@ public class SmallProductViewController extends ViewController{
     @FXML private TextField quantityTextFeild;
     @FXML private ToggleButton increaseQuantityButton;
     @FXML private ToggleButton decreaseQuantityButton;
-    @FXML private ImageView productImage;
+    @FXML private ImageView productImageView;
+
 
     @Override
     public void initialize() {
@@ -78,7 +80,15 @@ public class SmallProductViewController extends ViewController{
         }
     }
 
+    public void setItem(ShoppingItem item){
 
+        Product product = item.getProduct();
+        Image productImage = IMatDataHandler.getInstance().getFXImage(product);
+        productImageView.setImage(productImage);
+        productNameLabel.setText(product.getName());
 
-
+        productPriceLabel.setText(String.valueOf(product.getPrice()));
+        Double tmp = item.getAmount();
+        this.totalPriceLabel.setText(tmp.toString());
+    }
 }
