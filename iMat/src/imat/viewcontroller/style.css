@@ -6,6 +6,7 @@
 .category-button {
     -fx-background-color: #b9b9b9;
     -fx-font-size: 110%;
+    -fx-cursor: hand;
 }
 
 .selected-category {
@@ -18,11 +19,13 @@
 
 .pretty-button {
     -fx-background-color: transparent;
+    -fx-cursor: hand;
 }
 
 .product-tile {
     -fx-background-color: #ffffff;
     -fx-effect: dropshadow(gaussian, #dddddd, 10, 0.5, 3, 3);
+    -fx-cursor: hand;
 }
 
 .product-tile-hover {

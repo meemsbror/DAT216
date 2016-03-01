@@ -74,7 +74,7 @@ public class RootViewController extends ViewController {
     }
 
     private void productCategorySelected(ActionEvent evt){
-        if (evt.getSource() instanceof Button) {
+        if (evt.getSource() instanceof Button && !evt.getSource().equals(currentlySelectedCategoryButton)) {
             Button button = (Button)evt.getSource();
 
             toggleSelectedCategoryButton(button);
@@ -132,15 +132,14 @@ public class RootViewController extends ViewController {
     }
 
     public void toCheckoutActionPerformed(ActionEvent evt){
-        //TODO
-        if(evt.getSource().equals(checkoutButton)){
+        if(evt.getSource().equals(checkoutButton) && !(content instanceof CheckOutViewController)){
             CheckOutViewController checkOutViewController = CheckOutViewController.load("CheckOutView.fxml");
             setContent(checkOutViewController);
         }
     }
 
     public void toCartButtonActionPerformed(ActionEvent evt){
-        if(evt.getSource().equals(cartButton)){
+        if(evt.getSource().equals(cartButton) && !(content instanceof CartViewController)){
             CartViewController cartViewController = CartViewController.load("CartView.fxml");
             setContent(cartViewController);
 
@@ -148,8 +147,7 @@ public class RootViewController extends ViewController {
     }
 
     public void toHistoryActionPerformed(ActionEvent evt){
-        //TODO
-        if(evt.getSource().equals(historyButton)){
+        if(evt.getSource().equals(historyButton) && !(content instanceof HistoryViewController)){
             HistoryViewController historyViewController = HistoryViewController.load("HistoryView.fxml");
             setContent(historyViewController);
 
