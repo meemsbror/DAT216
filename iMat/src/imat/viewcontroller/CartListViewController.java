@@ -1,10 +1,13 @@
 package imat.viewcontroller;
 
+import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.ListView;
 import se.chalmers.ait.dat215.project.*;
+import javafx.collections.FXCollections;
 
 import java.util.List;
 
@@ -12,8 +15,7 @@ public class CartListViewController extends ViewController implements ShoppingCa
 
     @FXML ListView listView;
 
-
-    private static ObservableList<Parent> smallProductViews;
+    ObservableList<Parent> smallProductViews = FXCollections.observableArrayList();
 
 
     public void initialize() {
@@ -24,9 +26,6 @@ public class CartListViewController extends ViewController implements ShoppingCa
     }
 
 
-
-    private CartListViewController(){
-    }
 
     public void shoppingCartChanged(CartEvent event){
 

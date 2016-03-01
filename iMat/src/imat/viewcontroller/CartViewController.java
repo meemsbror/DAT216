@@ -39,7 +39,8 @@ public class CartViewController extends ContentViewController{
     }
 
     public void showCart(){
-        CartListViewController cartListViewController = CartListViewController.load("CartListView.fxml");
+
+        CartListViewController cartListViewController = new CartListViewController().load("CartListView.fxml");
         cartListViewController.showCart();
         putCart.getChildren().add(cartListViewController.getView());
 
