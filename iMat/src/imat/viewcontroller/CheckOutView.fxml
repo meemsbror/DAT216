@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-
-
+<?import javafx.scene.text.*?>
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.CheckOutViewController">
    <children>
       <Text layoutX="21.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kassa" AnchorPane.topAnchor="12.804878234863281">
@@ -36,6 +33,7 @@
                   <TextField fx:id="cardNumber" layoutX="367.0" layoutY="338.0" AnchorPane.leftAnchor="367.0" />
                   <TextField fx:id="cvcCode" layoutX="78.0" layoutY="368.0" AnchorPane.leftAnchor="78.0" />
                   <Text layoutX="14.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVC" AnchorPane.leftAnchor="14.0" />
+                  <Button mnemonicParsing="false" onAction="#nextButtonWasPressed" text="Nästa" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
                </children>
             </AnchorPane>
         </content>
