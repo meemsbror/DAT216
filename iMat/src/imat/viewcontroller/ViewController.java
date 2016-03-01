@@ -3,7 +3,7 @@ package imat.viewcontroller;
 import com.sun.istack.internal.NotNull;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-
+import se.chalmers.ait.dat215.project.*;
 public abstract class ViewController {
 
     /**
@@ -94,5 +94,15 @@ public abstract class ViewController {
      * @param view the associated view
      */
     protected abstract void viewDidSet(Parent view);
+
+    public static int indexInCart(Product p){
+
+        for(ShoppingItem item: IMatDataHandler.getInstance().getShoppingCart().getItems()){
+            if(item.getProduct().equals(p)){
+                return IMatDataHandler.getInstance().getShoppingCart().getItems().indexOf(item);
+            }
+
+        }
+    }
 
 }

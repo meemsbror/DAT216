@@ -112,6 +112,4 @@ public class DetailViewController extends ContentViewController {
             IMatDataHandler.getInstance().getShoppingCart().addProduct(activeProduct, tmp);
             System.out.println(IMatDataHandler.getInstance().getShoppingCart().getItems().get(0).getProduct().getName());
     }
-
-
 }
