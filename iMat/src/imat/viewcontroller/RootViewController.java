@@ -143,6 +143,8 @@ public class RootViewController extends ViewController {
         if(evt.getSource().equals(cartButton) && !(content instanceof CartViewController)){
             CartViewController cartViewController = CartViewController.load("CartView.fxml");
             setContent(cartViewController);
+            cartViewController.showCart();
+
 
 
         }

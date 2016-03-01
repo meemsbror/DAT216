@@ -1,14 +1,19 @@
 package imat.viewcontroller;
 
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.ListView;
 import se.chalmers.ait.dat215.project.*;
 
 import java.util.List;
 
 public class CartListViewController extends ViewController implements ShoppingCartListener{
 
-    private static ObservableList<SmallProductViewController> smallProductViews;
+    @FXML ListView listView;
+
+
+    private static ObservableList<Parent> smallProductViews;
 
 
     public void initialize() {
@@ -28,7 +33,7 @@ public class CartListViewController extends ViewController implements ShoppingCa
     }
 
 
-    public void showCart(List<Product> shoppingCart){
+    public void showCart(){
 
         smallProductViews.removeAll(smallProductViews);
         for(ShoppingItem shopItem: IMatDataHandler.getInstance().getShoppingCart().getItems()) {
@@ -36,7 +41,10 @@ public class CartListViewController extends ViewController implements ShoppingCa
 
             SmallProductViewController smallProductViewController = new SmallProductViewController().load("SmallProductView.fxml");
             smallProductViewController.setItem(shopItem);
-            smallProductViews.add(smallProductViewController);
+            smallProductViews.add(smallProductViewController.getView());
+
         }
+        System.out.println("yolo");
+        listView.setItems(smallProductViews);
     }
 }
