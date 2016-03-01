@@ -132,7 +132,6 @@ public class RootViewController extends ViewController {
     }
 
     public void toCheckoutActionPerformed(ActionEvent evt){
-        //TODO
         if(evt.getSource().equals(checkoutButton)){
             CheckOutViewController checkOutViewController = CheckOutViewController.load("CheckOutView.fxml");
             setContent(checkOutViewController);
@@ -148,7 +147,6 @@ public class RootViewController extends ViewController {
     }
 
     public void toHistoryActionPerformed(ActionEvent evt){
-        //TODO
         if(evt.getSource().equals(historyButton)){
             HistoryViewController historyViewController = HistoryViewController.load("HistoryView.fxml");
             setContent(historyViewController);
