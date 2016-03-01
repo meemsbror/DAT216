@@ -27,6 +27,8 @@ public class SmallProductViewController extends ViewController{
     @FXML private ToggleButton decreaseQuantityButton;
     @FXML private ImageView productImageView;
 
+    private Product product;
+
 
     @Override
     public void initialize() {
@@ -75,9 +77,11 @@ public class SmallProductViewController extends ViewController{
 
     public void removeProduct(ActionEvent evt)
     {
-        if (evt.getSource().equals("removeProductButton"))
-        {
-            
+        if (evt.getSource().equals("removeProductButton")) {
+            int tmp = indexInCart(product);
+            IMatDataHandler.getInstance().getShoppingCart().removeItem(tmp);
+            CartListViewController cartListViewController = new CartListViewController();
+            cartListViewController.showCart();
         }
     }
 

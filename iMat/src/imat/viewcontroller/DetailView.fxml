@@ -26,8 +26,8 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="productPrice" layoutX="478.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pris " AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="120.0" />
-      <Text fx:id="totalPrice" layoutX="580.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sammanlagt pris" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="120.0" />
+      <Text fx:id="productPrice" layoutX="495.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pris " AnchorPane.bottomAnchor="222.0" AnchorPane.rightAnchor="183.82825088500977" AnchorPane.topAnchor="162.0" />
+      <Text fx:id="totalPrice" layoutX="593.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sammanlagt pris" AnchorPane.bottomAnchor="222.0" AnchorPane.rightAnchor="12.148368835449219" AnchorPane.topAnchor="162.0" />
       <Button fx:id="addToCartButton" layoutX="537.0" layoutY="341.0" mnemonicParsing="false" onAction="#addToCart" prefWidth="300.0" text="Lägg till i kundvagn" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
       <Text layoutX="467.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Du har ej denna produkt i din kundvagn" wrappingWidth="300.0" AnchorPane.bottomAnchor="53.0" AnchorPane.rightAnchor="14.0" />
       <Button fx:id="removeFavoriteButton" layoutX="530.0" layoutY="112.0" mnemonicParsing="false" onAction="#addAndRemoveToFavorites" prefWidth="200.0" text="Ta bort från favoriter" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="55.0" />
@@ -44,5 +44,7 @@
             <Font size="15.0" />
          </font>
       </ToggleButton>
+      <Text layoutX="409.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pris" AnchorPane.bottomAnchor="222.0" AnchorPane.rightAnchor="273.50101470947266" AnchorPane.topAnchor="162.0" />
+      <Text layoutX="623.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Totalt" AnchorPane.bottomAnchor="222.0" AnchorPane.rightAnchor="48.482723236083984" AnchorPane.topAnchor="162.0" />
    </children>
 </AnchorPane>

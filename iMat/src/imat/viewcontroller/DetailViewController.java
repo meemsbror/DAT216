@@ -1,6 +1,7 @@
 package imat.viewcontroller;
 
 import imat.filter.FavouritesProductFilter;
+import imat.formatting.PriceFormatter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -50,6 +51,7 @@ public class DetailViewController extends ContentViewController {
         setTitle();
         setPrice();
         setProductImage();
+        setTotalPrice();
         if(IMatDataHandler.getInstance().isFavorite(activeProduct)){
             removeFavoriteButton.toFront();
         }else{
@@ -62,7 +64,7 @@ public class DetailViewController extends ContentViewController {
     }
 
     public void setPrice(){
-        productPrice.setText(String.valueOf(activeProduct.getPrice()));
+        productPrice.setText(String.valueOf(PriceFormatter.getFormattedPrice(activeProduct)));
     }
 
     public void setProductImage(){
@@ -74,7 +76,9 @@ public class DetailViewController extends ContentViewController {
         int tmp = indexInCart(activeProduct);
         ShoppingItem theItem = IMatDataHandler.getInstance().getShoppingCart().getItems().get(tmp);
         theItem.getAmount();
-        totalPrice.setText(String.valueOf(theItem.getAmount()*activeProduct.getPrice()));
+        double totPrice = theItem.getAmount() * activeProduct.getPrice();
+        totalPrice.setText(String.valueOf(totPrice));
+
     }
 
     public void addAndRemoveToFavorites(ActionEvent evt){

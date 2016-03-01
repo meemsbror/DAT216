@@ -134,8 +134,10 @@ public class RootViewController extends ViewController {
     public void toCheckoutActionPerformed(ActionEvent evt){
 
         if(evt.getSource().equals(checkoutButton) && !(content instanceof CheckOutViewController)){
+            System.out.println("HEJ");
             CheckOutViewController checkOutViewController = CheckOutViewController.load("CheckOutView.fxml");
             setContent(checkOutViewController);
+            checkOutViewController.showCart();
         }
     }
 
