@@ -4,8 +4,8 @@ import imat.viewcontroller.RootViewController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
 
-import java.awt.*;
 import java.io.File;
 
 public class Main extends Application {
@@ -35,6 +35,9 @@ public class Main extends Application {
         File cssFile = new File("src/imat/viewcontroller/style.css");
         String cleanedUpPath = "file://" + cssFile.getAbsolutePath().replace('\\', '/');
         scene.getStylesheets().add(cleanedUpPath);
+
+        // Save state when closing down
+        primaryStage.setOnCloseRequest(event -> IMatDataHandler.getInstance().shutDown());
 
         primaryStage.show();
     }

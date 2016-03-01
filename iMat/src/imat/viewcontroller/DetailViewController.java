@@ -1,18 +1,17 @@
 package imat.viewcontroller;
 
+import imat.filter.FavouritesProductFilter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
-import se.chalmers.ait.dat215.project.ShoppingCart;
-import se.chalmers.ait.dat215.project.ShoppingItem;
 
 
 public class DetailViewController extends ContentViewController {
@@ -76,6 +75,16 @@ public class DetailViewController extends ContentViewController {
             IMatDataHandler.getInstance().removeFavorite(activeProduct);
             addToFavoriteButton.toFront();
         }
+
+        if (sourceViewController instanceof ListViewController) {
+            ListViewController lvc = (ListViewController) sourceViewController;
+            if (lvc.getProductFilter() instanceof FavouritesProductFilter) {
+                // If the source is a ListView with a FavouritesProductFilter, make sure it updates its list
+                // since the addAndRemoveToFavourites method is bound to change its content.
+                lvc.refetchProducts();
+            }
+        }
+
     }
 
     public void setSourceView(ContentViewController content){
