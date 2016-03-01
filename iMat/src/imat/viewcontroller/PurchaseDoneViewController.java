@@ -16,11 +16,11 @@ public class PurchaseDoneViewController extends ContentViewController {
 
     }
 
-    @FXML
+    /*@FXML
     public void backToStoreButtonWasPressed() {
         ListViewController lvc = RootViewController.getInstance().getReuseListView();
         lvc.setProductFilter(new AllProductsProductFilter());
         RootViewController.getInstance().setContent(lvc);
-    }
+    }*/
 
 }

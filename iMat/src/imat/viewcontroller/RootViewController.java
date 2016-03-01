@@ -132,11 +132,8 @@ public class RootViewController extends ViewController {
     }
 
     public void toCheckoutActionPerformed(ActionEvent evt){
-<<<<<<< HEAD
-        if(evt.getSource().equals(checkoutButton)){
-=======
+
         if(evt.getSource().equals(checkoutButton) && !(content instanceof CheckOutViewController)){
->>>>>>> 0362aca6ffd093b5e1b0327866dca193aa57237b
             CheckOutViewController checkOutViewController = CheckOutViewController.load("CheckOutView.fxml");
             setContent(checkOutViewController);
         }
@@ -151,11 +148,8 @@ public class RootViewController extends ViewController {
     }
 
     public void toHistoryActionPerformed(ActionEvent evt){
-<<<<<<< HEAD
-        if(evt.getSource().equals(historyButton)){
-=======
+
         if(evt.getSource().equals(historyButton) && !(content instanceof HistoryViewController)){
->>>>>>> 0362aca6ffd093b5e1b0327866dca193aa57237b
             HistoryViewController historyViewController = HistoryViewController.load("HistoryView.fxml");
             setContent(historyViewController);
 
