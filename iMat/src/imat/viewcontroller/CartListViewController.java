@@ -30,7 +30,6 @@ public class CartListViewController extends ViewController implements ShoppingCa
 
     public void showCart(){
         smallProductViews.removeAll(smallProductViews);
-
         for(Product p:cart.keySet()) {
             SmallProductViewController smallProductViewController = SmallProductViewController.load("SmallProductView.fxml");
             smallProductViewController.setItem(new ShoppingItem(p,cart.get(p)));
@@ -41,7 +40,7 @@ public class CartListViewController extends ViewController implements ShoppingCa
 
     @Override
     public void shoppingCartChanged(CartEvent event){
-        if(!event.isAddEvent()){
+        if(!event.isAddEvent()) {
             showCart();
         }
     }

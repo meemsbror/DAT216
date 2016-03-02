@@ -6,14 +6,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
-import se.chalmers.ait.dat215.project.ShoppingItem;
+
+import java.util.Map;
 
 
 public class DetailViewController extends ContentViewController {
@@ -26,49 +28,60 @@ public class DetailViewController extends ContentViewController {
     @FXML private Button backButton;
     @FXML private Button addToCartButton;
     @FXML private TextField amountCalculator;
-    @FXML private ToggleButton amountDown;
-    @FXML private ToggleButton amountUp;
-    @FXML private Text totalPrice;
-    @FXML private Text inCartText;
+    @FXML private Button amountDown;
+    @FXML private Button amountUp;
+    @FXML private Label unitLabel;
     @FXML private Text feedBackText;
 
     private Product activeProduct;
 
     private ContentViewController sourceViewController;
-    private String notInCart = "Produkten finns ej i kundvagnen";
-    private String inCart = "Produkten finns nu i kundvagnen";
 
-
+    private double quantity = 1.0;
 
 
     @Override
     public void initialize() {
-
     }
 
     @Override
     protected void viewDidSet(Parent view) {
     }
 
-    public void setProduct(Product p){
-        if(indexInCart(p)>=0){
-            ShoppingItem item = IMatDataHandler.getInstance().getShoppingCart().getItems().get(indexInCart(p));
-            updateAmount(item);
-        }
-        this.activeProduct=p;
+    public void setProduct(Product p) {
+
+        this.activeProduct = p;
+
+        this.quantity = 1.0;
+        updateLabels();
+
         setTitle();
         setPrice();
         setProductImage();
-        setTotalPrice();
-        setFeedBackText();
-        if(IMatDataHandler.getInstance().isFavorite(activeProduct)){
+        unitLabel.setText(activeProduct.getUnitSuffix());
+
+        if(IMatDataHandler.getInstance().isFavorite(activeProduct)) {
             removeFavoriteButton.toFront();
-        }else{
+        } else {
             addToFavoriteButton.toFront();
         }
-
     }
 
+    private void updateLabels() {
+        updateCalculatorValue();
+        setFeedBackText();
+    }
+
+    private void updateCalculatorValue() {
+        String calculatorTextValue;
+        if (productAllowsFractionalUnits(activeProduct)) {
+            calculatorTextValue = String.valueOf(this.quantity);
+        } else {
+            long integerQuantity = Math.round(this.quantity);
+            calculatorTextValue = String.valueOf(integerQuantity);
+        }
+        this.amountCalculator.setText(calculatorTextValue);
+    }
 
     public void setTitle() {
         productName.setText(activeProduct.getName());
@@ -83,33 +96,97 @@ public class DetailViewController extends ContentViewController {
         productImage.setImage(detailImage);
 
     }
-    public void setTotalPrice(){
-        double totPrice = 0.0;
 
-        int index = indexInCart(activeProduct);
+    public void setFeedBackText(){
 
-        // If the product can't be found in the cart, the total price is obv. 0.
-        if (index >= 0) {
-            ShoppingItem theItem = IMatDataHandler.getInstance().getShoppingCart().getItems().get(index);
-            totPrice = theItem.getAmount() * activeProduct.getPrice();
+        Map<Product, Double> cart = RootViewController.getInstance().getCart();
+        double inCartQuantity = 0.0;
+        if (cart.containsKey(activeProduct)) {
+            inCartQuantity = cart.get(activeProduct);
         }
 
-        totalPrice.setText(String.valueOf(totPrice));
-    }
+        if(inCartQuantity > 0){
+            String totalPriceFormatted = PriceFormatter.getFormattedPriceWithoutUnit(activeProduct, inCartQuantity);
+            String feedbackText = "Produkten finns i kundvagnen (" + inCartQuantity + " " + activeProduct.getUnitSuffix() +
+                    " för " + totalPriceFormatted + "kr)";
 
-    private void updateAmount(ShoppingItem item){
-        inCartText.setText("Du har redan " + (item.getAmount() + " st i kundvagnen"));
-    }
-
-    public void setFeedBackText() {
-        if (indexInCart(activeProduct) >= 0) {
-            updateAmount(item);
-        }
-        else {
-            feedBackText.setText(notInCart);
+            feedBackText.setText(feedbackText);
+        }else{
+            feedBackText.setText("Produkten finns ej i kundvagnen");
         }
     }
 
+    @FXML
+    public void upButtonWasPressed() {
+        quantity += 1.0;
+        updateLabels();
+    }
+
+    @FXML
+    public void downButtonWasPressed() {
+        quantity = Math.max(0.0, quantity - 1.0);
+        updateLabels();
+    }
+
+    @FXML
+    public void onKeyTypedInCalculator(KeyEvent event) {
+        consumeIllegalCharacters(event);
+        String newText = amountCalculator.getText() + event.getCharacter();
+        try {
+            if (productAllowsFractionalUnits(activeProduct)) {
+                this.quantity = Double.parseDouble(newText);
+            } else {
+                this.quantity = (double) Integer.parseInt(newText);
+            }
+        } catch (NumberFormatException e) {
+            //System.err.println("Couldn't parse quantity text! This should be taken care of by deleting illegal characters, " +
+            //        "however it seems like it didn't...");
+        }
+    }
+
+    private void consumeIllegalCharacters(KeyEvent event) {
+        String typedCharacter = event.getCharacter();
+
+        // Consume any leading zeros unless the product allows fractional units
+        if (amountCalculator.getText().isEmpty() && typedCharacter.equals("0") && !productAllowsFractionalUnits(activeProduct)) {
+            event.consume();
+        }
+
+        // Consume non-numeric characters ...
+        if (!typedCharacter.matches("[0-9]")) {
+
+            // If it's "." or "," ...
+            if (typedCharacter.matches("\\.|,")) {
+
+                if (productAllowsFractionalUnits(activeProduct)) {
+
+                    // Don't allow a comma or dot at the beginning of the string
+                    if (amountCalculator.getText().isEmpty()) {
+                        event.consume();
+                    }
+
+                    // Only allow a maximum of one decimal point
+                    if (amountCalculator.getText().contains(".") || amountCalculator.getText().contains(",")) {
+                        event.consume();
+                    }
+
+                } else {
+
+                    // If this product only is sold in whole quantities, consume commas and dots.
+                    event.consume();
+                }
+
+            } else {
+                // Consume all other non-numerical characters
+                event.consume();
+            }
+        }
+    }
+
+
+    private boolean productAllowsFractionalUnits(Product product) {
+        return !(product.getUnitSuffix().equals("förp") || product.getUnitSuffix().equals("st"));
+    }
 
     public void addAndRemoveToFavorites(ActionEvent evt){
         if(evt.getSource().equals(addToFavoriteButton)) {
@@ -145,16 +222,10 @@ public class DetailViewController extends ContentViewController {
     public void addToCart(ActionEvent evt){
         if(evt.getSource().equals(addToCartButton)) {
             System.out.println(activeProduct.getName() + "Tillagd i kundvagn");
-            double tmp;
-            try {
-                tmp = Double.parseDouble(amountCalculator.getText());
-            } catch (NumberFormatException e1) {
-                tmp = 1;
-            }
-            IMatDataHandler.getInstance().getShoppingCart().addProduct(activeProduct, tmp);
-            updateAmount(IMatDataHandler.getInstance().getShoppingCart().getItems().get(indexInCart(activeProduct)));
+            IMatDataHandler.getInstance().getShoppingCart().addProduct(activeProduct, quantity);
             System.out.println(IMatDataHandler.getInstance().getShoppingCart().getItems().get(0).getProduct().getName());
-            setFeedBackText();
+
+            updateLabels();
         }
     }
 }
