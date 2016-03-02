@@ -12,12 +12,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import se.chalmers.ait.dat215.project.ProductCategory;
+import se.chalmers.ait.dat215.project.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class RootViewController extends ViewController {
+public class RootViewController extends ViewController implements ShoppingCartListener{
 
     @FXML private Button favoriteButton;
     @FXML private Button allContentButton;
@@ -29,6 +29,8 @@ public class RootViewController extends ViewController {
     @FXML private TextField searchTextField;
 
     private static RootViewController instance;
+    private HashMap<Product,Double> cart = new HashMap<>();
+
 
 
 
@@ -47,6 +49,7 @@ public class RootViewController extends ViewController {
     public void initialize() {
         setCategories();
         toAllContentActionPerformed(new ActionEvent(allContentButton, null));
+        IMatDataHandler.getInstance().getShoppingCart().addShoppingCartListener(this);
     }
 
     @Override
@@ -132,10 +135,10 @@ public class RootViewController extends ViewController {
     }
 
     public void toCheckoutActionPerformed(ActionEvent evt){
-
         if(evt.getSource().equals(checkoutButton) && !(content instanceof CheckOutViewController)){
             CheckOutViewController checkOutViewController = CheckOutViewController.load("CheckOutView.fxml");
             setContent(checkOutViewController);
+            //checkOutViewController.showCart();
         }
     }
 
@@ -144,9 +147,6 @@ public class RootViewController extends ViewController {
             CartViewController cartViewController = CartViewController.load("CartView.fxml");
             setContent(cartViewController);
             cartViewController.showCart();
-
-
-
         }
     }
 
@@ -184,4 +184,46 @@ public class RootViewController extends ViewController {
     public DetailViewController getReuseDetailViewController() {
         return reuseDetailViewController;
     }
+
+    public Map<Product,Double> getCart(){
+        return cart;
+    }
+
+    public void shoppingCartChanged(CartEvent event){
+        System.out.println("yolo");
+        if(event.isAddEvent()){
+            addItem(event.getShoppingItem());
+        }
+        else{
+            removeItem(event.getShoppingItem());
+            System.out.println("yolo");
+        }
+    }
+
+    private void addItem(ShoppingItem item){
+        if(cart.containsKey(item.getProduct())) {
+            incrementItem(item);
+        }
+        else {
+            cart.put(item.getProduct(),item.getAmount());
+        }
+    }
+
+    private void removeItem(ShoppingItem item){
+        cart.remove(item.getProduct());
+    }
+
+    private void decrementItem(Product product, int i){
+        double amount = cart.get(product);
+        amount -= i;
+        cart.put(product,amount);
+    }
+
+    private void incrementItem(ShoppingItem item){
+        double amount = cart.get(item.getProduct());
+        amount += item.getAmount();
+        cart.put(item.getProduct(),amount);
+    }
+
+
 }

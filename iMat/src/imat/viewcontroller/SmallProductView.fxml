@@ -55,7 +55,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button fx:id="removeProductButton" maxHeight="60.0" maxWidth="75.0" minHeight="60.0" minWidth="75.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="⨂">
+            <Button fx:id="removeProductButton" maxHeight="60.0" maxWidth="75.0" minHeight="60.0" minWidth="75.0" mnemonicParsing="false" onAction="#removeProduct" prefHeight="60.0" prefWidth="75.0" text="⨂">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>

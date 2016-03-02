@@ -2,8 +2,11 @@ package imat.viewcontroller;
 
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.layout.AnchorPane;
 
 public class ConfirmationViewController extends ContentViewController {
+
+    @FXML AnchorPane showPane;
 
     @Override
     public void initialize() {
@@ -28,6 +31,12 @@ public class ConfirmationViewController extends ContentViewController {
     private boolean performPurchase() {
         // TODO: Implement!
         return true;
+    }
+
+    public void showCart(){
+        CartListViewController cartListViewController = CartListViewController.load("CartListView.fxml");
+        cartListViewController.showCart();
+        showPane.getChildren().add(cartListViewController.getView());
     }
 
 }

@@ -1,19 +1,13 @@
 package imat.viewcontroller;
 
-
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import se.chalmers.ait.dat215.project.*;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeEvent;
+import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingItem;
+
 import java.util.List;
 
 public class CartViewController extends ContentViewController{
@@ -39,11 +33,9 @@ public class CartViewController extends ContentViewController{
     }
 
     public void showCart(){
-
-        CartListViewController cartListViewController = new CartListViewController().load("CartListView.fxml");
+        CartListViewController cartListViewController = CartListViewController.load("CartListView.fxml");
         cartListViewController.showCart();
         putCart.getChildren().add(cartListViewController.getView());
-
     }
 
     public void toCheckout(ActionEvent evt){

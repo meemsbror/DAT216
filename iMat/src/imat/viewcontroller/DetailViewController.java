@@ -1,6 +1,7 @@
 package imat.viewcontroller;
 
 import imat.filter.FavouritesProductFilter;
+import imat.formatting.PriceFormatter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -13,8 +14,6 @@ import javafx.scene.text.Text;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
-
-import java.util.IllegalFormatException;
 
 
 public class DetailViewController extends ContentViewController {
@@ -55,6 +54,7 @@ public class DetailViewController extends ContentViewController {
         setTitle();
         setPrice();
         setProductImage();
+        setTotalPrice();
         if(IMatDataHandler.getInstance().isFavorite(activeProduct)){
             removeFavoriteButton.toFront();
         }else{
@@ -71,7 +71,7 @@ public class DetailViewController extends ContentViewController {
     }
 
     public void setPrice(){
-        productPrice.setText(String.valueOf(activeProduct.getPrice()));
+        productPrice.setText(String.valueOf(PriceFormatter.getFormattedPrice(activeProduct)));
     }
 
     public void setProductImage(){
@@ -80,10 +80,17 @@ public class DetailViewController extends ContentViewController {
 
     }
     public void setTotalPrice(){
-        int tmp = indexInCart(activeProduct);
-        ShoppingItem theItem = IMatDataHandler.getInstance().getShoppingCart().getItems().get(tmp);
-        theItem.getAmount();
-        totalPrice.setText(String.valueOf(theItem.getAmount()*activeProduct.getPrice()));
+        double totPrice = 0.0;
+
+        int index = indexInCart(activeProduct);
+
+        // If the product can't be found in the cart, the total price is obv. 0.
+        if (index >= 0) {
+            ShoppingItem theItem = IMatDataHandler.getInstance().getShoppingCart().getItems().get(index);
+            totPrice = theItem.getAmount() * activeProduct.getPrice();
+        }
+
+        totalPrice.setText(String.valueOf(totPrice));
     }
 
     public void addAndRemoveToFavorites(ActionEvent evt){
@@ -127,8 +134,6 @@ public class DetailViewController extends ContentViewController {
                 tmp = 1;
             }
             IMatDataHandler.getInstance().getShoppingCart().addProduct(activeProduct, tmp);
-            System.out.println(IMatDataHandler.getInstance().getShoppingCart().getItems().get(0).getProduct().getName());
-
             updateAmount(IMatDataHandler.getInstance().getShoppingCart().getItems().get(indexInCart(activeProduct)));
         }
     }

@@ -13,6 +13,9 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;;
 import javafx.scene.control.Button;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeSupport;
+
 public class SmallProductViewController extends ViewController{
     private int quantity;
     public static final double IMAGE_WIDTH = 100.0;
@@ -32,7 +35,6 @@ public class SmallProductViewController extends ViewController{
 
     @Override
     public void initialize() {
-
     }
 
     @Override
@@ -77,11 +79,11 @@ public class SmallProductViewController extends ViewController{
 
     public void removeProduct(ActionEvent evt)
     {
-        if (evt.getSource().equals("removeProductButton"))
-        {
-            IMatDataHandler.getInstance().getShoppingCart().getItems().remove(item);
-            getView().setVisible(false);
-            getView().setManaged(false);
+        System.out.println("Vi forsoker faktiskt ta bort");
+        if (evt.getSource().equals("removeProductButton")) {
+            IMatDataHandler.getInstance().getShoppingCart().removeItem(item);
+            IMatDataHandler.getInstance().getShoppingCart().fireShoppingCartChanged(item,false);
+
         }
     }
 
@@ -96,5 +98,9 @@ public class SmallProductViewController extends ViewController{
         productPriceLabel.setText(String.valueOf(product.getPrice()));
         Double tmp = this.item.getAmount();
         this.totalPriceLabel.setText(tmp.toString());
+    }
+
+    public ShoppingItem getItem(){
+        return item;
     }
 }
