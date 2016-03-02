@@ -183,5 +183,8 @@ public class RootViewController extends ViewController {
         return reuseDetailViewController;
     }
 
-    public CartViewController getReuseCartViewController(){return reuseCartViewController; }
+    public CartViewController getReuseCartViewController(){
+        reuseCartViewController.showCart();
+        return reuseCartViewController;
+    }
 }
