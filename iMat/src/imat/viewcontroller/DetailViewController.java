@@ -31,12 +31,14 @@ public class DetailViewController extends ContentViewController {
     @FXML private Text totalPrice;
     @FXML private Text feedBackText;
 
+    private Product activeProduct;
+
     private ContentViewController sourceViewController;
     private String notInCart = "Produkten finns ej i kundvagnen";
     private String inCart = "Produkten finns nu i kundvagnen";
 
 
-    private Product activeProduct;
+
 
     @Override
     public void initialize() {

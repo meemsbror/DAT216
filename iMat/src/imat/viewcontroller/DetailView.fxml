@@ -29,7 +29,10 @@
       <Text fx:id="productPrice" layoutX="495.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pris " AnchorPane.bottomAnchor="222.0" AnchorPane.rightAnchor="183.82825088500977" AnchorPane.topAnchor="162.0" />
       <Text fx:id="totalPrice" layoutX="593.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sammanlagt pris" AnchorPane.bottomAnchor="222.0" AnchorPane.rightAnchor="12.148368835449219" AnchorPane.topAnchor="162.0" />
       <Button fx:id="addToCartButton" layoutX="537.0" layoutY="341.0" mnemonicParsing="false" onAction="#addToCart" prefWidth="300.0" text="Lägg till i kundvagn" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
-      <Text fx:id="feedBackText" layoutX="467.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Du har ej denna produkt i din kundvagn" wrappingWidth="300.0" AnchorPane.bottomAnchor="53.0" AnchorPane.rightAnchor="14.0" />
+      <Text fx:id="feedBackText" layoutX="467.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Du har ej denna produkt i din kundvagn" wrappingWidth="300.0" AnchorPane.bottomAnchor="53.0" AnchorPane.rightAnchor="14.0">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
       <Button fx:id="removeFavoriteButton" layoutX="530.0" layoutY="112.0" mnemonicParsing="false" onAction="#addAndRemoveToFavorites" prefWidth="200.0" text="Ta bort från favoriter" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="55.0" />
       <Button fx:id="addToFavoriteButton" layoutX="530.0" layoutY="113.0" mnemonicParsing="false" onAction="#addAndRemoveToFavorites" prefWidth="200.0" text="Lägg till i favoriter" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="55.0" />
       <Button fx:id="backButton" layoutX="14.0" layoutY="51.0" mnemonicParsing="false" onAction="#backToSource" text="Tillbaka" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
