@@ -1,5 +1,6 @@
 package imat.viewcontroller;
 
+import imat.formatting.PriceFormatter;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -96,9 +97,16 @@ public class SmallProductViewController extends ViewController{
         productImageView.setImage(productImage);
         productNameLabel.setText(product.getName());
 
-        productPriceLabel.setText(String.valueOf(product.getPrice()));
-        Double tmp = this.item.getAmount();
-        this.totalPriceLabel.setText(tmp.toString());
+
+        productPriceLabel.setText(String.valueOf(PriceFormatter.getFormattedPrice(product)));
+        double tmp = 0.0;
+        int index = indexInCart(product);
+        if(index >= 0) {
+            ShoppingItem theItem = IMatDataHandler.getInstance().getShoppingCart().getItems().get(index);
+            tmp = theItem.getAmount() * product.getPrice();
+        }
+        totalPriceLabel.setText(String.valueOf(tmp));
+
     }
 
     public ShoppingItem getItem() {

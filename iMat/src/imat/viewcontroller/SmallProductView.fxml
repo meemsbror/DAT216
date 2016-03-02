@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="toDetailView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.SmallProductViewController">
    <children>
-      <HBox fx:id="toDetailView2" prefHeight="80.0" prefWidth="500.0">
+      <HBox fx:id="toDetailView2" prefHeight="80.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fx:id="productImageView" fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="productNameLabel" maxHeight="80.0" maxWidth="100.0" minHeight="80.0" minWidth="100.0" prefHeight="80.0" prefWidth="100.0" text="Name">
