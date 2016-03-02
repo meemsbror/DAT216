@@ -33,6 +33,7 @@ public class DetailViewController extends ContentViewController {
     @FXML private Text feedBackText;
 
     private Product activeProduct;
+    private ShoppingItem item;
 
     private ContentViewController sourceViewController;
     private String notInCart = "Produkten finns ej i kundvagnen";
@@ -68,9 +69,7 @@ public class DetailViewController extends ContentViewController {
         }
 
     }
-    private void updateAmount(ShoppingItem item){
-        inCartText.setText("Du har redan " + (item.getAmount() + " st i kundvagnen"));
-    }
+
 
     public void setTitle() {
         productName.setText(activeProduct.getName());
@@ -99,9 +98,13 @@ public class DetailViewController extends ContentViewController {
         totalPrice.setText(String.valueOf(totPrice));
     }
 
+    private void updateAmount(ShoppingItem item){
+        inCartText.setText("Du har redan " + (item.getAmount() + " st i kundvagnen"));
+    }
+
     public void setFeedBackText() {
         if (indexInCart(activeProduct) >= 0) {
-            feedBackText.setText(inCart);
+            updateAmount(item);
         }
         else {
             feedBackText.setText(notInCart);
