@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.CheckOutViewController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.CheckOutViewController">
    <children>
       <Text layoutX="21.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kassa" AnchorPane.topAnchor="12.804878234863281">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <TextField fx:id="cvcCode" layoutX="85.0" layoutY="390.0" AnchorPane.leftAnchor="85.0" />
-      <TextField fx:id="cardNumber" layoutX="374.0" layoutY="360.0" AnchorPane.rightAnchor="63.0" />
       <Text layoutX="276.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kortnummer" AnchorPane.rightAnchor="250.0" />
       <Text layoutX="21.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ort" AnchorPane.leftAnchor="26.0" />
       <Text layoutX="274.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postnummer" AnchorPane.rightAnchor="250.0" />
       <Text layoutX="21.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adress" AnchorPane.leftAnchor="26.0" />
       <Text layoutX="289.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Efternamn" AnchorPane.rightAnchor="250.0" />
       <Text layoutX="21.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Förnamn" AnchorPane.leftAnchor="26.0" />
+      <Text layoutX="26.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVC" AnchorPane.leftAnchor="26.0" />
+      <TextField fx:id="firstName" layoutX="85.0" layoutY="298.0" AnchorPane.leftAnchor="85.0" />
+      <TextField fx:id="lastName" layoutX="374.0" layoutY="298.0" AnchorPane.rightAnchor="63.0" />
+      <TextField fx:id="address" layoutX="85.0" layoutY="330.0" AnchorPane.leftAnchor="85.0" />
       <TextField fx:id="zipCode" layoutX="374.0" layoutY="330.0" AnchorPane.rightAnchor="63.0" />
       <TextField fx:id="city" layoutX="85.0" layoutY="360.0" AnchorPane.leftAnchor="85.0" />
-      <TextField fx:id="address" layoutX="85.0" layoutY="330.0" AnchorPane.leftAnchor="85.0" />
-      <TextField fx:id="lastName" layoutX="374.0" layoutY="298.0" AnchorPane.rightAnchor="63.0" />
-      <TextField fx:id="firstName" layoutX="85.0" layoutY="298.0" AnchorPane.leftAnchor="85.0" />
-      <AnchorPane fx:id="cartPane" layoutX="-1.0" layoutY="44.0" prefHeight="229.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Text layoutX="26.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVC" AnchorPane.leftAnchor="26.0" />
+      <TextField fx:id="cardNumber" layoutX="374.0" layoutY="360.0" AnchorPane.rightAnchor="63.0" />
+      <TextField fx:id="cvcCode" layoutX="85.0" layoutY="390.0" AnchorPane.leftAnchor="85.0" />
       <Button layoutX="521.0" layoutY="455.0" mnemonicParsing="false" onAction="#nextButtonWasPressed" text="Nästa" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <AnchorPane fx:id="cartPane" layoutX="-1.0" layoutY="44.0" maxHeight="229.0" prefHeight="229.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
    </children>
 </AnchorPane>

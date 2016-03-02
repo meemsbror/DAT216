@@ -118,9 +118,6 @@ public class RootViewController extends ViewController implements ShoppingCartLi
 
             setContent(reuseListViewController);
             for(ProductCategory productCategory : ProductCategory.values()){
-                System.out.println(ProductCategoryFormatter.getFormattedName(productCategory));
-                System.out.println(searchText);
-                System.out.println(ProductCategoryFormatter.getFormattedName(productCategory).trim().toLowerCase().equals(searchText.toLowerCase()));
                 if(ProductCategoryFormatter.getFormattedName(productCategory).trim().toLowerCase().equals(searchText.toLowerCase())){
                     reuseListViewController.setProductFilter(new CategoryProductFilter(productCategory));
                     setContent(reuseListViewController);
