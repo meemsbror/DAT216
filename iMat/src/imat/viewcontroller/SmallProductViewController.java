@@ -97,8 +97,8 @@ public class SmallProductViewController extends ViewController{
         productImageView.setImage(productImage);
         productNameLabel.setText(product.getName());
 
-
         productPriceLabel.setText(String.valueOf(PriceFormatter.getFormattedPrice(product)));
+        
         double tmp = 0.0;
         int index = indexInCart(product);
         if(index >= 0) {
