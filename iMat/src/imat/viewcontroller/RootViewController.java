@@ -44,6 +44,7 @@ public class RootViewController extends ViewController implements ShoppingCartLi
     // Reuse these every time such a view is needed
     private ListViewController reuseListViewController = ListViewController.load("ListView.fxml");
     private DetailViewController reuseDetailViewController = DetailViewController.load("DetailView.fxml");
+    private CartViewController reuseCartViewController = CartViewController.load("CartView.fxml");
 
     @Override
     public void initialize() {
@@ -226,4 +227,5 @@ public class RootViewController extends ViewController implements ShoppingCartLi
     }
 
 
+    public CartViewController getReuseCartViewController(){return reuseCartViewController; }
 }

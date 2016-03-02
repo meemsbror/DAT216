@@ -30,11 +30,16 @@ public class DetailViewController extends ContentViewController {
     @FXML private ToggleButton amountUp;
     @FXML private Text totalPrice;
     @FXML private Text inCartText;
-
-    private ContentViewController sourceViewController;
-
+    @FXML private Text feedBackText;
 
     private Product activeProduct;
+
+    private ContentViewController sourceViewController;
+    private String notInCart = "Produkten finns ej i kundvagnen";
+    private String inCart = "Produkten finns nu i kundvagnen";
+
+
+
 
     @Override
     public void initialize() {
@@ -55,6 +60,7 @@ public class DetailViewController extends ContentViewController {
         setPrice();
         setProductImage();
         setTotalPrice();
+        setFeedBackText();
         if(IMatDataHandler.getInstance().isFavorite(activeProduct)){
             removeFavoriteButton.toFront();
         }else{
@@ -92,6 +98,15 @@ public class DetailViewController extends ContentViewController {
 
         totalPrice.setText(String.valueOf(totPrice));
     }
+
+    public void setFeedBackText(){
+        if(indexInCart(activeProduct) >=0){
+            feedBackText.setText(inCart);
+        }else{
+            feedBackText.setText(notInCart);
+        }
+    }
+
 
     public void addAndRemoveToFavorites(ActionEvent evt){
         if(evt.getSource().equals(addToFavoriteButton)) {
@@ -135,6 +150,8 @@ public class DetailViewController extends ContentViewController {
             }
             IMatDataHandler.getInstance().getShoppingCart().addProduct(activeProduct, tmp);
             updateAmount(IMatDataHandler.getInstance().getShoppingCart().getItems().get(indexInCart(activeProduct)));
+            System.out.println(IMatDataHandler.getInstance().getShoppingCart().getItems().get(0).getProduct().getName());
+            setFeedBackText();
         }
     }
 }

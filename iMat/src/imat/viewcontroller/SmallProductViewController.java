@@ -1,6 +1,8 @@
 package imat.viewcontroller;
 
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
@@ -29,6 +31,8 @@ public class SmallProductViewController extends ViewController{
     @FXML private ToggleButton increaseQuantityButton;
     @FXML private ToggleButton decreaseQuantityButton;
     @FXML private ImageView productImageView;
+    @FXML private AnchorPane toDetailView;
+    @FXML private HBox toDetailView2;
 
     private ShoppingItem item;
 
@@ -39,7 +43,7 @@ public class SmallProductViewController extends ViewController{
 
     @Override
     protected void viewDidSet(Parent view) {
-
+        view.setOnMouseClicked(event -> onProductPressed());
     }
 
     public void incraseQuantity(ActionEvent evt)
@@ -100,7 +104,16 @@ public class SmallProductViewController extends ViewController{
         this.totalPriceLabel.setText(tmp.toString());
     }
 
-    public ShoppingItem getItem(){
+    public ShoppingItem getItem() {
         return item;
+    }
+    @FXML
+    public void onProductPressed(){
+
+        DetailViewController detailViewController = RootViewController.getInstance().getReuseDetailViewController();
+        detailViewController.setProduct(this.item.getProduct());
+        detailViewController.setSourceView(RootViewController.getInstance().getReuseCartViewController());
+        RootViewController.getInstance().setContent(detailViewController);
+
     }
 }
