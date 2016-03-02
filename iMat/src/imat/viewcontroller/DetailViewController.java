@@ -29,8 +29,11 @@ public class DetailViewController extends ContentViewController {
     @FXML private ToggleButton amountDown;
     @FXML private ToggleButton amountUp;
     @FXML private Text totalPrice;
+    @FXML private Text feedBackText;
 
     private ContentViewController sourceViewController;
+    private String notInCart = "Produkten finns ej i kundvagnen";
+    private String inCart = "Produkten finns nu i kundvagnen";
 
 
     private Product activeProduct;
@@ -50,6 +53,7 @@ public class DetailViewController extends ContentViewController {
         setPrice();
         setProductImage();
         setTotalPrice();
+        setFeedBackText();
         if(IMatDataHandler.getInstance().isFavorite(activeProduct)){
             removeFavoriteButton.toFront();
         }else{
@@ -84,6 +88,15 @@ public class DetailViewController extends ContentViewController {
         totalPrice.setText(String.valueOf(totPrice));
     }
 
+    public void setFeedBackText(){
+        if(indexInCart(activeProduct) >=0){
+            feedBackText.setText(inCart);
+        }else{
+            feedBackText.setText(notInCart);
+        }
+    }
+
+
     public void addAndRemoveToFavorites(ActionEvent evt){
         if(evt.getSource().equals(addToFavoriteButton)) {
             IMatDataHandler.getInstance().addFavorite(activeProduct);
@@ -116,15 +129,18 @@ public class DetailViewController extends ContentViewController {
 
 
     public void addToCart(ActionEvent evt){
-        if(evt.getSource().equals(addToCartButton))
+        if(evt.getSource().equals(addToCartButton)) {
             System.out.println(activeProduct.getName() + "Tillagd i kundvagn");
             double tmp;
-            try{
-                 tmp = Double.parseDouble(amountCalculator.getText());
-            }catch (NumberFormatException e1){
-                 tmp = 1;
+            try {
+                tmp = Double.parseDouble(amountCalculator.getText());
+            } catch (NumberFormatException e1) {
+                tmp = 1;
             }
             IMatDataHandler.getInstance().getShoppingCart().addProduct(activeProduct, tmp);
             System.out.println(IMatDataHandler.getInstance().getShoppingCart().getItems().get(0).getProduct().getName());
+            setFeedBackText();
+
+        }
     }
 }
