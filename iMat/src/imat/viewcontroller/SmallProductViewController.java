@@ -27,6 +27,8 @@ public class SmallProductViewController extends ViewController{
     @FXML private ToggleButton decreaseQuantityButton;
     @FXML private ImageView productImageView;
 
+    private ShoppingItem item;
+
 
     @Override
     public void initialize() {
@@ -77,19 +79,22 @@ public class SmallProductViewController extends ViewController{
     {
         if (evt.getSource().equals("removeProductButton"))
         {
-            
+            IMatDataHandler.getInstance().getShoppingCart().getItems().remove(item);
+            getView().setVisible(false);
+            getView().setManaged(false);
         }
     }
 
     public void setItem(ShoppingItem item){
+        this.item=item;
 
-        Product product = item.getProduct();
+        Product product = this.item.getProduct();
         Image productImage = IMatDataHandler.getInstance().getFXImage(product);
         productImageView.setImage(productImage);
         productNameLabel.setText(product.getName());
 
         productPriceLabel.setText(String.valueOf(product.getPrice()));
-        Double tmp = item.getAmount();
+        Double tmp = this.item.getAmount();
         this.totalPriceLabel.setText(tmp.toString());
     }
 }

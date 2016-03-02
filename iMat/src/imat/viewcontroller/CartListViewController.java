@@ -43,7 +43,6 @@ public class CartListViewController extends ViewController implements ShoppingCa
             smallProductViews.add(smallProductViewController.getView());
 
         }
-        System.out.println("yolo");
         listView.setItems(smallProductViews);
     }
 }

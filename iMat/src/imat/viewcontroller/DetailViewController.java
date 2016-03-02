@@ -30,6 +30,7 @@ public class DetailViewController extends ContentViewController {
     @FXML private ToggleButton amountDown;
     @FXML private ToggleButton amountUp;
     @FXML private Text totalPrice;
+    @FXML private Text inCartText;
 
     private ContentViewController sourceViewController;
 
@@ -46,6 +47,10 @@ public class DetailViewController extends ContentViewController {
     }
 
     public void setProduct(Product p){
+        if(indexInCart(p)>=0){
+            ShoppingItem item = IMatDataHandler.getInstance().getShoppingCart().getItems().get(indexInCart(p));
+            updateAmount(item);
+        }
         this.activeProduct=p;
         setTitle();
         setPrice();
@@ -55,6 +60,10 @@ public class DetailViewController extends ContentViewController {
         }else{
             addToFavoriteButton.toFront();
         }
+
+    }
+    private void updateAmount(ShoppingItem item){
+        inCartText.setText("Du har redan " + (item.getAmount() + " st i kundvagnen"));
     }
 
     public void setTitle() {
@@ -109,15 +118,18 @@ public class DetailViewController extends ContentViewController {
 
 
     public void addToCart(ActionEvent evt){
-        if(evt.getSource().equals(addToCartButton))
+        if(evt.getSource().equals(addToCartButton)) {
             System.out.println(activeProduct.getName() + "Tillagd i kundvagn");
             double tmp;
-            try{
-                 tmp = Double.parseDouble(amountCalculator.getText());
-            }catch (NumberFormatException e1){
-                 tmp = 1;
+            try {
+                tmp = Double.parseDouble(amountCalculator.getText());
+            } catch (NumberFormatException e1) {
+                tmp = 1;
             }
             IMatDataHandler.getInstance().getShoppingCart().addProduct(activeProduct, tmp);
             System.out.println(IMatDataHandler.getInstance().getShoppingCart().getItems().get(0).getProduct().getName());
+
+            updateAmount(IMatDataHandler.getInstance().getShoppingCart().getItems().get(indexInCart(activeProduct)));
+        }
     }
 }
