@@ -19,6 +19,7 @@ public class CartListViewController extends ViewController implements ShoppingCa
 
 
     public void initialize() {
+        IMatDataHandler.getInstance().getShoppingCart().addShoppingCartListener(this);
         showCart();
     }
 
@@ -34,9 +35,7 @@ public class CartListViewController extends ViewController implements ShoppingCa
             SmallProductViewController smallProductViewController = SmallProductViewController.load("SmallProductView.fxml");
             smallProductViewController.setItem(new ShoppingItem(p,cart.get(p)));
             smallProductViews.add(smallProductViewController.getView());
-            System.out.println("vi kom hit");
         }
-        System.out.println(smallProductViews.size());
         listView.setItems(smallProductViews);
     }
 
