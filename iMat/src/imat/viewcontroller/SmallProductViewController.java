@@ -16,6 +16,9 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;;
 import javafx.scene.control.Button;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeSupport;
+
 public class SmallProductViewController extends ViewController{
     private int quantity;
     public static final double IMAGE_WIDTH = 100.0;
@@ -32,12 +35,11 @@ public class SmallProductViewController extends ViewController{
     @FXML private AnchorPane toDetailView;
     @FXML private HBox toDetailView2;
 
-    private Product product;
+    private ShoppingItem item;
 
 
     @Override
     public void initialize() {
-
     }
 
     @Override
@@ -82,22 +84,22 @@ public class SmallProductViewController extends ViewController{
 
     public void removeProduct(ActionEvent evt)
     {
+        System.out.println("Vi forsoker faktiskt ta bort");
         if (evt.getSource().equals("removeProductButton")) {
-            int tmp = indexInCart(product);
-            IMatDataHandler.getInstance().getShoppingCart().removeItem(tmp);
-            CartListViewController cartListViewController = new CartListViewController();
-            cartListViewController.showCart();
+            IMatDataHandler.getInstance().getShoppingCart().removeItem(item);
+            IMatDataHandler.getInstance().getShoppingCart().fireShoppingCartChanged(item,false);
+
         }
     }
 
     public void setItem(ShoppingItem item){
+        this.item=item;
 
-        Product product = item.getProduct();
-        this.product = product;
-
+        Product product = this.item.getProduct();
         Image productImage = IMatDataHandler.getInstance().getFXImage(product);
         productImageView.setImage(productImage);
         productNameLabel.setText(product.getName());
+
 
         productPriceLabel.setText(String.valueOf(PriceFormatter.getFormattedPrice(product)));
         double tmp = 0.0;
@@ -107,13 +109,17 @@ public class SmallProductViewController extends ViewController{
             tmp = theItem.getAmount() * product.getPrice();
         }
         totalPriceLabel.setText(String.valueOf(tmp));
+
     }
 
+    public ShoppingItem getItem() {
+        return item;
+    }
     @FXML
     public void onProductPressed(){
 
         DetailViewController detailViewController = RootViewController.getInstance().getReuseDetailViewController();
-        detailViewController.setProduct(this.product);
+        detailViewController.setProduct(this.item.getProduct());
         detailViewController.setSourceView(RootViewController.getInstance().getReuseCartViewController());
         RootViewController.getInstance().setContent(detailViewController);
 

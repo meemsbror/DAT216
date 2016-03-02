@@ -16,7 +16,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
         primaryStage.setTitle("iMat");
 
         // Set min size on the stage, since it doesn't seem to listen to any minimum constraints on the scene.
