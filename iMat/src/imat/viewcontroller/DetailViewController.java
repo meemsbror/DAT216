@@ -99,10 +99,11 @@ public class DetailViewController extends ContentViewController {
         totalPrice.setText(String.valueOf(totPrice));
     }
 
-    public void setFeedBackText(){
-        if(indexInCart(activeProduct) >=0){
+    public void setFeedBackText() {
+        if (indexInCart(activeProduct) >= 0) {
             feedBackText.setText(inCart);
-        }else{
+        }
+        else {
             feedBackText.setText(notInCart);
         }
     }
