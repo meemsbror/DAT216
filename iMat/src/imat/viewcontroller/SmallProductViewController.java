@@ -49,7 +49,7 @@ public class SmallProductViewController extends ViewController{
 
     public void incraseQuantity(ActionEvent evt)
     {
-        if (evt.getSource().equals("increaseQuantityButton")) {
+        if (evt.getSource().equals(increaseQuantityButton)) {
             if (quantity < 99) {
                 quantity++;
             }
@@ -59,7 +59,7 @@ public class SmallProductViewController extends ViewController{
     }
      public void decreaseQuantity(ActionEvent evt)
      {
-         if (evt.getSource().equals("decreaseQuantityButton"))
+         if (evt.getSource().equals(decreaseQuantityButton))
          {
              if (quantity >0) {
                  quantity--;
@@ -84,11 +84,8 @@ public class SmallProductViewController extends ViewController{
 
     public void removeProduct(ActionEvent evt)
     {
-        System.out.println("Vi forsoker faktiskt ta bort");
-        if (evt.getSource().equals("removeProductButton")) {
+        if (evt.getSource().equals(removeProductButton)) {
             IMatDataHandler.getInstance().getShoppingCart().removeItem(item);
-            IMatDataHandler.getInstance().getShoppingCart().fireShoppingCartChanged(item,false);
-
         }
     }
 
