@@ -227,5 +227,8 @@ public class RootViewController extends ViewController implements ShoppingCartLi
     }
 
 
-    public CartViewController getReuseCartViewController(){return reuseCartViewController; }
+    public CartViewController getReuseCartViewController(){
+        reuseCartViewController.showCart();
+        return reuseCartViewController;
+    }
 }
