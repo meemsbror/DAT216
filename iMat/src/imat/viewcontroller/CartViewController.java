@@ -29,7 +29,6 @@ public class CartViewController extends ContentViewController{
 
     public void setCart(List<ShoppingItem> cart){
        //Don't know if this is needed
-
     }
 
     public void showCart(){
@@ -44,5 +43,4 @@ public class CartViewController extends ContentViewController{
             RootViewController.getInstance().setContent(checkOutViewController);
         }
     }
-
 }

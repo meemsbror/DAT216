@@ -95,7 +95,6 @@ public class RootViewController extends ViewController implements ShoppingCartLi
         if (evt.getSource() instanceof Button) {
             Button button = (Button) evt.getSource();
             toggleSelectedCategoryButton(button);
-
             reuseListViewController.setProductFilter(new AllProductsProductFilter());
             setContent(reuseListViewController);
         }
@@ -116,7 +115,17 @@ public class RootViewController extends ViewController implements ShoppingCartLi
             toggleSelectedCategoryButton(searchButton);
             String searchText = searchTextField.getText();
             reuseListViewController.setProductFilter(new SearchProductFilter(searchText));
+
             setContent(reuseListViewController);
+            for(ProductCategory productCategory : ProductCategory.values()){
+                System.out.println(ProductCategoryFormatter.getFormattedName(productCategory));
+                System.out.println(searchText);
+                System.out.println(ProductCategoryFormatter.getFormattedName(productCategory).trim().toLowerCase().equals(searchText.toLowerCase()));
+                if(ProductCategoryFormatter.getFormattedName(productCategory).trim().toLowerCase().equals(searchText.toLowerCase())){
+                    reuseListViewController.setProductFilter(new CategoryProductFilter(productCategory));
+                    setContent(reuseListViewController);
+                }
+            }
         }
     }
 
@@ -216,6 +225,7 @@ public class RootViewController extends ViewController implements ShoppingCartLi
         double amount = cart.get(product);
         amount -= i;
         cart.put(product,amount);
+
     }
 
     private void incrementItem(ShoppingItem item){
