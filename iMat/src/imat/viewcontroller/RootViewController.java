@@ -191,13 +191,11 @@ public class RootViewController extends ViewController implements ShoppingCartLi
     }
 
     public void shoppingCartChanged(CartEvent event){
-        System.out.println("yolo");
         if(event.isAddEvent()){
             addItem(event.getShoppingItem());
         }
         else{
             removeItem(event.getShoppingItem());
-            System.out.println("yolo");
         }
     }
 
