@@ -6,13 +6,18 @@ import java.text.DecimalFormat;
 
 public class PriceFormatter {
 
-    private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#.00");
+    private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("0.00");
 
     public static String getFormattedPrice(Product product) {
-        double price = product.getPrice();
-        String unit = product.getUnit();
-
-        return DECIMAL_FORMAT.format(price) + " " + unit;
+        return getFormattedPrice(product, 1.0);
     }
 
+    public static String getFormattedPrice(Product product, double quantity) {
+        return getFormattedPriceWithoutUnit(product, quantity) + product.getUnit();
+    }
+
+    public static String getFormattedPriceWithoutUnit(Product product, double quantity) {
+        double price = product.getPrice() * quantity;
+        return DECIMAL_FORMAT.format(price);
+    }
 }
