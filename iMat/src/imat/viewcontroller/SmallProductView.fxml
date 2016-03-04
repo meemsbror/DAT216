@@ -35,7 +35,7 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="decreaseQuantityButton" mnemonicParsing="false" onMouseClicked="#decreaseQuantity" prefHeight="35.0" prefWidth="35.0" text="▼">
+                  <Button fx:id="decreaseQuantityButton" mnemonicParsing="false" onAction="#decreaseQuantity" onMouseClicked="#decreaseQuantity" prefHeight="35.0" prefWidth="35.0" text="▼">
                      <VBox.margin>
                         <Insets left="3.0" />
                      </VBox.margin>
