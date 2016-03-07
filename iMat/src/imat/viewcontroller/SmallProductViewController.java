@@ -88,10 +88,10 @@ public class SmallProductViewController extends ViewController{
     {
         List <ShoppingItem> shoppingCart = IMatDataHandler.getInstance().getShoppingCart().getItems();
         if (evt.getSource().equals(removeProductButton)) {
-            for(int i = 0; i< shoppingCart.size()-1;i++){
+            for(int i = shoppingCart.size()-1; i >= 0;i--){
                 if(shoppingCart.get(i).getProduct().equals(this.item.getProduct())){
                     IMatDataHandler.getInstance().getShoppingCart().removeItem(i);
-                    System.out.println("hej");
+                    System.out.println("removed"+ item.getProduct().toString());
                 }
             }
         }
