@@ -24,16 +24,8 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Button fx:id="increaseQuantityButton" layoutX="242.0" layoutY="7.0" minWidth="35.0" mnemonicParsing="false" onAction="#incraseQuantity" onMouseClicked="#incraseQuantity" prefHeight="35.0" prefWidth="35.0" text="▲">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
-      <Button fx:id="decreaseQuantityButton" layoutX="242.0" layoutY="42.0" mnemonicParsing="false" onAction="#decreaseQuantity" onMouseClicked="#decreaseQuantity" prefHeight="35.0" prefWidth="35.0" text="▼">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
+      
+
       <TextField fx:id="quantityTextFeild" layoutX="189.0" layoutY="10.0" maxHeight="60.0" maxWidth="50.0" minHeight="60.0" minWidth="50.0" prefHeight="60.0" prefWidth="50.0" promptText="1">
          <font>
             <Font size="18.0" />
