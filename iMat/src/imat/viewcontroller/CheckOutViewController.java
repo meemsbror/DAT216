@@ -1,7 +1,9 @@
 package imat.viewcontroller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.ait.dat215.project.Customer;
@@ -19,6 +21,7 @@ public class CheckOutViewController extends ContentViewController {
     @FXML TextField city;
     @FXML TextField cardNumber;
     @FXML TextField cvcCode;
+    @FXML CheckBox saveChangesBox;
 
     @Override
     public void initialize() {
@@ -52,5 +55,11 @@ public class CheckOutViewController extends ContentViewController {
         CartListViewController cartListViewController = CartListViewController.load("CartListView.fxml");
         cartListViewController.showCart();
         cartPane.getChildren().add(cartListViewController.getView());
+    }
+
+    public void saveData(ActionEvent evt){
+        if(evt.getSource().equals(saveChangesBox)){
+            
+        }
     }
 }
