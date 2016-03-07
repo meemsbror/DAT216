@@ -16,8 +16,8 @@ public class ConfirmationViewController extends ContentViewController {
     private String cvcNumber;
     private Customer customer = IMatDataHandler.getInstance().getCustomer();
 
-    @FXML TextField firstNameText;
-    @FXML TextField lastNameText;
+    @FXML Text firstNameText;
+    @FXML Text lastNameText;
     @FXML Text addressText;
     @FXML Text zipCodeText;
     @FXML Text cityText;
