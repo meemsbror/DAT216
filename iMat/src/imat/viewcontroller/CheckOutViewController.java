@@ -59,7 +59,7 @@ public class CheckOutViewController extends ContentViewController {
 
     public void saveData(ActionEvent evt){
         if(evt.getSource().equals(saveChangesBox)){
-            
+
         }
     }
 }
