@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.CheckOutViewController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.CheckOutViewController">
    <children>
 
       <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -33,10 +30,10 @@
                   <TextField fx:id="firstName" layoutX="87.0" layoutY="476.0" AnchorPane.bottomAnchor="169.0" AnchorPane.leftAnchor="87.0" />
                   <TextField fx:id="lastName" layoutX="376.0" layoutY="476.0" AnchorPane.bottomAnchor="169.0" AnchorPane.leftAnchor="376.0" />
                   <TextField fx:id="address" layoutX="87.0" layoutY="508.0" AnchorPane.bottomAnchor="137.0" AnchorPane.leftAnchor="87.0" />
-                  <TextField fx:id="zipCode" layoutX="376.0" layoutY="508.0" AnchorPane.bottomAnchor="137.0" AnchorPane.leftAnchor="376.0" />
+                  <TextField fx:id="zipCode" layoutX="376.0" layoutY="508.0" onKeyTyped="#onKeyTyped" AnchorPane.bottomAnchor="137.0" AnchorPane.leftAnchor="376.0" />
                   <TextField fx:id="city" layoutX="87.0" layoutY="538.0" AnchorPane.bottomAnchor="107.0" AnchorPane.leftAnchor="87.0" />
-                  <TextField fx:id="cardNumber" layoutX="376.0" layoutY="538.0" AnchorPane.bottomAnchor="107.0" AnchorPane.leftAnchor="376.0" />
-                  <TextField fx:id="cvcCode" layoutX="87.0" layoutY="568.0" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="87.0" />
+                  <TextField fx:id="cardNumber" layoutX="376.0" layoutY="538.0" onKeyTyped="#onKeyTyped" AnchorPane.bottomAnchor="107.0" AnchorPane.leftAnchor="376.0" />
+                  <TextField fx:id="cvcCode" layoutX="87.0" layoutY="568.0" onKeyTyped="#onKeyTyped" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="87.0" />
                   <Button layoutX="409.0" layoutY="568.0" mnemonicParsing="false" onAction="#nextButtonWasPressed" prefHeight="26.0" prefWidth="130.0" text="Nästa" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="409.0" />
                   <AnchorPane fx:id="cartPane" layoutY="51.0" maxHeight="400.0" prefHeight="349.0" prefWidth="599.0" AnchorPane.bottomAnchor="271.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="51.0" />
                   <CheckBox fx:id="saveChangesBox" layoutX="277.0" layoutY="572.0" mnemonicParsing="false" text="Spara uppgifter" AnchorPane.bottomAnchor="81.0" AnchorPane.leftAnchor="277.0" />
