@@ -30,6 +30,7 @@ public class RootViewController extends ViewController implements ShoppingCartLi
 
     private static RootViewController instance;
     private HashMap<Product,Double> cart = new HashMap<>();
+    private boolean hasRunCartSetup=false;
 
 
 
@@ -51,7 +52,10 @@ public class RootViewController extends ViewController implements ShoppingCartLi
         setCategories();
         toAllContentActionPerformed(new ActionEvent(allContentButton, null));
         IMatDataHandler.getInstance().getShoppingCart().addShoppingCartListener(this);
+        addItemsOnStart();
     }
+
+
 
     @Override
     protected void viewDidSet(Parent view) {
@@ -211,6 +215,16 @@ public class RootViewController extends ViewController implements ShoppingCartLi
         }
         else {
             cart.put(item.getProduct(),item.getAmount());
+        }
+    }
+
+    private void addItemsOnStart(){
+        if(!hasRunCartSetup) {
+            for (ShoppingItem item : IMatDataHandler.getInstance().getShoppingCart().getItems()) {
+                addItem(item);
+            }
+            hasRunCartSetup=true;
+            System.out.println(IMatDataHandler.getInstance().getShoppingCart().getItems().size());
         }
     }
 

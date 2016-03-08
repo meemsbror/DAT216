@@ -24,7 +24,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      
+
 
       <TextField fx:id="quantityTextFeild" layoutX="189.0" layoutY="10.0" maxHeight="60.0" maxWidth="50.0" minHeight="60.0" minWidth="50.0" prefHeight="60.0" prefWidth="50.0" promptText="1">
          <font>

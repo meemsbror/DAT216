@@ -26,6 +26,7 @@ public class CheckOutViewController extends ContentViewController {
     @Override
     public void initialize() {
         showCart();
+        showCustomer();
     }
 
     @Override
@@ -33,12 +34,27 @@ public class CheckOutViewController extends ContentViewController {
 
     }
 
+    public void showCustomer(){
+        firstName.setText(customer.getFirstName());
+        lastName.setText(customer.getLastName());
+        address.setText(customer.getAddress());
+        zipCode.setText(customer.getPostCode());
+        city.setText(customer.getPostAddress());
+    }
+
     @FXML
     public void nextButtonWasPressed() {
         ConfirmationViewController cvc = ConfirmationViewController.load("ConfirmationView.fxml");
-        // TODO: Give the ConfirmationViewController the information that should be confirmed!
-        cvc.setCardNumber(cardNumber.getText(),cvcCode.getText());
-        setCustomer();
+        cvc.setConfirmation(firstName.getText(),
+                lastName.getText(),
+                address.getText(),
+                zipCode.getText(),
+                city.getText(),
+                cardNumber.getText(),
+                cvcCode.getText());
+        if(saveChangesBox.isSelected()){
+            setCustomer();
+        }
         RootViewController.getInstance().setContent(cvc);
         //cvc.showCart();
     }
@@ -50,6 +66,7 @@ public class CheckOutViewController extends ContentViewController {
         customer.setPostCode(zipCode.getText());
         customer.setPostAddress(city.getText());
 
+        System.out.println(IMatDataHandler.getInstance().isCustomerComplete());
     }
     public void showCart(){
         CartListViewController cartListViewController = CartListViewController.load("CartListView.fxml");
@@ -57,9 +74,4 @@ public class CheckOutViewController extends ContentViewController {
         cartPane.getChildren().add(cartListViewController.getView());
     }
 
-    public void saveData(ActionEvent evt){
-        if(evt.getSource().equals(saveChangesBox)){
-
-        }
-    }
 }

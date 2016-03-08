@@ -6,6 +6,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingCart;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;;
 import javafx.scene.control.Button;
+import java.util.List;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeSupport;
@@ -84,8 +86,14 @@ public class SmallProductViewController extends ViewController{
 
     public void removeProduct(ActionEvent evt)
     {
+        List <ShoppingItem> shoppingCart = IMatDataHandler.getInstance().getShoppingCart().getItems();
         if (evt.getSource().equals(removeProductButton)) {
-            IMatDataHandler.getInstance().getShoppingCart().removeItem(item);
+            for(int i = shoppingCart.size()-1; i >= 0;i--){
+                if(shoppingCart.get(i).getProduct().equals(this.item.getProduct())){
+                    IMatDataHandler.getInstance().getShoppingCart().removeItem(i);
+                    System.out.println("removed"+ item.getProduct().toString());
+                }
+            }
         }
     }
 

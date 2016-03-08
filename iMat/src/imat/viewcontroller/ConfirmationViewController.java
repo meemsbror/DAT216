@@ -12,12 +12,10 @@ public class ConfirmationViewController extends ContentViewController {
 
     @FXML AnchorPane showPane;
 
-    private String cardNumber;
-    private String cvcNumber;
     private Customer customer = IMatDataHandler.getInstance().getCustomer();
 
-    @FXML TextField firstNameText;
-    @FXML TextField lastNameText;
+    @FXML Text firstNameText;
+    @FXML Text lastNameText;
     @FXML Text addressText;
     @FXML Text zipCodeText;
     @FXML Text cityText;
@@ -28,12 +26,20 @@ public class ConfirmationViewController extends ContentViewController {
     public void initialize() {
     }
 
-    public void setConfirmation(){
-        firstNameText.setText(customer.getFirstName());
-        lastNameText.setText(customer.getLastName());
-        addressText.setText(customer.getAddress());
-        zipCodeText.setText(customer.getPostCode());
-        cityText.setText(customer.getPostAddress());
+    public void setConfirmation(String firstName,
+                                String lastName,
+                                String address,
+                                String zipCode,
+                                String city,
+                                String cardNumber,
+                                String cvcNumber){
+
+
+        firstNameText.setText(firstName);
+        lastNameText.setText(lastName);
+        addressText.setText(address);
+        zipCodeText.setText(zipCode);
+        cityText.setText(city);
         cardNumberText.setText(cardNumber);
         cvcCodeText.setText(cvcNumber);
 
@@ -63,11 +69,4 @@ public class ConfirmationViewController extends ContentViewController {
         cartListViewController.showCart();
         showPane.getChildren().add(cartListViewController.getView());
     }
-
-    public void setCardNumber(String cardNumber, String cvcNumber){
-        this.cardNumber=cardNumber;
-        this.cvcNumber=cvcNumber;
-        setConfirmation();
-    }
-
 }

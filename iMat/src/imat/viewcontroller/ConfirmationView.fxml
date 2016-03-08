@@ -19,9 +19,9 @@
       <AnchorPane layoutX="69.0" layoutY="74.0" prefHeight="161.0" prefWidth="671.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="17.0">
          <children>
             <Text fx:id="firstNameText" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.leftAnchor="13.0" />
-            <Text fx:id="lastNameText" layoutX="72.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.leftAnchor="336.0" />
+            <Text fx:id="lastNameText" layoutX="279.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.leftAnchor="336.0" />
             <Text fx:id="addressText" layoutX="14.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.leftAnchor="13.0" />
-            <Text fx:id="zipCodeText" layoutX="72.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="26.126953125" AnchorPane.leftAnchor="336.0" />
+            <Text fx:id="zipCodeText" layoutX="72.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.leftAnchor="336.0" />
             <Text fx:id="cityText" layoutX="14.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.leftAnchor="13.0" />
             <Text fx:id="cvcCodeText" layoutX="14.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.leftAnchor="13.0" />
             <Text fx:id="cardNumberText" layoutX="336.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.leftAnchor="336.0" />
