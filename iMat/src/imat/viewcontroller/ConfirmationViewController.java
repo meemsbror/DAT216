@@ -1,7 +1,9 @@
 package imat.viewcontroller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.ait.dat215.project.Customer;
@@ -10,17 +12,19 @@ import javafx.scene.text.Text;
 
 public class ConfirmationViewController extends ContentViewController {
 
-    @FXML AnchorPane showPane;
+    @FXML AnchorPane cartPane;
 
     private Customer customer = IMatDataHandler.getInstance().getCustomer();
 
-    @FXML Text firstNameText;
-    @FXML Text lastNameText;
-    @FXML Text addressText;
-    @FXML Text zipCodeText;
-    @FXML Text cityText;
-    @FXML Text cardNumberText;
-    @FXML Text cvcCodeText;
+    @FXML private Text firstNameText;
+    @FXML private Text lastNameText;
+    @FXML private Text addressText;
+    @FXML private Text zipCodeText;
+    @FXML private Text cityText;
+    @FXML private Text cardNumberText;
+    @FXML private Text cvcCodeText;
+    @FXML private Button backButton;
+
 
     @Override
     public void initialize() {
@@ -67,6 +71,14 @@ public class ConfirmationViewController extends ContentViewController {
     public void showCart(){
         CartListViewController cartListViewController = CartListViewController.load("CartListView.fxml");
         cartListViewController.showCart();
-        showPane.getChildren().add(cartListViewController.getView());
+        cartPane.getChildren().add(cartListViewController.getView());
+
+    }
+
+    public void backButtonPressed(ActionEvent evt){
+        if(evt.getSource().equals(backButton)){
+            CheckOutViewController back = CheckOutViewController.load("CheckOutView.fxml");
+            RootViewController.getInstance().setContent(back);
+        }
     }
 }
