@@ -102,7 +102,6 @@ public class CheckOutViewController extends ContentViewController {
                 setCustomer();
             }
             RootViewController.getInstance().setContent(cvc);
-            //cvc.showCart();
         }
     }
 
