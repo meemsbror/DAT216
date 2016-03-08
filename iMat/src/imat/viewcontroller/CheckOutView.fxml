@@ -24,10 +24,10 @@
       <TextField fx:id="firstName" layoutX="88.0" layoutY="342.0" AnchorPane.bottomAnchor="132.0" AnchorPane.leftAnchor="88.0" />
       <TextField fx:id="lastName" layoutX="377.0" layoutY="342.0" AnchorPane.bottomAnchor="132.0" AnchorPane.leftAnchor="377.0" />
       <TextField fx:id="address" layoutX="88.0" layoutY="374.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="88.0" />
-      <TextField fx:id="zipCode" layoutX="377.0" layoutY="374.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="377.0" />
+      <TextField fx:id="zipCode" layoutX="377.0" layoutY="374.0" onKeyTyped="#onKeyTyped" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="377.0" />
       <TextField fx:id="city" layoutX="88.0" layoutY="404.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="88.0" />
-      <TextField fx:id="cardNumber" layoutX="377.0" layoutY="404.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="377.0" />
-      <TextField fx:id="cvcCode" layoutX="88.0" layoutY="434.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="88.0" />
+      <TextField fx:id="cardNumber" layoutX="377.0" layoutY="404.0" onKeyTyped="#onKeyTyped" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="377.0" />
+      <TextField fx:id="cvcCode" layoutX="88.0" layoutY="434.0" onKeyTyped="#onKeyTyped" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="88.0" />
       <Button layoutX="521.0" layoutY="455.0" mnemonicParsing="false" onAction="#nextButtonWasPressed" text="Nästa" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
       <AnchorPane fx:id="cartPane" layoutY="51.0" maxHeight="400.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <CheckBox fx:id="saveChangesBox" layoutX="278.0" layoutY="438.0" mnemonicParsing="false" text="Spara uppgifter" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="278.0" />
