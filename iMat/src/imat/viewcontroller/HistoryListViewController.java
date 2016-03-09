@@ -41,9 +41,10 @@ public class HistoryListViewController extends ViewController{
         smallHistoryProductViews.removeAll(smallHistoryProductViews);
         for(ShoppingItem shopItem: order.getItems()) {
 
-            SmallHistoryProductViewController smallHistoryProductViewController = new SmallHistoryProductViewController().load("SmallHistoryProductView.fxml");
-            smallHistoryProductViewController.setItem(shopItem);
+            SmallProductViewController smallHistoryProductViewController = SmallProductViewController.load("SmallProductView.fxml");
+            smallHistoryProductViewController.setItem(shopItem, false);
             smallHistoryProductViews.add(smallHistoryProductViewController.getView());
+
         }
         listView.setItems(smallHistoryProductViews);
     }

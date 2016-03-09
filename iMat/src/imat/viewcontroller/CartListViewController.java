@@ -37,7 +37,7 @@ public class CartListViewController extends ViewController implements ShoppingCa
         smallProductViews.removeAll(smallProductViews);
         for(Product p:cart.keySet()) {
             SmallProductViewController smallProductViewController = SmallProductViewController.load("SmallProductView.fxml");
-            smallProductViewController.setItem(new ShoppingItem(p,cart.get(p)));
+            smallProductViewController.setItem(new ShoppingItem(p,cart.get(p)),true);
             smallProductViews.add(smallProductViewController.getView());
         }
         listView.setItems(smallProductViews);

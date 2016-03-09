@@ -37,7 +37,7 @@ public class SmallProductViewController extends ViewController{
         }
     }
 
-    public void setItem(ShoppingItem item){
+    public void setItem(ShoppingItem item, boolean visible){
         this.item = item;
 
         Product product = this.item.getProduct();
@@ -52,6 +52,8 @@ public class SmallProductViewController extends ViewController{
                     " för " + totalPriceFormatted + "kr";
             descriptionLabel.setText(descriptionText);
         }
+
+        removeProductButton.setVisible(visible);
     }
 
     @FXML
