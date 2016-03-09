@@ -52,7 +52,7 @@ public class SmallProductViewController extends ViewController{
 
         }
 
-        if (inHistory) {
+        if (!inHistory) {
             removeProductButton.setVisible(false);
             productQuantity = 0.0; // TODO: fix this!
         }
