@@ -187,7 +187,6 @@ public class DetailViewController extends ContentViewController {
     public void addAndRemoveToFavorites(ActionEvent evt){
         if(evt.getSource().equals(addToFavoriteButton)) {
             changeFavoriteButton();
-            inFavorites= !inFavorites;
         }
 
         if (sourceViewController instanceof ListViewController) {
@@ -210,6 +209,8 @@ public class DetailViewController extends ContentViewController {
             IMatDataHandler.getInstance().removeFavorite(activeProduct);
             addToFavoriteButton.setText("Lägg till i favoriter");
         }
+        inFavorites= !inFavorites;
+
     }
 
     public void setSourceView(ContentViewController content){
