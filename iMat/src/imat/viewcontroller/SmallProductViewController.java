@@ -37,7 +37,7 @@ public class SmallProductViewController extends ViewController{
         }
     }
 
-    public void setItem(ShoppingItem item, boolean inHistory){
+    public void setItem(ShoppingItem item, boolean shouldShowRemoveButton, boolean useItemQuantity){
         this.item = item;
 
         Product product = this.item.getProduct();
@@ -52,9 +52,12 @@ public class SmallProductViewController extends ViewController{
 
         }
 
-        if (!inHistory) {
+        if (!shouldShowRemoveButton) {
             removeProductButton.setVisible(false);
-            productQuantity = 0.0; // TODO: fix this!
+        }
+
+        if (useItemQuantity) {
+            productQuantity = item.getAmount();
         }
 
         String totalPriceFormatted = PriceFormatter.getFormattedPriceWithoutUnit(product, productQuantity);

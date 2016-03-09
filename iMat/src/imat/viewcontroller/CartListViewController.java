@@ -5,9 +5,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.ListView;
-import se.chalmers.ait.dat215.project.*;
-import java.util.Map;
 import javafx.scene.text.Text;
+import se.chalmers.ait.dat215.project.*;
+
+import java.util.Map;
 
 
 
@@ -37,7 +38,7 @@ public class CartListViewController extends ViewController implements ShoppingCa
         smallProductViews.removeAll(smallProductViews);
         for(Product p:cart.keySet()) {
             SmallProductViewController smallProductViewController = SmallProductViewController.load("SmallProductView.fxml");
-            smallProductViewController.setItem(new ShoppingItem(p,cart.get(p)),true);
+            smallProductViewController.setItem(new ShoppingItem(p,cart.get(p)), true, false);
             smallProductViews.add(smallProductViewController.getView());
         }
         listView.setItems(smallProductViews);
