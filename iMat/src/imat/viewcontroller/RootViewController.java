@@ -246,6 +246,11 @@ public class RootViewController extends ViewController implements ShoppingCartLi
         cart.put(item.getProduct(),amount);
     }
 
+    public void removeCart(){
+        cart.clear();
+        IMatDataHandler.getInstance().getShoppingCart().clear();
+    }
+
 
     public CartViewController getReuseCartViewController(){
         reuseCartViewController.showCart();

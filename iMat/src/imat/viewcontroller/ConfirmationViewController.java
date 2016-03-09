@@ -56,17 +56,22 @@ public class ConfirmationViewController extends ContentViewController {
 
     @FXML
     public void confirmPurchaseButtonWasPressed() {
-        boolean success = performPurchase();
-
-        if (success) {
+        if (performPurchase()) {
+            removeCart();
             PurchaseDoneViewController pdvc = PurchaseDoneViewController.load("PurchaseDoneView.fxml");
             RootViewController.getInstance().setContent(pdvc);
+        }else{
+            //TODO: Explain whats wrong i guess.
         }
     }
 
     private boolean performPurchase() {
         // TODO: Implement!
         return true;
+    }
+
+    private void removeCart(){
+        RootViewController.getInstance().removeCart();
     }
 
     public void showCart(){
