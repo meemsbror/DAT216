@@ -36,12 +36,12 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" onMouseClicked="#addToCart" prefHeight="60.0" prefWidth="110.0" text="Lägg till">
+            <Button fx:id="addToCart" mnemonicParsing="false" onMouseClicked="#addToCart" prefHeight="60.0" prefWidth="110.0" text="Lägg till">
                <HBox.margin>
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>
                <graphic>
-                  <ImageView fx:id="addToCart" fitHeight="29.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="29.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../resources/kundvagn-ikon-svartvit.png" />
                      </image>
