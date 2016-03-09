@@ -162,6 +162,7 @@ public class RootViewController extends ViewController implements ShoppingCartLi
         if(evt.getSource().equals(historyButton) && !(content instanceof HistoryViewController)){
             HistoryViewController historyViewController = HistoryViewController.load("HistoryView.fxml");
             setContent(historyViewController);
+            historyViewController.showHistory();
 
         }
     }
