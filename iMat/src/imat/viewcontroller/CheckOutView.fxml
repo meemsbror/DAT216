@@ -20,23 +20,23 @@
                         <Font size="24.0" />
                      </font>
                   </Text>
-                  <Text layoutX="277.0" layoutY="555.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kortnummer" AnchorPane.bottomAnchor="113.0" AnchorPane.leftAnchor="277.0" />
-                  <Text layoutX="26.0" layoutY="555.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ort" AnchorPane.bottomAnchor="113.0" AnchorPane.leftAnchor="26.0" />
-                  <Text layoutX="277.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postnummer" AnchorPane.bottomAnchor="143.0" AnchorPane.leftAnchor="277.0" />
-                  <Text layoutX="26.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adress" AnchorPane.bottomAnchor="143.0" AnchorPane.leftAnchor="26.0" />
-                  <Text layoutX="277.0" layoutY="493.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Efternamn" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="277.0" />
-                  <Text layoutX="26.0" layoutY="494.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Förnamn" AnchorPane.bottomAnchor="174.0" AnchorPane.leftAnchor="26.0" />
-                  <Text layoutX="28.0" layoutY="586.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVC" AnchorPane.bottomAnchor="82.0" AnchorPane.leftAnchor="28.0" />
-                  <TextField fx:id="firstName" layoutX="87.0" layoutY="476.0" AnchorPane.bottomAnchor="169.0" AnchorPane.leftAnchor="87.0" />
-                  <TextField fx:id="lastName" layoutX="376.0" layoutY="476.0" AnchorPane.bottomAnchor="169.0" AnchorPane.leftAnchor="376.0" />
-                  <TextField fx:id="address" layoutX="87.0" layoutY="508.0" AnchorPane.bottomAnchor="137.0" AnchorPane.leftAnchor="87.0" />
-                  <TextField fx:id="zipCode" layoutX="376.0" layoutY="508.0" onKeyTyped="#onKeyTyped" AnchorPane.bottomAnchor="137.0" AnchorPane.leftAnchor="376.0" />
-                  <TextField fx:id="city" layoutX="87.0" layoutY="538.0" AnchorPane.bottomAnchor="107.0" AnchorPane.leftAnchor="87.0" />
-                  <TextField fx:id="cardNumber" layoutX="376.0" layoutY="538.0" onKeyTyped="#onKeyTyped" AnchorPane.bottomAnchor="107.0" AnchorPane.leftAnchor="376.0" />
-                  <TextField fx:id="cvcCode" layoutX="87.0" layoutY="568.0" onKeyTyped="#onKeyTyped" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="87.0" />
-                  <Button layoutX="409.0" layoutY="568.0" mnemonicParsing="false" onAction="#nextButtonWasPressed" prefHeight="26.0" prefWidth="130.0" text="Nästa" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="409.0" />
+                  <Text layoutX="278.0" layoutY="596.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kortnummer" AnchorPane.bottomAnchor="71.19140625" AnchorPane.leftAnchor="278.0" />
+                  <Text layoutX="27.0" layoutY="596.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ort" AnchorPane.bottomAnchor="71.19140625" AnchorPane.leftAnchor="27.0" />
+                  <Text layoutX="278.0" layoutY="566.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postnummer" AnchorPane.bottomAnchor="101.0" AnchorPane.leftAnchor="278.0" />
+                  <Text layoutX="27.0" layoutY="566.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adress" AnchorPane.bottomAnchor="101.0" AnchorPane.leftAnchor="27.0" />
+                  <Text layoutX="278.0" layoutY="534.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Efternamn" AnchorPane.bottomAnchor="133.19140625" AnchorPane.leftAnchor="278.0" />
+                  <Text layoutX="27.0" layoutY="535.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Förnamn" AnchorPane.bottomAnchor="132.0" AnchorPane.leftAnchor="27.0" />
+                  <Text layoutX="29.0" layoutY="627.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVC" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="29.0" />
+                  <TextField fx:id="firstName" layoutX="88.0" layoutY="516.0" AnchorPane.bottomAnchor="127.0" AnchorPane.leftAnchor="88.0" />
+                  <TextField fx:id="lastName" layoutX="377.0" layoutY="516.0" AnchorPane.bottomAnchor="127.0" AnchorPane.leftAnchor="377.0" />
+                  <TextField fx:id="address" layoutX="88.0" layoutY="548.0" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="88.0" />
+                  <TextField fx:id="zipCode" layoutX="377.0" layoutY="548.0" onKeyTyped="#onKeyTyped" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="377.0" />
+                  <TextField fx:id="city" layoutX="88.0" layoutY="578.0" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="88.0" />
+                  <TextField fx:id="cardNumber" layoutX="377.0" layoutY="578.0" onKeyTyped="#onKeyTyped" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="377.0" />
+                  <TextField fx:id="cvcCode" layoutX="88.0" layoutY="608.0" onKeyTyped="#onKeyTyped" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="88.0" />
+                  <Button layoutX="410.0" layoutY="608.0" mnemonicParsing="false" onAction="#nextButtonWasPressed" prefHeight="26.0" prefWidth="130.0" text="Nästa" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="410.0" />
                   <AnchorPane fx:id="cartPane" layoutY="51.0" maxHeight="400.0" prefHeight="349.0" prefWidth="599.0" AnchorPane.bottomAnchor="271.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="51.0" />
-                  <CheckBox fx:id="saveChangesBox" layoutX="277.0" layoutY="572.0" mnemonicParsing="false" text="Spara uppgifter" AnchorPane.bottomAnchor="81.0" AnchorPane.leftAnchor="277.0" />
+                  <CheckBox fx:id="saveChangesBox" layoutX="278.0" layoutY="614.0" mnemonicParsing="false" text="Spara uppgifter" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="278.0" />
                </children>
             </AnchorPane>
         </content>
