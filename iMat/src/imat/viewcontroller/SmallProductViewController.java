@@ -12,6 +12,9 @@ import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
+import java.util.Iterator;
+import java.util.List;
+
 public class SmallProductViewController extends ViewController{
 
     @FXML private ImageView productImageView;
@@ -33,7 +36,16 @@ public class SmallProductViewController extends ViewController{
 
     public void removeProduct(ActionEvent evt) {
         if (evt.getSource().equals(removeProductButton)) {
-            IMatDataHandler.getInstance().getShoppingCart().removeItem(this.item);
+            Iterator<ShoppingItem> cartIterator = IMatDataHandler.getInstance().getShoppingCart().getItems().iterator();
+
+            while(cartIterator.hasNext()){
+                ShoppingItem item = cartIterator.next();
+                if(item.getProduct().equals(this.item.getProduct())){
+                    cartIterator.remove();
+                    IMatDataHandler.getInstance().getShoppingCart().fireShoppingCartChanged(item,false);
+                }
+            }
+            System.out.println(IMatDataHandler.getInstance().getShoppingCart().getItems().size());
         }
     }
 

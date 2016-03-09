@@ -34,10 +34,9 @@ public class DetailViewController extends ContentViewController {
     @FXML private Text feedBackText;
 
     private Product activeProduct;
-
     private ContentViewController sourceViewController;
-
     private double quantity = 1.0;
+    private boolean inFavorites;
 
 
     @Override
@@ -60,11 +59,8 @@ public class DetailViewController extends ContentViewController {
         setProductImage();
         unitLabel.setText(activeProduct.getUnitSuffix());
 
-        if(IMatDataHandler.getInstance().isFavorite(activeProduct)) {
-            removeFavoriteButton.toFront();
-        } else {
-            addToFavoriteButton.toFront();
-        }
+        inFavorites = IMatDataHandler.getInstance().isFavorite(activeProduct);
+        changeFavoriteButton();
     }
 
     private void updateLabels() {
@@ -190,11 +186,8 @@ public class DetailViewController extends ContentViewController {
 
     public void addAndRemoveToFavorites(ActionEvent evt){
         if(evt.getSource().equals(addToFavoriteButton)) {
-            IMatDataHandler.getInstance().addFavorite(activeProduct);
-            this.removeFavoriteButton.toFront();
-        }if(evt.getSource().equals(removeFavoriteButton)){
-            IMatDataHandler.getInstance().removeFavorite(activeProduct);
-            addToFavoriteButton.toFront();
+            changeFavoriteButton();
+            inFavorites= !inFavorites;
         }
 
         if (sourceViewController instanceof ListViewController) {
@@ -206,6 +199,17 @@ public class DetailViewController extends ContentViewController {
             }
         }
 
+    }
+
+    private void changeFavoriteButton(){
+        if(inFavorites) {
+            IMatDataHandler.getInstance().addFavorite(activeProduct);
+            addToFavoriteButton.setText("Ta bort från favoriter");
+        }
+        else {
+            IMatDataHandler.getInstance().removeFavorite(activeProduct);
+            addToFavoriteButton.setText("Lägg till i favoriter");
+        }
     }
 
     public void setSourceView(ContentViewController content){
