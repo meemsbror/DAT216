@@ -57,7 +57,7 @@ public class HistoryPageViewController extends ContentViewController {
     {
         orders = IMatDataHandler.getInstance().getOrders();
         amountOrder =  orders.size();
-        indexOrder = 0;
+        indexOrder = amountOrder-1;
         pageNumber = 0;
         nextPageAvailable = false;
     }
