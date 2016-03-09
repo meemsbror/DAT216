@@ -9,6 +9,7 @@ import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Order;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Kotex on 02/03/2016.
@@ -26,7 +27,7 @@ public class HistoryPageViewController extends ContentViewController {
     @FXML TitledPane second;
     @FXML TitledPane third;
 
-    private static ArrayList<Order> orders;
+    private static List<Order> orders;
     private static int amountOrder;
     private static int indexOrder = 0;
     private static int pageNumber = 0;
@@ -54,7 +55,7 @@ public class HistoryPageViewController extends ContentViewController {
 
     public void reset()
     {
-        orders = (ArrayList<Order>) IMatDataHandler.getInstance().getOrders();
+        orders = IMatDataHandler.getInstance().getOrders();
         amountOrder =  orders.size();
         indexOrder = 0;
         pageNumber = 0;
