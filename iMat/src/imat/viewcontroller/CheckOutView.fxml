@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.CheckOutViewController">
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.CheckOutViewController">
+   <padding>
+      <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+   </padding>
    <children>
-      <Label text="Kassa" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="cartPane" layoutX="14.0" layoutY="40.0" maxHeight="477.0" prefHeight="477.0" prefWidth="677.0" />
+      <Label layoutX="10.0" layoutY="10.0" text="Kassa">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="cartPane" layoutX="28.0" layoutY="64.0" maxHeight="477.0" prefHeight="477.0" prefWidth="677.0" AnchorPane.bottomAnchor="146.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="36.0" />
-      <Text layoutX="265.0" layoutY="620.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kortnummer" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="265.0" />
-      <Text layoutX="14.0" layoutY="620.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ort" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="14.0" />
-      <Text layoutX="265.0" layoutY="590.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postnummer" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="265.0" />
-      <Text layoutX="14.0" layoutY="590.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adress" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="14.0" />
-      <Text layoutX="265.0" layoutY="557.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Efternamn" AnchorPane.bottomAnchor="113.25203227996826" AnchorPane.leftAnchor="265.0" />
-      <Text layoutX="14.0" layoutY="559.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Förnamn" AnchorPane.bottomAnchor="111.25203227996826" AnchorPane.leftAnchor="14.0" />
-      <Text layoutX="16.0" layoutY="651.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVC" AnchorPane.bottomAnchor="19.25203227996826" AnchorPane.leftAnchor="16.0" />
-      <TextField fx:id="firstName" layoutX="75.0" layoutY="541.0" AnchorPane.bottomAnchor="106.0" AnchorPane.leftAnchor="75.0" />
-      <TextField fx:id="lastName" layoutX="364.0" layoutY="541.0" AnchorPane.bottomAnchor="106.0" AnchorPane.leftAnchor="364.0" />
-      <TextField fx:id="address" layoutX="75.0" layoutY="573.0" AnchorPane.bottomAnchor="74.0" AnchorPane.leftAnchor="75.0" />
-      <TextField fx:id="zipCode" layoutX="364.0" layoutY="573.0" onKeyTyped="#onKeyTyped" AnchorPane.bottomAnchor="74.0" AnchorPane.leftAnchor="364.0" />
-      <TextField fx:id="city" layoutX="75.0" layoutY="603.0" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="75.0" />
-      <TextField fx:id="cardNumber" layoutX="364.0" layoutY="603.0" onKeyTyped="#onKeyTyped" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="364.0" />
-      <TextField fx:id="cvcCode" layoutX="75.0" layoutY="633.0" onKeyTyped="#onKeyTyped" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="75.0" />
-      <Button layoutX="397.0" layoutY="633.0" mnemonicParsing="false" onAction="#nextButtonWasPressed" prefHeight="26.0" prefWidth="130.0" text="Nästa" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="397.0" />
-      <CheckBox fx:id="saveChangesBox" layoutX="265.0" layoutY="637.0" mnemonicParsing="false" text="Spara uppgifter" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="265.0" />
+      <TextField fx:id="firstName" layoutX="105.0" layoutY="530.0" AnchorPane.leftAnchor="105.0" />
+      <Text layoutX="308.0" layoutY="548.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Efternamn" AnchorPane.leftAnchor="308.0" />
+      <Text layoutX="25.0" layoutY="548.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Förnamn" AnchorPane.leftAnchor="25.0" />
+      <Text layoutX="25.0" layoutY="579.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adress" AnchorPane.leftAnchor="25.0" />
+      <TextField fx:id="cvcCode" layoutX="105.0" layoutY="630.0" onKeyTyped="#onKeyTyped" AnchorPane.leftAnchor="105.0" />
+      <Text layoutX="308.0" layoutY="579.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postnummer" AnchorPane.leftAnchor="308.0" />
+      <Text layoutX="310.0" layoutY="614.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kortnummer" AnchorPane.leftAnchor="308.0" />
+      <Button layoutX="462.0" layoutY="630.0" mnemonicParsing="false" onAction="#nextButtonWasPressed" prefHeight="26.0" prefWidth="130.0" text="Nästa" />
+      <TextField fx:id="cardNumber" layoutX="422.0" layoutY="596.0" onKeyTyped="#onKeyTyped" AnchorPane.leftAnchor="415.0" />
+      <TextField fx:id="city" layoutX="105.0" layoutY="596.0" AnchorPane.leftAnchor="105.0" />
+      <TextField fx:id="lastName" layoutX="422.0" layoutY="530.0" AnchorPane.leftAnchor="415.0" />
+      <TextField fx:id="zipCode" layoutX="422.0" layoutY="561.0" onKeyTyped="#onKeyTyped" AnchorPane.leftAnchor="415.0" />
+      <TextField fx:id="address" layoutX="105.0" layoutY="561.0" AnchorPane.leftAnchor="105.0" />
+      <CheckBox fx:id="saveChangesBox" layoutX="308.0" layoutY="634.0" mnemonicParsing="false" text="Spara uppgifter" AnchorPane.leftAnchor="308.0" />
+      <Text layoutX="32.0" layoutY="648.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVC" AnchorPane.leftAnchor="25.0" />
+      <Text layoutX="36.0" layoutY="614.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ort" AnchorPane.leftAnchor="25.0" />
    </children>
-   <padding>
-      <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
-   </padding>
 </AnchorPane>

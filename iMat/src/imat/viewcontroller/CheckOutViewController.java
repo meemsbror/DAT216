@@ -48,30 +48,33 @@ public class CheckOutViewController extends ContentViewController {
     private boolean correctInput(){
         boolean allGood = true;
         if(firstName.getText().equals("")){
-            firstName.setPromptText("Wrong");
+            firstName.setPromptText("Måste skriva in ett namn");
             firstName.setStyle("-fx-text-box-border: red;");
             allGood=false;
         }
         if(lastName.getText().equals("")){
-            lastName.setPromptText("Wrong");
+            lastName.setPromptText("Måste skriva i ett namn");
             lastName.setStyle("-fx-text-box-border: red;");
             allGood=false;
         }
         if(address.getText().equals("")){
-            address.setPromptText("Wrong");
+            address.setPromptText("Måste skriva i en adress");
             address.setStyle("-fx-text-box-border: red;");
             allGood=false;
         }
+
         if(zipCode.getText().equals("") || zipCode.getText().length() < 5){
             zipCode.setPromptText("Wrong");
+
             zipCode.setStyle("-fx-text-box-border: red;");
             allGood=false;
         }
         if(city.getText().equals("")){
-            city.setPromptText("Wrong");
+            city.setPromptText("Måste skriva i en ort");
             city.setStyle("-fx-text-box-border: red;");
             allGood=false;
         }
+
         if(cvcCode.getText().equals("") || cvcCode.getText().length() != 3){
             cvcCode.setPromptText("Wrong");
             cvcCode.setStyle("-fx-text-box-border: red;");
@@ -79,6 +82,7 @@ public class CheckOutViewController extends ContentViewController {
         }
         if(cardNumber.getText().equals("") || cardNumber.getText().length() != 16){
             cardNumber.setPromptText("Wrong");
+
             cardNumber.setStyle("-fx-text-box-border: red;");
             allGood=false;
         }
