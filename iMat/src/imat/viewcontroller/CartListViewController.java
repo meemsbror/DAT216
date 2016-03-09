@@ -15,6 +15,8 @@ public class CartListViewController extends ViewController implements ShoppingCa
 
     @FXML ListView listView;
     @FXML Text totalPriceText;
+    @FXML Text noProductsText;
+
 
     ObservableList<Parent> smallProductViews = FXCollections.observableArrayList();
     private Map<Product,Double> cart = RootViewController.getInstance().getCart();
@@ -25,7 +27,6 @@ public class CartListViewController extends ViewController implements ShoppingCa
         IMatDataHandler.getInstance().getShoppingCart().addShoppingCartListener(this);
         showCart();
         updatePrice();
-
     }
 
     @Override
@@ -34,6 +35,12 @@ public class CartListViewController extends ViewController implements ShoppingCa
 
 
     public void showCart(){
+        if(cart.size()==0){
+            noProductsText.setText("Inga varor i varukorgen");
+        }
+        else{
+            noProductsText.setText("");
+        }
         smallProductViews.removeAll(smallProductViews);
         for(Product p:cart.keySet()) {
             SmallProductViewController smallProductViewController = SmallProductViewController.load("SmallProductView.fxml");
