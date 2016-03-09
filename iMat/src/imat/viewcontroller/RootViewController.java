@@ -203,11 +203,12 @@ public class RootViewController extends ViewController implements ShoppingCartLi
     }
 
     public void shoppingCartChanged(CartEvent event){
-        if(event.isAddEvent()){
-            addItem(event.getShoppingItem());
-        }
-        else{
-            removeItem(event.getShoppingItem());
+        if (event.getShoppingItem() != null) {
+            if (event.isAddEvent()) {
+                addItem(event.getShoppingItem());
+            } else {
+                removeItem(event.getShoppingItem());
+            }
         }
     }
 
