@@ -81,9 +81,9 @@ public class HistoryViewController  extends ContentViewController{
     private static void reset()
     {
         allOrders = IMatDataHandler.getInstance().getOrders();
+        currentOrders.clear();
         amountOrder = allOrders.size();
-        indexOrder = amountOrder;
-        getNextCurrentOrders();
+        indexOrder = amountOrder-1;
         pageNumber = 1;
         int i = 0;
 
