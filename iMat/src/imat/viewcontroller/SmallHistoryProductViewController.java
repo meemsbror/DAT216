@@ -1,6 +1,6 @@
 package imat.viewcontroller;
 
-
+import se.chalmers.ait.dat215.project.IMatDataHandler;
 import imat.formatting.PriceFormatter;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -16,7 +15,6 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  * Created by Kotex on 02/03/2016.
  */
 public class SmallHistoryProductViewController extends ViewController {
-
     @FXML Label nameLabel;
     @FXML Label priceLabel;
     @FXML Label totalLabel;
@@ -56,4 +54,5 @@ public class SmallHistoryProductViewController extends ViewController {
     {
         IMatDataHandler.getInstance().getShoppingCart().addProduct(product,quantity);
     }
+
 }

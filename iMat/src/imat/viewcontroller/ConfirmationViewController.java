@@ -1,7 +1,9 @@
 package imat.viewcontroller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.ait.dat215.project.Customer;
@@ -10,30 +12,39 @@ import javafx.scene.text.Text;
 
 public class ConfirmationViewController extends ContentViewController {
 
-    @FXML AnchorPane showPane;
+    @FXML AnchorPane cartPane;
 
-    private String cardNumber;
-    private String cvcNumber;
     private Customer customer = IMatDataHandler.getInstance().getCustomer();
 
-    @FXML TextField firstNameText;
-    @FXML TextField lastNameText;
-    @FXML Text addressText;
-    @FXML Text zipCodeText;
-    @FXML Text cityText;
-    @FXML Text cardNumberText;
-    @FXML Text cvcCodeText;
+    @FXML private Text firstNameText;
+    @FXML private Text lastNameText;
+    @FXML private Text addressText;
+    @FXML private Text zipCodeText;
+    @FXML private Text cityText;
+    @FXML private Text cardNumberText;
+    @FXML private Text cvcCodeText;
+    @FXML private Button backButton;
+
 
     @Override
     public void initialize() {
+        showCart();
     }
 
-    public void setConfirmation(){
-        firstNameText.setText(customer.getFirstName());
-        lastNameText.setText(customer.getLastName());
-        addressText.setText(customer.getAddress());
-        zipCodeText.setText(customer.getPostCode());
-        cityText.setText(customer.getPostAddress());
+    public void setConfirmation(String firstName,
+                                String lastName,
+                                String address,
+                                String zipCode,
+                                String city,
+                                String cardNumber,
+                                String cvcNumber){
+
+
+        firstNameText.setText(firstName);
+        lastNameText.setText(lastName);
+        addressText.setText(address);
+        zipCodeText.setText(zipCode);
+        cityText.setText(city);
         cardNumberText.setText(cardNumber);
         cvcCodeText.setText(cvcNumber);
 
@@ -45,11 +56,12 @@ public class ConfirmationViewController extends ContentViewController {
 
     @FXML
     public void confirmPurchaseButtonWasPressed() {
-        boolean success = performPurchase();
-
-        if (success) {
+        if (performPurchase()) {
+            removeCart();
             PurchaseDoneViewController pdvc = PurchaseDoneViewController.load("PurchaseDoneView.fxml");
             RootViewController.getInstance().setContent(pdvc);
+        }else{
+            //TODO: Explain whats wrong i guess.
         }
     }
 
@@ -58,16 +70,21 @@ public class ConfirmationViewController extends ContentViewController {
         return true;
     }
 
+    private void removeCart(){
+        RootViewController.getInstance().removeCart();
+    }
+
     public void showCart(){
         CartListViewController cartListViewController = CartListViewController.load("CartListView.fxml");
         cartListViewController.showCart();
-        showPane.getChildren().add(cartListViewController.getView());
+        cartPane.getChildren().add(cartListViewController.getView());
+
     }
 
-    public void setCardNumber(String cardNumber, String cvcNumber){
-        this.cardNumber=cardNumber;
-        this.cvcNumber=cvcNumber;
-        setConfirmation();
+    public void backButtonPressed(ActionEvent evt){
+        if(evt.getSource().equals(backButton)){
+            CheckOutViewController back = CheckOutViewController.load("CheckOutView.fxml");
+            RootViewController.getInstance().setContent(back);
+        }
     }
-
 }

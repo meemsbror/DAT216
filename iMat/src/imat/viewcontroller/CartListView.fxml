@@ -2,9 +2,9 @@
 
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.AnchorPane?>
-
-<AnchorPane minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.CartListViewController">
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<AnchorPane minWidth="-Infinity" prefHeight="438.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.CartListViewController">
    <children>
       <ScrollPane layoutX="222.0" layoutY="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <content>
@@ -15,5 +15,15 @@
             </AnchorPane>
         </content>
       </ScrollPane>
+      <AnchorPane layoutY="400.0" prefHeight="43.0" prefWidth="601.0">
+         <children>
+            <HBox alignment="CENTER_RIGHT" spacing="6.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Totalpris:" />
+                  <Text fx:id="totalPriceText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

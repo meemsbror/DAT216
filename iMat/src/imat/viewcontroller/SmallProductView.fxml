@@ -1,69 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane fx:id="toDetailView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.SmallProductViewController">
+<?import javafx.scene.text.Font?>
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onProductPressed" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.SmallProductViewController">
    <children>
-      <HBox fx:id="toDetailView2" prefHeight="80.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <ImageView fx:id="productImageView" fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="productNameLabel" maxHeight="80.0" maxWidth="100.0" minHeight="80.0" minWidth="100.0" prefHeight="80.0" prefWidth="100.0" text="Name">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <TextField fx:id="quantityTextFeild" maxHeight="60.0" maxWidth="50.0" minHeight="60.0" minWidth="50.0" prefHeight="60.0" prefWidth="50.0" promptText="1">
-               <HBox.margin>
-                  <Insets top="10.0" />
-               </HBox.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </TextField>
-            <VBox maxHeight="80.0" maxWidth="45.0" prefHeight="80.0" prefWidth="45.0">
-               <children>
-                  <Button fx:id="increaseQuantityButton" minWidth="35.0" mnemonicParsing="false" onMouseClicked="#incraseQuantity" prefHeight="35.0" prefWidth="35.0" text="▲">
-                     <VBox.margin>
-                        <Insets bottom="4.0" left="3.0" top="3.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="decreaseQuantityButton" mnemonicParsing="false" onMouseClicked="#decreaseQuantity" prefHeight="35.0" prefWidth="35.0" text="▼">
-                     <VBox.margin>
-                        <Insets left="3.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-               </children>
-            </VBox>
-            <Label fx:id="productPriceLabel" maxHeight="80.0" maxWidth="60.0" prefHeight="80.0" prefWidth="60.0" text="Pris">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Label fx:id="totalPriceLabel" maxHeight="80.0" maxWidth="70.0" minHeight="80.0" minWidth="70.0" prefHeight="80.0" prefWidth="70.0" text="Summan">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Button fx:id="removeProductButton" maxHeight="60.0" maxWidth="75.0" minHeight="60.0" minWidth="75.0" mnemonicParsing="false" onAction="#removeProduct" prefHeight="60.0" prefWidth="75.0" text="⨂">
-               <font>
-                  <Font name="System Bold" size="30.0" />
-               </font>
-               <HBox.margin>
-                  <Insets right="10.0" top="10.0" />
-               </HBox.margin>
-            </Button>
-         </children>
-      </HBox>
+      <ImageView fx:id="productImageView" fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Label fx:id="productNameLabel" text="Name" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="108.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="descriptionLabel" text="(antal &amp; pris)" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="removeProductButton" mnemonicParsing="false" onAction="#removeProduct" text="⨂" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
