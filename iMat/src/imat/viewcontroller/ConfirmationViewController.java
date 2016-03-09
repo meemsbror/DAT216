@@ -1,14 +1,17 @@
 package imat.viewcontroller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
-import se.chalmers.ait.dat215.project.Customer;
-import se.chalmers.ait.dat215.project.IMatDataHandler;
 import javafx.scene.text.Text;
+import se.chalmers.ait.dat215.project.*;
+
+import java.util.Map;
 
 public class ConfirmationViewController extends ContentViewController {
 
@@ -66,7 +69,7 @@ public class ConfirmationViewController extends ContentViewController {
     }
 
     private boolean performPurchase() {
-        // TODO: Implement!
+        Order performedOrder = IMatDataHandler.getInstance().placeOrder(false);
         return true;
     }
 
@@ -75,10 +78,19 @@ public class ConfirmationViewController extends ContentViewController {
     }
 
     public void showCart(){
-        CartListViewController cartListViewController = CartListViewController.load("CartListView.fxml");
-        cartListViewController.showCart();
-        cartPane.getChildren().add(cartListViewController.getView());
+        ObservableList<Parent> smallProductViews = FXCollections.observableArrayList();
+        Map<Product,Double> cart = RootViewController.getInstance().getCart();
 
+        for(Product p : cart.keySet()) {
+            SmallProductViewController smallProductViewController = SmallProductViewController.load("SmallProductView.fxml");
+            smallProductViewController.setItem(new ShoppingItem(p, cart.get(p)), false, false);
+            smallProductViews.add(smallProductViewController.getView());
+        }
+
+        ListView listView = new ListView();
+        listView.setPrefWidth(600.0);
+        listView.setItems(smallProductViews);
+        cartPane.getChildren().add(listView);
     }
 
     public void backButtonPressed(ActionEvent evt){
