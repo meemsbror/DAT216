@@ -6,11 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.ListView;
 import se.chalmers.ait.dat215.project.CartEvent;
-import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.ShoppingItem;
-
-import javax.swing.text.View;
 
 /**
  * Created by Kotex on 01/03/2016.
@@ -42,7 +39,7 @@ public class HistoryListViewController extends ViewController{
         for(ShoppingItem shopItem: order.getItems()) {
 
             SmallProductViewController smallHistoryProductViewController = SmallProductViewController.load("SmallProductView.fxml");
-            smallHistoryProductViewController.setItem(shopItem, false);
+            smallHistoryProductViewController.setItem(shopItem, false, true);
             smallHistoryProductViews.add(smallHistoryProductViewController.getView());
 
         }
