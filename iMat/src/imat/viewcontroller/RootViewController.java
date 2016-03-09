@@ -16,6 +16,7 @@ import se.chalmers.ait.dat215.project.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class RootViewController extends ViewController implements ShoppingCartListener{
 
@@ -245,9 +246,25 @@ public class RootViewController extends ViewController implements ShoppingCartLi
         cart.put(item.getProduct(),amount);
     }
 
+    public void removeCart(){
+        cart.clear();
+        IMatDataHandler.getInstance().getShoppingCart().clear();
+    }
+
 
     public CartViewController getReuseCartViewController(){
         reuseCartViewController.showCart();
         return reuseCartViewController;
+    }
+
+    public double getTotalPrice(){
+        double totalPrice = 0;
+
+        for(Entry <Product,Double> entry:cart.entrySet()){
+            double productPrice = entry.getKey().getPrice();
+            double productAmount = entry.getValue();
+            totalPrice += productPrice*productAmount;
+        }
+        return totalPrice;
     }
 }
