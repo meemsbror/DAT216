@@ -37,7 +37,7 @@ public class SmallProductViewController extends ViewController{
         }
     }
 
-    public void setItem(ShoppingItem item, boolean visible){
+    public void setItem(ShoppingItem item, boolean inHistory){
         this.item = item;
 
         Product product = this.item.getProduct();
@@ -45,15 +45,22 @@ public class SmallProductViewController extends ViewController{
         productImageView.setImage(productImage);
         productNameLabel.setText(product.getName());
 
+        Double productQuantity = 0.0;
+
         if (RootViewController.getInstance().getCart().containsKey(product)) {
-            Double productQuantity = RootViewController.getInstance().getCart().get(product);
-            String totalPriceFormatted = PriceFormatter.getFormattedPriceWithoutUnit(product, productQuantity);
-            String descriptionText = productQuantity + " " + product.getUnitSuffix() +
-                    " för " + totalPriceFormatted + "kr";
-            descriptionLabel.setText(descriptionText);
+            productQuantity = RootViewController.getInstance().getCart().get(product);
+
         }
 
-        removeProductButton.setVisible(visible);
+        if (inHistory) {
+            removeProductButton.setVisible(false);
+            productQuantity = 0.0; // TODO: fix this!
+        }
+
+        String totalPriceFormatted = PriceFormatter.getFormattedPriceWithoutUnit(product, productQuantity);
+        String descriptionText = productQuantity + " " + product.getUnitSuffix() +
+                " för " + totalPriceFormatted + "kr";
+        descriptionLabel.setText(descriptionText);
     }
 
     @FXML
