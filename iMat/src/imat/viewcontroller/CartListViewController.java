@@ -7,12 +7,15 @@ import javafx.scene.Parent;
 import javafx.scene.control.ListView;
 import se.chalmers.ait.dat215.project.*;
 import java.util.Map;
+import javafx.scene.text.Text;
 
 
 
 public class CartListViewController extends ViewController implements ShoppingCartListener{
 
     @FXML ListView listView;
+    @FXML Text totalPriceText;
+
     ObservableList<Parent> smallProductViews = FXCollections.observableArrayList();
     private Map<Product,Double> cart = RootViewController.getInstance().getCart();
 
@@ -21,6 +24,8 @@ public class CartListViewController extends ViewController implements ShoppingCa
     public void initialize() {
         IMatDataHandler.getInstance().getShoppingCart().addShoppingCartListener(this);
         showCart();
+        updatePrice();
+
     }
 
     @Override
@@ -32,7 +37,7 @@ public class CartListViewController extends ViewController implements ShoppingCa
         smallProductViews.removeAll(smallProductViews);
         for(Product p:cart.keySet()) {
             SmallProductViewController smallProductViewController = SmallProductViewController.load("SmallProductView.fxml");
-            smallProductViewController.setItem(new ShoppingItem(p,cart.get(p)));
+            smallProductViewController.setItem(new ShoppingItem(p,cart.get(p)),true);
             smallProductViews.add(smallProductViewController.getView());
         }
         listView.setItems(smallProductViews);
@@ -43,5 +48,11 @@ public class CartListViewController extends ViewController implements ShoppingCa
         if(!event.isAddEvent()) {
             showCart();
         }
+        updatePrice();
+
+    }
+
+    private void updatePrice(){
+        totalPriceText.setText(Double.toString(RootViewController.getInstance().getTotalPrice()) + " kr");
     }
 }

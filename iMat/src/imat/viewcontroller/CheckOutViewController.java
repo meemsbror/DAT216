@@ -62,8 +62,10 @@ public class CheckOutViewController extends ContentViewController {
             address.setStyle("-fx-text-box-border: red;");
             allGood=false;
         }
-        if(zipCode.getText().equals("")){
-            zipCode.setPromptText("Måste skriva i ett postnr.");
+
+        if(zipCode.getText().equals("") || zipCode.getText().length() < 5){
+            zipCode.setPromptText("Wrong");
+
             zipCode.setStyle("-fx-text-box-border: red;");
             allGood=false;
         }
@@ -72,13 +74,15 @@ public class CheckOutViewController extends ContentViewController {
             city.setStyle("-fx-text-box-border: red;");
             allGood=false;
         }
-        if(cvcCode.getText().equals("")){
-            cvcCode.setPromptText("Måste skriva i en cvc-kod");
+
+        if(cvcCode.getText().equals("") || cvcCode.getText().length() != 3){
+            cvcCode.setPromptText("Wrong");
             cvcCode.setStyle("-fx-text-box-border: red;");
             allGood=false;
         }
-        if(cardNumber.getText().equals("")){
-            cardNumber.setPromptText("Måste skriva i ett kortnr.");
+        if(cardNumber.getText().equals("") || cardNumber.getText().length() != 16){
+            cardNumber.setPromptText("Wrong");
+
             cardNumber.setStyle("-fx-text-box-border: red;");
             allGood=false;
         }

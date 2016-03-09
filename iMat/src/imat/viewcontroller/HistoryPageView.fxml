@@ -8,12 +8,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.HistoryPageViewController">
    <children>
-      <Button fx:id="backButton" layoutX="248.0" layoutY="311.0" mnemonicParsing="false" text="Förre" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="350.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Accordion prefHeight="270.0" prefWidth="500.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="10.0">
+      <Accordion prefHeight="300.0" prefWidth="500.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="20.0">
         <panes>
           <TitledPane fx:id="firstOrderList" animated="false">
             <content>
@@ -23,7 +18,7 @@
                   <Font size="18.0" />
                </font>
                <graphic>
-                  <Button mnemonicParsing="false" text="Lägg till listan" translateX="340.0">
+                  <Button fx:id="addFirstList" mnemonicParsing="false" text="Lägg till listan" translateX="340.0">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -38,7 +33,7 @@
                   <Font size="18.0" />
                </font>
                <graphic>
-                  <Button mnemonicParsing="false" text="Lägg till listan" translateX="340.0">
+                  <Button fx:id="addSecondList" mnemonicParsing="false" text="Lägg till listan" translateX="340.0">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -53,7 +48,7 @@
                   <Font size="18.0" />
                </font>
                <graphic>
-                  <Button mnemonicParsing="false" text="Lägg till listan" translateX="340.0">
+                  <Button fx:id="addThirdList" mnemonicParsing="false" text="Lägg till listan" translateX="340.0">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -62,10 +57,5 @@
           </TitledPane>
         </panes>
       </Accordion>
-      <Button fx:id="nextButton" layoutX="300.0" layoutY="311.0" mnemonicParsing="false" text="Nästa" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="350.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

@@ -4,11 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
-import javafx.scene.text.Text;
+import se.chalmers.ait.dat215.project.Order;
 
 public class ConfirmationViewController extends ContentViewController {
 
@@ -56,17 +56,22 @@ public class ConfirmationViewController extends ContentViewController {
 
     @FXML
     public void confirmPurchaseButtonWasPressed() {
-        boolean success = performPurchase();
-
-        if (success) {
+        if (performPurchase()) {
+            removeCart();
             PurchaseDoneViewController pdvc = PurchaseDoneViewController.load("PurchaseDoneView.fxml");
             RootViewController.getInstance().setContent(pdvc);
+        }else{
+            //TODO: Explain whats wrong i guess.
         }
     }
 
     private boolean performPurchase() {
-        // TODO: Implement!
+        Order performedOrder = IMatDataHandler.getInstance().placeOrder(false);
         return true;
+    }
+
+    private void removeCart(){
+        RootViewController.getInstance().removeCart();
     }
 
     public void showCart(){

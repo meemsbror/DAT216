@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.viewcontroller.ListViewController">
    <children>
       <Label fx:id="productFilterNameLabel" layoutX="14.0" layoutY="14.0" prefHeight="23.0" prefWidth="587.0" styleClass="list-view-title" stylesheets="@style.css" text="Product Filter Name" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
@@ -43,7 +45,10 @@
       </HBox>
       <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="14.0" layoutY="74.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="74.0">
          <content>
-            <FlowPane fx:id="flowPane" columnHalignment="CENTER" hgap="15.0" prefHeight="413.0" prefWidth="674.0" prefWrapLength="700.0" rowValignment="TOP" vgap="15.0" />
+            <FlowPane fx:id="flowPane" columnHalignment="CENTER" hgap="15.0" prefHeight="413.0" prefWidth="674.0" prefWrapLength="700.0" rowValignment="TOP" vgap="15.0">
+               <padding>
+                  <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+               </padding></FlowPane>
          </content>
       </ScrollPane>
    </children>

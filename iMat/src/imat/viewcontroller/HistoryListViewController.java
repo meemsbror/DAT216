@@ -20,7 +20,7 @@ public class HistoryListViewController extends ViewController{
     ListView listView;
 
 
-    ObservableList<Parent> smallProductViews = FXCollections.observableArrayList();
+    ObservableList<Parent> smallHistoryProductViews = FXCollections.observableArrayList();
 
     public void initialize() {
     }
@@ -36,15 +36,16 @@ public class HistoryListViewController extends ViewController{
     }
 
 
-    public void showCart(Order order){
+    public void showOrders(Order order){
 
-        smallProductViews.removeAll(smallProductViews);
+        smallHistoryProductViews.removeAll(smallHistoryProductViews);
         for(ShoppingItem shopItem: order.getItems()) {
 
-            SmallProductViewController smallProductViewController = new SmallProductViewController().load("HistoryProductView.fxml");
-            smallProductViewController.setItem(shopItem);
-            smallProductViews.add(smallProductViewController.getView());
+            SmallProductViewController smallHistoryProductViewController = SmallProductViewController.load("SmallProductView.fxml");
+            smallHistoryProductViewController.setItem(shopItem, false);
+            smallHistoryProductViews.add(smallHistoryProductViewController.getView());
+
         }
-        listView.setItems(smallProductViews);
+        listView.setItems(smallHistoryProductViews);
     }
 }
