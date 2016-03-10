@@ -87,15 +87,12 @@ public class HistoryViewController  extends ContentViewController{
         pageNumber = 1;
         int i = 0;
 
-        System.out.println("Hello");
         System.out.print(i);
         System.out.println(indexOrder);
         while (indexOrder  >=0 && i<10) {
             currentOrders.add(allOrders.get(indexOrder));
             indexOrder = indexOrder - 1;
             i++;
-
-            System.out.println("Hello");
         }
     }
 
