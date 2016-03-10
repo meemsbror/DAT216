@@ -9,9 +9,7 @@ import se.chalmers.ait.dat215.project.CartEvent;
 import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
-/**
- * Created by Kotex on 01/03/2016.
- */
+
 public class HistoryListViewController extends ViewController{
     @FXML
     ListView listView;

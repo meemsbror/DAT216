@@ -83,7 +83,7 @@ public class ConfirmationViewController extends ContentViewController {
 
         for(Product p : cart.keySet()) {
             SmallProductViewController smallProductViewController = SmallProductViewController.load("SmallProductView.fxml");
-            smallProductViewController.setItem(new ShoppingItem(p, cart.get(p)), false, false);
+            smallProductViewController.setItem(new ShoppingItem(p, cart.get(p)), false, true);
             smallProductViews.add(smallProductViewController.getView());
         }
 
@@ -99,4 +99,6 @@ public class ConfirmationViewController extends ContentViewController {
             RootViewController.getInstance().setContent(back);
         }
     }
+
+
 }

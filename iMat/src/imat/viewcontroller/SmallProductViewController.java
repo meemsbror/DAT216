@@ -45,7 +45,6 @@ public class SmallProductViewController extends ViewController{
                     IMatDataHandler.getInstance().getShoppingCart().fireShoppingCartChanged(item,false);
                 }
             }
-            System.out.println(IMatDataHandler.getInstance().getShoppingCart().getItems().size());
         }
     }
 
