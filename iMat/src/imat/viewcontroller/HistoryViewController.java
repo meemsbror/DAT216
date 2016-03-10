@@ -19,7 +19,6 @@ public class HistoryViewController  extends ContentViewController{
 
     private HistoryPageViewController reusePageViewController = HistoryPageViewController.load("HistoryPageView.fxml");
     private static HistoryViewController historyViewController = HistoryViewController.load("HistoryView.fxml");
-
     @FXML AnchorPane p;
     @FXML Button nextButton;
     @FXML Button backButton;
@@ -85,6 +84,7 @@ public class HistoryViewController  extends ContentViewController{
         amountOrder = allOrders.size();
         indexOrder = amountOrder-1;
         pageNumber = 1;
+
         int i = 0;
 
         System.out.print(i);
@@ -119,9 +119,10 @@ public class HistoryViewController  extends ContentViewController{
         if (pageNumber==1)
             backButton.setVisible(false);
         else backButton.setVisible(true);
+        System.out.println(indexOrder);
 
         if (indexOrder>0)
             nextButton.setVisible(true);
-        else backButton.setVisible(false);
+         else nextButton.setVisible(false);
     }
 }
